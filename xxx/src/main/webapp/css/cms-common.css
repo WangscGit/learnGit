@@ -1,0 +1,234 @@
+/********提交审批人员选择弹窗*******/
+.message-add-page-end{
+    background: #fff;
+    border: 2px solid #ccc;
+    width: 700px;
+    height:500px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-190px;
+    margin-left: -350px;
+    z-index: 333;
+    display: none;
+}
+.message-edit-header-end{
+    width: 696px;
+    height: 40px;
+    border: 0;
+}
+.message-edit-header-end>a{
+    display: block;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.message-edit-header2-end{
+    width: 646px;
+    border: 0;
+    margin-top:20px;
+}
+.message-edit-header2-end p{
+    line-height: 30px;
+    margin-left: 20px;
+}
+.message-edit-table-end{
+    width:460px;
+    height:350px;
+    margin: 0 auto;
+}
+.message-edit-table-end span{
+	width:126px;
+    float:right;
+    margin-right:15px;
+    text-align:right;
+}
+.message-edit-table-end span b{
+	color: red;
+}
+.message-edit-table-btn-end{
+    width:390px;
+    margin:0 auto;
+}
+.message-edit-table-btn-end a{
+    width: 100px;
+    margin-left: 80px;
+}
+.addTableBox-end{
+	width:100%;
+	height:115px;
+	max-height:115px;
+	overflow-y:auto;
+}
+.addTableBox-end span{
+	color:#333;
+}
+.addTable-end span{
+	text-align:left;
+}
+/*类似器件弹窗  */
+.flow-replaceChoose-end{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:532px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-222px;
+    margin-left: -400px;
+    z-index: 35;
+    display: none;
+}
+.flow-replaceChoose-end{
+	width:1000px;
+	 margin-left: -500px;
+}
+.flow-replaceChoose-header-end{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-replaceChoose-header-end a{
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.replaceChooseLeft-end{
+    width:25%;  
+	height:420px;
+	max-height:430px;
+	overflow-y:auto;
+	float:left;
+	/*padding-top:66px;*/
+}
+.replaceChooseRight-end{
+	width:73%; 
+	height:380px;
+	float:left;
+    margin-left:10px;  
+}
+.replaceChooseRight-end .tableBox{
+	height:310px;
+	max-height:302px;
+	overflow-y:auto;
+}
+.replaceChooseRight-end table tbody tr td{
+	word-wrap: break-word;
+    word-break: break-all;
+    vertical-align:middle;
+}
+.replaceChooseSearch-end{
+	width:100%;
+	padding:13px;
+	padding-bottom:0;
+	height:70px;
+}
+.replaceChooseSearch-end input{
+	width:220px;
+	float:right;
+	margin-right:10px;
+}
+.replaceChooseSearch-end .title{
+	display:inline-block;
+	float:left;
+}
+.nodeUser-choose-bottom-end{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    position:absolute;
+    bottom:0;
+}
+.nodeUser-choose-bottom-end a{
+    float: right;
+    margin-right:10px;
+    margin-top:8px;
+}
+#selectSimplePart{
+	display:inline-block;
+	width:300px;
+	height:60px;
+	word-wrap: break-word;
+    word-break: break-all;
+}
+.inputBox-end{
+	display:inline-block;
+	padding: 4px 10px;
+	margin:0;
+    height: 30px;
+    line-height: 20px;
+    border-radius:4px;
+    text-decoration: none;
+    cursor:pointer;
+    position: relative;
+}
+#dateSheetUpload{
+	width:90px;
+	height:30px;
+	opacity: 0;
+	cursor:pointer;
+	font-size:0;
+	position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}
+.productmix-treeBox1-end{
+	width:94%;
+	height:400px;
+	max-height:400px;
+	overflow-y:auto;
+	overflow-x:auto;
+	float: left;
+}
+.uploadDatesheetDiv{
+	width:100px;
+	height:50px;
+	margin-top:5px;
+	padding: 5px;
+	float: left;
+	margin-left:60px;
+}
+.uploadDatesheetDiv form a{
+	width:100px;
+	height:34px;
+	line-height:26px;
+}
+.producthand-btn .withshangchuan{
+	width:100px;
+	margin-top:10px;
+	margin-left:-10px;
+}
+/********上传原理图符号弹窗*******/
+.flow-updateSymble-end{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:532px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-222px;
+    margin-left: -400px;
+    z-index: 35;
+    display: none;
+}
+.flow-updateSymble-header-end{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-updateSymble-header-end a{
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-updateSymble-body-end .choose-box-end{
+	width:96%;
+	height:350px;
+}

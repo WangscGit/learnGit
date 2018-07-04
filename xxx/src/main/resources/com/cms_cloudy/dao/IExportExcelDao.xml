@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.cms_cloudy.upload.dao.IExportExcelDao"> 
+
+<select id="selectDataById" parameterType="Map" resultType="com.cms_cloudy.upload.pojo.ExportExcel">
+     select * from Sys_Export
+</select>
+
+<delete id="deleteData" parameterType="int">
+     delete from Sys_Export where id = #{id}
+</delete>
+
+<update id="updateData" parameterType="com.cms_cloudy.user.pojo.HrGroup">
+     update Sys_Export  set  field_name=#{fieldName},file_path=#{filePath} where id=#{id}
+</update>
+
+<insert id="insertData" parameterType="com.cms_cloudy.user.pojo.HrGroup">
+     insert into Sys_Export(id,field_name,file_path) values (#{id},#{fieldName},#{filePath})
+</insert>
+
+</mapper>

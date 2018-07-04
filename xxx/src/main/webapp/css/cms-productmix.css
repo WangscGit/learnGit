@@ -1,0 +1,337 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.productmix-box{
+	width:25%;
+	/* width:300px; */
+}
+.productmix-treeBox{
+	float:left;
+	width:300px;
+	margin-top:15px;
+	position:raletive;
+	overflow:auto;
+}
+.productmix-treeBox ul li a,.productmix-treeBox ul li a.curSelectedNode{
+	height:30px;
+	line-height:30px;
+}
+/* .productmix-treeBox ul li span.button.noline_open {
+    background-position: -92px -68px;
+}
+.productmix-treeBox ul li span.button.noline_close {
+    background-position: -74px -72px;
+} */
+.btn-box{
+	margin-top:20px;
+	width:90%;
+	height:26px;
+}
+ .hand-workbtn1{
+	display:inline-block;
+	height:28px;
+	padding:5px;
+	border-radius:6px;
+	margin-left:30px;
+	background:#d9534f;
+	color:#fff;
+	cursor:pointer;
+	position:relative;
+	text-align:center;
+}
+.hand-workbtn2{
+	width:68px;
+	display:inline-block;
+	margin-top:15px;
+	color:#d9534f;
+}
+.hand-workbtn2:hover{
+	color:#d9534f;
+}
+.hand-workbtn1>div{
+	width:100px;
+	height:30px;
+	margin-left:-30px;
+}
+.hand-work b{
+	position:absolute;
+	top:26px;
+	left:38px;
+	z-index:5;
+	display:inline-block;
+	width:0px;
+	height:0px;
+	border:6px solid transparent;	
+	border-bottom-color:#e9e9e9;
+	display:none;
+}
+.hand-work ul{
+	position:absolute;
+	top:38px;
+	left:-10px;
+	z-index:3;
+	text-align:left;
+	border:1px solid #ccc;
+	display:none;
+}
+.hand-work ul li{
+	    border-bottom:1px dotted #ccc;
+		background:#f9f9f9;
+		color:#333;
+}
+.hand-work ul li a{
+	color:#333;
+}
+.hand-work2{
+	width:50px;
+	height:30px;
+}
+.box1:after{
+	content: ''; 
+	display: block; 
+	clear: both;
+}
+.box1{
+	float:left;
+	width:200px;
+}
+.productmix-dateBox{
+	width:68%;
+	float:left;
+}
+.dateBox-btnGroup{
+	width:100%;
+	height:50px;	
+}
+.dateBox-btnGroup-nav{
+	margin-top:20px;
+}
+.attr-message,.parts-message{
+	padding:4px 10px;
+}
+.attr-message,.parts-message table tr td{
+	vertical-align:middle;
+}
+.attr-message-table{
+	width:108%;
+}
+.productmix-dateBox .p1,.productmix-dateBox .p2{
+	font-size:15px;
+	display:block;	
+	padding:10px;
+}
+.p2{
+	width:100%;
+}
+.p2 select{
+	width:100px;
+}
+.Pname{
+	font-weight:bold;
+}
+.attruser-btn{
+	margin-top:5px;
+}
+.productmix-dateBox .p2 .BOMname{
+	display:inline-block;
+	line-height:34px;
+}
+.productmix-dateBox .p2>b,.productmix-dateBox .p1>b{
+	display:block;
+	float:left;
+	width:12px;
+	height:12px;
+	border:1px solid #e4393c;
+	border-radius:50%;
+	background:#e4393c;
+	margin-top:5px;
+	margin-right:4px;
+}
+.attr-message td span{
+	float:left;
+	display:inline-block;
+	width:140px;
+	text-align:right;
+	line-height:30px;
+}
+.attr-message input,.attr-message select{
+	float:left;
+	width:200px;
+}
+/* .attr3 span{
+	width:90px;
+} */
+.attr3{
+	padding:8px 10px;
+}
+.attr1,.attr4{
+		padding: 0px 10px;
+}
+.attr3 .shorttd{
+	width:428px;
+}
+.attr1 table{
+	height:50px;
+}
+.attr4 table{
+	height:87px;
+}
+.attr4 input,.attr4 select{
+	width:200px;
+}
+.parts-message a{
+	color:#ed1b24;
+	cursor:pointer;
+}
+ .parts-message .more{
+	width:90px;
+} 
+.parts-message .zhiliang{
+	width:100px;
+}
+.parts-message .number{
+	width:60px;
+}
+.parts-message .data-bookTd{
+    width:100px;
+}
+.parts-message .fenye{
+	width:100%;
+	height:40px;
+    text-align:center;
+}
+.saveBtn{
+	width:100%;
+	text-align:right;
+}
+.saveBtn a{
+	margin:20px 0px 0 30px;
+}
+.saveBtn a span{
+	width:12px;
+	margin-top:3px;
+	margin-right:4px;
+}
+.parts-statistic .china,.parts-statistic .super{
+	width:430px;
+	height:350px;
+}
+.parts-statistic{
+	width:100%;
+}
+.parts-statistic b{
+	display:block;
+	width:100px;
+	height:40px;
+	padding-top:10px;
+	margin:0 auto;
+}
+/********人员选择*******/
+.productmix-chooseuser-window{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:456px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-155px;
+    margin-left: -380px;
+    z-index: 1500;
+    display: none;
+}
+.productmix-chooseuser-window-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.productmix-chooseuser-window-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.productmix-chooseuser-window-body{
+    width: 100%;
+    float:left;
+}
+.productmix-chooseuser-tree{
+	width:200px;
+	height:300px;
+	max-height:300px;
+    overflow:auto;
+	float:left;
+	margin-left:10px;
+}
+.productmix-chooseuser-window-bottom{
+    position: absolute;
+    bottom: 0;
+}
+.productmix-chooseuser-window-bottom a{
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+.productmix-chooseuser-window-box{
+    width: 72%;
+    max-height: 290px;
+    margin: 0 auto;
+    overflow-y:auto;
+    float:left;
+    margin-left:10px;
+}
+.productmix-chooseuser-window-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+}
+.table-footer{
+    width: 380px;
+    margin: 0 auto;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.productmix-chooseuser-window-header2{
+	width:100%;
+}
+.productmix-chooseuser-window-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.productmix-chooseuser-window-header2 a{
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+/**人员显示**/
+.chooseUser{
+	width:50%;
+	word-wrap: break-word;
+    word-break:break-all;
+}
+.attr-message td .userShow{
+	display:inline-block;
+	float:left;
+	width:50%;
+	text-align:left;
+	margin-left:10px;
+}
+/**修改展示selectBox_Wangsc**/
+.box2:after{
+	content: ''; 
+	display: block; 
+	clear: both;
+}
+.box2{
+	float:left;
+	width:200px;
+}

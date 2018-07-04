@@ -1,0 +1,81 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.flow-categoryTree{
+	width: 14%;
+    min-width: 150px;
+    height: 500px;
+    margin-top: 15px;
+    float: left;
+}
+.flow-category{
+	width:86%;
+	float:left;
+}
+.flow-categoryBtns{
+	width:100%;
+	height:50px;
+	padding-left:10px;
+	margin-top:15px;
+	border:1px solid #ccc;
+	border-bottom:none;
+	line-height:50px;
+	text-align:left;
+}
+/********添加,修改分类弹窗*******/
+.categoryAddWindow,.categoryEditWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 600px;
+    height:400px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-140px;
+    margin-left: -290px;
+    z-index: 30;
+    display: none;
+}
+.categoryAddWindow-header,.categoryEditWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.categoryAddWindow-header a,.categoryEditWindow-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.categoryAddWindow-body,.categoryEditWindow-body{
+	padding:0 20px;
+}
+.AddTable,.EditTable{
+	margin-top:20px;
+}
+.AddTable span,.EditTable span{
+	display:inline-block;
+	line-height:34px;
+	float:right;
+}
+.AddTable span b,.EditTable span b{
+	color:#d9534f;
+}
+.bottomBtns{
+	width:100%;
+	height:40px;
+	background:#f2f2f2;
+	border:1px solid #ccc;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+.bottomBtns a{
+	margin-right:10px;
+	margin-top:7px;
+}

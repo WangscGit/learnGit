@@ -1,0 +1,183 @@
+.pageBox{
+	width:100%;
+	border:1px solid #ccc;
+	margin-top:30px;
+}
+.top,.materialwork{
+	width:100%;	
+}
+.top,.middle{
+	border-bottom:1px solid #ccc;
+	padding-bottom:20px;
+}
+.top p,.middle p,.bottom p{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	padding-left:20px;
+	border-bottom:1px solid #ccc;
+}
+.top p span{
+	color:#2285d3;
+}
+.materialwork{
+	height:35px;
+	line-height:50px;
+	padding-left:20px;
+}
+.materialwork a{
+	margin-right:5px;
+}
+.topTable,.middleTable{
+	width:96%;
+	margin:0 auto;
+}
+.middleTable{
+	margin-top:20px;
+}
+.pageBox .top .topTable tr td{
+		vertical-align:middle;
+}
+.topTable td span{
+	width:100%;
+	display:inline-block;
+	text-align:right;
+}
+.messageFind{
+	width:100%;
+	height:70px;
+	padding-left:20px;
+}
+.messageFind input{
+	width:300px;
+	margin-top:20px;
+}
+.messageFind a{
+	margin-left:10px;
+	margin-top:20px;
+}
+.bottom{
+	padding-bottom:20px;
+	margin-bottom:120px;
+}
+.bottom .more{
+	width:96%;
+	height:100px;
+	line-height:100px;
+	margin:0 auto;
+	margin-top:20px;
+	border:1px solid #ccc;
+	text-align:center;
+}
+/*********比较***********/
+.parts-compare-box{
+    width: 970px;
+    height:120px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin:0 auto;
+    position: fixed;
+    left: 50%;
+    bottom:0px;
+    margin-left: -485px;
+    z-index: 10;  
+   display:none; 
+}
+.parts-compare-title{
+    width: 100%;
+    height: 30px;
+}
+.parts-compare-title .title-left{
+	width:134px;
+    height: 30px;
+    border: 2px solid #5bc0d1;
+    border-bottom: none;
+    text-align:center;
+}
+.parts-compare-title .title-left b{
+    display:block;
+    line-height: 25px;
+    margin: 0 auto;
+    color: #5bc0d1;
+}
+.parts-compare-title .title-right{
+	width:834px;
+    height: 30px;
+    border-bottom:2px solid #5bc0d1;
+}
+.parts-compare-title .title-right a{
+    float: right;
+    margin-right: 20px;
+    margin-top: 4px;
+    color: #1b6d85;
+}
+.parts-compare-body{
+    width: 100%;
+    height:90px;
+    border: 2px solid #5bc0d1;
+    border-top: none;
+}
+.item-empty-box{
+    overflow: hidden;
+}
+.item-empty-box dl{
+    float: left;
+    overflow: hidden;
+    margin-right: 10px;
+    padding: 17px 10px 12px 0;
+    border-right: 1px dotted #d9534f;
+}
+.item-empty-box dt{
+    float: left;
+    margin-right: 5px;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    color: #ccc;
+    border: 1px solid #fff;
+    font: 36px/48px arial;
+    overflow: hidden;
+}
+.item-empty-box dd{
+    float: left;
+    width: 140px;
+}
+.diff-operate{
+    position: absolute;
+    right: 22px;
+    top: 44px;
+    width: 85px;
+    text-align: center;
+}
+.diff-operate .del-items{
+	color:#1b6d85;
+}
+.btn-compare-b {
+    display: block;
+    height: 30px;
+    font: 700 14px/30px verdana;
+    margin-left: 13px;
+    margin-bottom: 11px;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    background-color: #5bc0d1;
+    cursor: pointer;
+}
+.btn-compare-b:hover{
+    color: #fff;
+}
+.diff-item-name{
+    height: 2.5em;
+    line-height: 2.5em;
+    overflow: hidden;
+    display: block;
+    color: #333;
+}
+.item-empty-box .xinghao{
+    color: #5bc0d1;
+}
+.item-empty-box .p-price a{
+    color: #1b6d85;
+    margin-left: 10px;
+}

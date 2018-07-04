@@ -1,0 +1,280 @@
+<!-- {"resourceId":"197501","properties": -->
+<!-- { -->
+<!-- "process_id" -->
+<!-- 	:"ddd","name": "dddd","documentation":"","process_author":"","process_version":"","process_namespace":"http://www.activiti.org/processdef","executionlisteners":"","eventlisteners":"","signaldefinitions":"","messagedefinitions":"" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- 	:"BPMNDiagram" -->
+<!-- },"childShapes":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- 	:"sid-4EB29471-0F83-4F79-A6FE-B40AB1D3183B","properties": {"overrideid":"s1","name":"","documentation":"","executionlisteners":"","initiator":"","formkeydefinition":"","formproperties":"" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- 	:"StartNoneEvent" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- 	:"sid-926384DD-CFCE-45B5-9D4E-41A4EA48988E" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- 	:{"x": 211,"y":171 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- 	:181,"y": 141 -->
+<!-- }},"dockers":[] -->
+<!-- },{"resourceId":"sid-0AFD2A6A-AFAA-415D-B0F6-10663D9B745D","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"u1","name": "","documentation":"","asynchronousdefinition":"false","exclusivedefinition":"false","executionlisteners":"","multiinstance_type":"None","multiinstance_cardinality":"","multiinstance_collection":"","multiinstance_variable":"","multiinstance_condition":"","isforcompensation":"false","usertaskassignment":"","formkeydefinition":"","duedatedefinition":"","prioritydefinition":"","formproperties":"","tasklisteners":{"taskListeners":[{"event":"create","implementation":"org.activiti.rest.diagram.dao.Wf_askListenner","className":"org.activiti.rest.diagram.dao.Wf_askListenner","expression":"","delegateExpression":"" -->
+<!-- }]}},"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"UserTask" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-6DB481E9-BBD2-4BB2-941D-A09E55861E0D" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 356,"y":196 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :256,"y": 116 -->
+<!-- }},"dockers":[] -->
+<!-- },{"resourceId":"sid-885430DB-80A3-4D21-A143-8CCEFBDACC3A","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"e1","name": "","documentation":"","executionlisteners":"" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"EndNoneEvent" -->
+<!-- },"childShapes":[],"outgoing":[],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 429,"y":170 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :401,"y": 142 -->
+<!-- }},"dockers":[] -->
+<!-- },{"resourceId":"sid-926384DD-CFCE-45B5-9D4E-41A4EA48988E","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"f1","name": "","documentation":"","conditionsequenceflow":"","executionlisteners":"","defaultflow":"false" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"SequenceFlow" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-0AFD2A6A-AFAA-415D-B0F6-10663D9B745D" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 255.15625,"y":156 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :211.609375,"y": 156 -->
+<!-- }},"dockers":[ -->
+<!-- { -->
+<!-- "x" -->
+<!-- :15,"y": 15 -->
+<!-- },{"x":50,"y":40 -->
+<!-- }],"target": -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-0AFD2A6A-AFAA-415D-B0F6-10663D9B745D" -->
+<!-- }},{"resourceId":"sid-6DB481E9-BBD2-4BB2-941D-A09E55861E0D","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"f2","name": "","documentation":"","conditionsequenceflow":"","executionlisteners":"","defaultflow":"false" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"SequenceFlow" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-885430DB-80A3-4D21-A143-8CCEFBDACC3A" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 400.375,"y":156 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :356.390625,"y": 156 -->
+<!-- }},"dockers":[ -->
+<!-- { -->
+<!-- "x" -->
+<!-- :50,"y": 40 -->
+<!-- },{"x":14,"y":14 -->
+<!-- }],"target": -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-885430DB-80A3-4D21-A143-8CCEFBDACC3A" -->
+<!-- }}],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 1200,"y":1050 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :0,"y": 0 -->
+<!-- }},"stencilset": -->
+<!-- { -->
+<!-- "url" -->
+<!-- :"stencilsets/bpmn2.0/bpmn2.0.json","namespace": "http://b3mn.org/stencilset/bpmn2.0#" -->
+<!-- },"ssextensions":[] -->
+<!-- } -->
+<!-- {resourceId="197501", properties= -->
+<!-- { -->
+<!-- "process_id" -->
+<!-- :"ddd","name": "dddd","documentation":"","process_author":"","process_version":"","process_namespace":"http://www.activiti.org/processdef","executionlisteners":"","eventlisteners":"","signaldefinitions":"","messagedefinitions":"" -->
+<!-- },stencil= -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"BPMNDiagram" -->
+<!-- },childShapes=[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-4EB29471-0F83-4F79-A6FE-B40AB1D3183B","properties": {"overrideid":"s1","name":"","documentation":"","executionlisteners":"","initiator":"","formkeydefinition":"","formproperties":"" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"StartNoneEvent" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-926384DD-CFCE-45B5-9D4E-41A4EA48988E" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 211,"y":171 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :181,"y": 141 -->
+<!-- }},"dockers":[] -->
+<!-- },{"resourceId":"sid-0AFD2A6A-AFAA-415D-B0F6-10663D9B745D","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"u1","name": "","documentation":"","asynchronousdefinition":"false","exclusivedefinition":"false","executionlisteners":"","multiinstance_type":"None","multiinstance_cardinality":"","multiinstance_collection":"","multiinstance_variable":"","multiinstance_condition":"","isforcompensation":"false","usertaskassignment":"","formkeydefinition":"","duedatedefinition":"","prioritydefinition":"","formproperties":"","tasklisteners":{"taskListeners":[{"event":"create","implementation":"org.activiti.rest.diagram.dao.Wf_askListenner","className":"org.activiti.rest.diagram.dao.Wf_askListenner","expression":"","delegateExpression":"" -->
+<!-- }]}},"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"UserTask" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-6DB481E9-BBD2-4BB2-941D-A09E55861E0D" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 356,"y":196 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :256,"y": 116 -->
+<!-- }},"dockers":[] -->
+<!-- },{"resourceId":"sid-885430DB-80A3-4D21-A143-8CCEFBDACC3A","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"e1","name": "","documentation":"","executionlisteners":"" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"EndNoneEvent" -->
+<!-- },"childShapes":[],"outgoing":[],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 429,"y":170 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :401,"y": 142 -->
+<!-- }},"dockers":[] -->
+<!-- },{"resourceId":"sid-926384DD-CFCE-45B5-9D4E-41A4EA48988E","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"f1","name": "","documentation":"","conditionsequenceflow":"","executionlisteners":"","defaultflow":"false" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"SequenceFlow" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-0AFD2A6A-AFAA-415D-B0F6-10663D9B745D" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 255.15625,"y":156 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :211.609375,"y": 156 -->
+<!-- }},"dockers":[ -->
+<!-- { -->
+<!-- "x" -->
+<!-- :15,"y": 15 -->
+<!-- },{"x":50,"y":40 -->
+<!-- }],"target": -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-0AFD2A6A-AFAA-415D-B0F6-10663D9B745D" -->
+<!-- }},{"resourceId":"sid-6DB481E9-BBD2-4BB2-941D-A09E55861E0D","properties": -->
+<!-- { -->
+<!-- "overrideid" -->
+<!-- :"f2","name": "","documentation":"","conditionsequenceflow":"","executionlisteners":"","defaultflow":"false" -->
+<!-- },"stencil": -->
+<!-- { -->
+<!-- "id" -->
+<!-- :"SequenceFlow" -->
+<!-- },"childShapes":[],"outgoing":[ -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-885430DB-80A3-4D21-A143-8CCEFBDACC3A" -->
+<!-- }],"bounds": -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 400.375,"y":156 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :356.390625,"y": 156 -->
+<!-- }},"dockers":[ -->
+<!-- { -->
+<!-- "x" -->
+<!-- :50,"y": 40 -->
+<!-- },{"x":14,"y":14 -->
+<!-- }],"target": -->
+<!-- { -->
+<!-- "resourceId" -->
+<!-- :"sid-885430DB-80A3-4D21-A143-8CCEFBDACC3A" -->
+<!-- }}],bounds= -->
+<!-- { -->
+<!-- "lowerRight" -->
+<!-- :{"x": 1200,"y":1050 -->
+<!-- },"upperLeft": -->
+<!-- { -->
+<!-- "x" -->
+<!-- :0,"y": 0 -->
+<!-- }},stencilset= -->
+<!-- { -->
+<!-- "url" -->
+<!-- :"stencilsets/bpmn2.0/bpmn2.0.json","namespace": "http://b3mn.org/stencilset/bpmn2.0#" -->
+<!-- },ssextensions=[] -->
+<!-- } -->
+
+<!-- org.codehaus.jackson.node.JsonNodeFactory@3feb959 -->

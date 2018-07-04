@@ -1,0 +1,197 @@
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+/*可替代物料弹窗  */
+.flow-replaceChoose{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:532px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-222px;
+    margin-left: -400px;
+    z-index: 35;
+    display: none;
+}
+.flow-replaceChoose{
+	width:1000px;
+	 margin-left: -500px;
+}
+.flow-setting-nodeUser-choose-header,.flow-updateSymble-header,.flow-replaceChoose-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-setting-nodeUser-choose-header a,.flow-updateSymble-header a,.flow-replaceChoose-header a{
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.choose-box{
+    width: 70%;
+/*     max-height: 300px;
+    overflow-y:auto; */
+    float: left;
+    margin-top: 10px;
+    margin-left:16px;
+}
+.choose-box table .Num{
+	width:320px;
+}
+.nodeUser-choose-tree{
+    width: 26%;
+    height: 300px;
+    max-height:300px;
+    overflow-y:auto;
+    float: left;
+    margin-top: 10px;
+}
+#jstree1 a{
+    margin: 0;
+}
+.nodeUser-choose-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    position:absolute;
+    bottom:0;
+}
+.nodeUser-choose-bottom a{
+    float: right;
+    margin-right:10px;
+    margin-top:8px;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.choose-header2{
+	width:100%;
+	height:60px;
+	padding: 10px 24px;
+}
+#searchText{
+	width:200px;
+	float:left;
+}
+.choose-header3{
+	padding:20px 24px;
+}
+.chooseFile{
+	float:left;
+}
+.chooseFile span{
+	display:inline-block;
+	float:left;
+	margin-right:10px;
+	margin-top:6px;
+}
+.chooseFile select{
+	width:200px;
+}
+.uploadFile{
+	float:right;
+}
+.choose-header2 .uploadFileBtnBox{
+	 display: inline-block;
+    padding: 4px 10px;
+    margin-top:2px;
+    height: 30px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #666;
+    text-align:center;
+    cursor: pointer;
+    position: relative;
+}
+#uploadFileBtn{
+	width: 90px;
+    height: 30px;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}
+.choose-header2 a{
+    width: 90px;
+    display: block;
+    float: left;
+    margin-left:10px;
+    border:1px solid #ccc;
+    text-align:center;
+}
+.flow-updateSymble-body .choose-box{
+	width:96%;
+	height:350px;
+}
+.showSymbol{
+	width:49%;
+	height:350px;
+	border:1px solid #ccc;
+}
+.user-addWindow-header{
+	height:40px;
+}
+.user-addWindow-header a{
+	line-height:40px;
+}
+.replaceChooseLeft{
+    width:25%;  
+	height:420px;
+	max-height:430px;
+	overflow-y:auto;
+	float:left;
+}
+.replaceChooseRight{
+	width:73%; 
+	height:380px;
+	float:left;
+    margin-left:10px;  
+}
+.replaceChooseRight .tableBox{
+	height:310px;
+	max-height:302px;
+	overflow-y:auto;
+}
+.replaceChooseRight table tbody tr td{
+	word-wrap: break-word;
+    word-break: break-all;
+    vertical-align:middle;
+}
+.replaceChooseSearch{
+	width:100%;
+	padding:13px;
+	padding-bottom:0;
+}
+.replaceChooseSearch input{
+	width:220px;
+	float:right;
+	margin-right:10px;
+}
+#selectPDSpan{
+	display:inline-block;
+	width:300px;
+	height:60px;
+	word-wrap: break-word;
+    word-break: break-all;
+}
+.replaceChooseSearch .title{
+	display:inline-block;
+	float:left;
+}

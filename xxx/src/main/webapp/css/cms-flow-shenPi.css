@@ -1,0 +1,438 @@
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+/********瀹℃壒娴佺▼椤甸潰*******/
+.page-message {
+    width: 100%;
+    height: 80px;
+    border:1px solid #ddd;
+}
+.page-message h3 {
+    padding-left: 65px;
+    margin-top: 30px;
+    color: #9999b2;
+    font-size: 15px;
+}
+.flow-shenPi-left{
+    width: 270px;
+    height: 500px;
+    margin-top: 10px;
+    margin-left: -20px;
+}
+.flow-shenPi-left a{
+    width: 230px;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    margin: 9px 30px 0 30px;
+}
+.flow-shenPi-table-box{
+    width: 76%;
+    margin-top: 20px;
+}
+.flow-shenPi-table-box .flow-table input{
+	height:24px;
+	outline:none;
+    background:transparent;
+    border:none;
+    outline:medium;
+}
+.symbol{
+	width:80%;
+	float:left;
+}
+.symbolBtn{
+	margin-left:8px;
+	margin-top:1px;
+}
+.flow-shenPi-table-box .partsAddTable tr td{
+	vertical-align:middle;
+}
+.partsAddTable td input{
+	font-size:12px;
+	height:26px;
+}
+.partsAddTable td .chooseName{
+	width:84%;
+}
+.partsAddTable td .chooseName-btn{
+	margin-top:2px;
+}
+.partsAddTable .Liucheng input{
+	height:14px;
+}
+.partsAddTable .DatesheetShow{
+	display:inline-block;
+	margin-left:10px;
+	width:240px;
+}
+.partsAddTable .normalAttrs{
+	width:40px;
+	font-size:14px;
+	vertical-align:middle;
+	text-align:center;
+	word-wrap: break-word;
+    word-break: break-all;
+}
+.partsAddTable .aboutLiucheng{
+	padding-left:46px;
+}
+.partsAddTable .sameLength{
+	width:15%;
+}
+.partsAddTable .tidai{
+	width:30%;
+}
+.partsAddTable .partsImages{
+	vertical-align:middle;
+}
+.partsAddTable .partsImages .parts-images{
+	width:86%;
+}
+.partsAddTable .partsImages .uplogo{
+	width:10%;
+}
+.uploadBtnClass{
+	width:30px;
+	height:30px;
+	opacity: 0;
+	cursor:pointer;
+	border: 15px solid black;
+	font-size:0;
+    overflow: hidden;
+    position: relative;
+  	left: 0px;
+  	top: -25px;
+}
+.inputBox{
+	display:inline-block;
+    height: 28px;
+    text-decoration: none;
+    color: #ed1b24;
+    position: relative;
+}
+.partsImages {
+	display:inline-block;
+    height: 34px;
+    text-decoration: none;
+    color: #d9534f;
+    cursor:pointer;
+    position: relative;
+}
+.parts-images img{
+	max-width:100%;
+	max-height:200px;
+}
+.bigerImages{
+	transform-origin:50% 50%;
+    transform:scale(2);
+}
+.flow-shenPi-table-footer{
+    width: 300px;
+    margin: 0 auto;
+}
+/********鍚屾剰妗�......*******/
+.shenPi-agree-box,.shenPi-flow-box,
+.shenPi-history-box,.shenPi-send-box,
+.shenPi-talk-box,.shenPi-turn-box,
+.shenPi-help-box,.shenPi-zhuanban-box,.shenPi-back-box{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 600px;
+    height:450px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-188px;
+    margin-left: -320px;
+    z-index: 33;
+    display: none;
+}
+.shenPi-back-box{
+	height:300px;
+	margin-top:-128px;
+}
+.shenPi-zhuanban-box{
+	margin-top:-47px;
+	height:200px;
+}
+.shenPi-agree-box,.shenPi-zhuanban-box{
+	z-index:33px;
+}
+.shenPi-send-box{
+    z-index:35;
+}
+.shenPi-flow-box{
+    z-index: 37;
+}
+.shenPi-history-box{
+    z-index:38;
+}
+.shenPi-talk-box{
+    z-index:39;
+}
+.shenPi-turn-box{
+    z-index:41;
+}
+.shenPi-help-box{
+    z-index:43;
+}
+.shenPi-agree-box-header,.shenPi-flow-box-header,
+.shenPi-history-box-header,.shenPi-send-box-header,
+.shenPi-talk-box-header,.shenPi-turn-box-header,
+.shenPi-help-box-header,.shenPi-zhuanban-box-header,.shenPi-back-box-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.shenPi-agree-box-header2,.shenPi-send-box-header2,
+.shenPi-talk-box-header2,.shenPi-turn-box-header2,
+.shenPi-help-box-header2,.shenPi-zhuanban-box-header2,.shenPi-back-box-header2{
+    width: 100%;
+    height: 50px;
+    background:#f2f2f2;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+}
+.shenPi-agree-box-header a,.shenPi-flow-box-header a,
+.shenPi-history-box-header a,.shenPi-send-box-header a,
+.shenPi-talk-box-header a,.shenPi-turn-box-header a,
+.shenPi-help-box-header a,.shenPi-zhuanban-box-header a,.shenPi-back-box-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.shenPi-agree-box-header2 a,.shenPi-send-box-header2 a,
+.shenPi-talk-box-header2 a,.shenPi-turn-box-header2 a,
+.shenPi-help-box-header2 a,.shenPi-zhuanban-box-header2 a,.shenPi-back-box-header2 a{
+    display: block;
+    margin: 9px 10px 10px 0;
+    float: right;
+}
+.shenPi-agree-box table,.shenPi-send-box table,.shenPi-talk-box table,
+.shenPi-turn-box table,.shenPi-history-box table,.shenPi-help-box table,
+.shenPi-zhuanban-box table,.shenPi-back-box table{
+    width: 100%;
+    margin-top: 20px;
+}
+.shenPi-agree-box table td>span,.shenPi-send-box table td>span,
+.shenPi-talk-box table td>span,.shenPi-turn-box table td>span,
+.shenPi-help-box table td>span,.shenPi-zhuanban-box table td>span,.shenPi-back-box table td>span{
+    display: inline-block;
+    float:right; 
+}
+.shenPi-agree-box table td #agreeSelectUser,.shenPi-zhuanban-box table td #agreeSelectUser1,.shenPi-send-box table td #agreeSelectUser2{
+	float:left;
+	margin-left:6px;
+	margin-top:3px;
+}
+.zhuanbanUser{
+	width:170px;
+}
+.nomalJump b{
+	font-weight:normal;
+}
+.shenPi-agree-box table select{
+    width:150px;
+}
+.shenPi-send-box table .Input,.shenPi-talk-box table .Input,
+.shenPi-turn-box table .Input,.shenPi-help-box table .Input{
+    width:350px;
+}
+/* .shenPi-send-box table a,.shenPi-talk-box table a,
+.shenPi-turn-box table a,.shenPi-help-box table a{
+    width: 80px;
+    float: right;
+    margin-right: 40px;
+    margin-top: 5px;
+} */
+.shenPi-send-box table a{
+	float:left;
+}
+.shenPi-turn-box table a{
+    margin-right: 10px;
+}
+.shenPi-agree-box table .shenpi-input{
+    width: 300px;
+    height: 180px;
+}
+.shenPi-send-box table .shenpi-input,
+.shenPi-talk-box table .shenpi-input,
+.shenPi-help-box table .shenpi-input
+{
+    height: 200px;
+}
+.shenPi-back-box table .shenpi-input{
+	height: 160px;
+}
+.shenPi-turn-box table .shenpi-input{
+    height: 100px;
+}
+/********鍚屾剰妗�>鐢ㄦ埛閫夋嫨妗�......*******/
+.shenPi-send-box-chooseUser,.shenPi-talk-box-chooseUser,
+.shenPi-turn-box-chooseUser,.shenPi-help-box-chooseUser,
+.shenPi-agree-box-chooseUser{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:500px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-210px;
+    margin-left: -400px;
+    z-index: 40;
+    display: none;
+}
+.shenPi-agree-box-chooseUser{
+    z-index:34 ;
+} 
+ .shenPi-send-box-chooseUser{
+    z-index:36 ;
+}
+.shenPi-talk-box-chooseUser{
+     z-index:40 ;
+ }
+.shenPi-turn-box-chooseUser{
+    z-index:42;
+}
+.shenPi-help-box-chooseUser{
+    z-index: 44;
+}
+.shenPi-send-box-chooseUser-header,.shenPi-talk-box-chooseUser-header,
+.shenPi-turn-box-chooseUser-header,.shenPi-help-box-chooseUser-header,
+.shenPi-agree-box-chooseUser-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.shenPi-send-box-chooseUser-header a,.shenPi-talk-box-chooseUser-header a,
+.shenPi-turn-box-chooseUser-header a,.shenPi-help-box-chooseUser-header a,
+.shenPi-agree-box-chooseUser-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.shenPi-send-box-chooseUser-body,.shenPi-talk-box-chooseUser-body,
+.shenPi-turn-box-chooseUser-body,.shenPi-help-box-chooseUser-body,
+.shenPi-agree-box-chooseUser-body{
+    float: left;
+    width: 100%;
+}
+.choose-table-box{
+    width: 72%;
+    max-height: 380px;
+    overflow-y:auto;
+    float: right;
+    margin-top: 5px;
+}
+.nodeUser-choose-tree{
+    width: 26%;
+    height: 300px;
+    max-height:300px;
+    overflow:auto;
+    float: left;
+    margin-top: 10px;
+}
+.choose-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    position:absolute;
+    bottom:0;
+}
+.table-footer{
+    margin-left: 340px;
+}
+.choose-bottom a{
+    float: right;
+    margin:8px 10px 10px 0;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.choose-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.choose-header2 a{
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+/* 娴佺▼鍥惧眳涓� */
+.flow-box-body{
+	width:790px ;
+	height:400px;
+	vertical-align: middle;
+    display: table-cell;
+    text-align:center;
+}
+/********寮瑰嚭妗�**************/
+.parts-producthand-window{
+    background: #fff;
+    border: 2px solid #ccc;
+    width: 400px;
+    height:510px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-190px;
+    margin-left: -190px;
+    z-index: 30;
+    display:none;
+}
+.parts-producthand-window-header{
+    width: 396px;
+    height: 40px;
+    border: 0;
+}
+.parts-producthand-window-header>a{
+    display: block;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.parts-producthand-window-header>a span{
+	margin-right:8px;
+}
+.productmix-treeBox1 {
+    width: 101%;
+    height: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+/********鍏冨櫒浠跺悕绉伴�夋嫨,鏁版嵁鎵嬪唽閫夋嫨寮圭獥*******/
+.producthand-btn{
+	width:100%;
+	text-align:center;
+	margin-top:5px;
+}
+.producthand-btn a{
+	width:200px;
+}
+.shenpibox{
+	    width: 95%;
+    height: 390px;
+    max-height: 390px;
+    margin: 0 auto;
+    overflow-y: auto;
+}

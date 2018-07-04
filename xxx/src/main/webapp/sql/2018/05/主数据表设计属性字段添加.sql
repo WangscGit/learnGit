@@ -1,0 +1,5 @@
+set IDENTITY_INSERT [dbo].[Part_PrimaryAttributes] on
+INSERT [dbo].[Part_PrimaryAttributes] ([ID], [FieldName], [ShowName], [DataType], [IsNULL], [Description], [IsUsed], [IsDisplay], [IsUpdate], [IsAudit], [IsSearch], [IsMatch], [seq_no], [type], [IsInsert], [EnglishName], [IsApply]) VALUES (IDENT_CURRENT('Part_PrimaryAttributes') + IDENT_INCR('Part_PrimaryAttributes'), N'design_tool', N'设计工具', N'selectList', N'是', N'设计工具', 0, 0, 0, 0, 0, 0, 0, 3, 0, N'DesignTool', 1)
+INSERT [dbo].[Part_PrimaryAttributes] ([ID], [FieldName], [ShowName], [DataType], [IsNULL], [Description], [IsUsed], [IsDisplay], [IsUpdate], [IsAudit], [IsSearch], [IsMatch], [seq_no], [type], [IsInsert], [EnglishName], [IsApply]) VALUES (IDENT_CURRENT('Part_PrimaryAttributes') + IDENT_INCR('Part_PrimaryAttributes'), N'Lifecycle_Status', N'生命周期状态', N'selectList', N'是', N'生命周期(未认证、正常、停产、消耗、失效)', 0, 0, 0, 0, 0, 0, 0, 3, 0, N'Lifecycle status', 1)
+--手动添加枚举对应值:Concept： HDL和OrCAD Capture
+--手动添加枚举对应值:Lifecycle_Status： New(新器件)、Production(在产)、NRND(限用器件)、EOL(停产)、Obsolete(失效)、Unknown(未认证)

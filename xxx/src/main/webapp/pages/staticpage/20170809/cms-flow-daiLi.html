@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宇航元器件选用平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cms-flow-daiLi.css"/>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="js-tree/dist/themes/default/style.css">
+    <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.css">
+    <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.theme.css">
+    <script type="text/javascript" src="scripts/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui-1.js"></script>
+    <script type="text/javascript" src="js-tree/dist/jstree.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/html5shiv.min.js"></script>
+    <script type="text/javascript" src="scripts/DOMAssistantCompressed-2.7.4.js"></script>
+    <script type="text/javascript" src="scripts/ie-css3.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="page-message">
+    <h3><span class="label label-default">Now</span>  流程代理</h3>
+</div>
+<div class="flow-daili-head">
+    <div class="flow-daili-head-nav">
+        <a class="btn flow-daili-head-soso"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+        <a class="btn flow-daili-head-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+        <a class="btn flow-daili-head-reset"><span class="glyphicon glyphicon-repeat"></span>  重置</a>
+    </div>
+    <div class="flow-daili-head-input">
+        <table>
+            <tr>
+                <td>
+                    <span>查询标题：</span><input type="text" class="form-control"/>
+                </td>
+                <td>
+                    <span>授权人：</span><input type="text" class="form-control"/>
+                </td>
+                <td>
+                    <span>是否有效：</span>
+                    <select name="" id="" class="form-control">
+                        <option value="">请选择</option>
+                        <option value="">有效</option>
+                        <option value="">无效</option>
+                    </select>
+                </td>
+                <td>
+                    <span>代理类型：</span>
+                    <select name="" id="" class="form-control">
+                        <option value="">请选择</option>
+                        <option value="">待办</option>
+                        <option value="">代理</option>
+                        <option value="">转办</option>
+                        <option value="">沟通</option>
+                        <option value="">流转</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="flow-daili-table-box">
+    <table class="table table-bordered table-hover flow-table">
+        <thead class="table-title">
+        <tr class="success">
+            <td><input type="checkbox"/></td>
+            <td>序号</td>
+            <td>标题</td>
+            <td>授权人姓名</td>
+            <td>代理人</td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>是否有效</td>
+            <td>代理类型</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>1</td>
+            <td>1234567</td>
+            <td>1234567</td>
+            <td>lili</td>
+            <td>2017/7/21</td>
+            <td>已完成</td>
+            <td>有效</td>
+            <td>1.0</td>
+            <td>
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-star"></span>  详情</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="flow-daili-table-footer">
+    <ul class="pagination upload-page">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</div>
+<div class="flow-daili-addWindow">
+    <div class="flow-daili-addWindow-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close flow-daili-addWindow-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="flow-daili-addWindow-header2">
+        <a class="btn btn-info"><span class="glyphicon glyphicon-save"></span>  保存</a>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-arrow-left"></span>  返回</a>
+    </div>
+    <div class="flow-daili-window-body">
+        <div class="flow-daili-window-box">
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <td><span>代理类型：</span></td>
+                    <td>
+                        <input type="radio"/>全权代理
+                        <input type="radio"/>部分代理
+                        <input type="radio"/>条件代理
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>标题：</span></td>
+                    <td><input type="text" class="form-control input-long"/></td>
+                </tr>
+                <tr>
+                    <td><span>授权人姓名：</span></td>
+                    <td>
+                        <input type="text" class="form-control input-long"/>
+                        <a class="btn btn-warning btn-xs flow-daili-window-chooseUser1Btn">选择</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>开始日期：</span></td>
+                    <td><input type="text" class="form-control input-long" name='hiredate'/></td>
+                </tr>
+                <tr>
+                    <td><span>结束日期：</span></td>
+                    <td><input type="text" class="form-control input-long" name='hiredate'/></td>
+                </tr>
+                <tr>
+                    <td><span>是否有效：</span></td>
+                    <td>
+                        <input type="radio"/>禁止
+                        <input type="radio"/>启用
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>代理人：</span></td>
+                    <td>
+                        <input type="text" class="form-control input-long"/>
+                        <a class="btn btn-warning btn-xs flow-daili-window-chooseUser2Btn">选择</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="flow-daili-window-chooseUser1">
+    <div class="flow-daili-window-chooseUser1-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close flow-daili-window-chooseUser1-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="flow-daili-window-chooseUser1-body">
+        <div class="nodeUser-choose-tree">
+            <div id="ajstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="aj1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="aj1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="aj1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="aj1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="aj1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="aj1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="flow-daili-window-chooseUser2">
+    <div class="flow-daili-window-chooseUser2-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close flow-daili-window-chooseUser2-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="flow-daili-window-chooseUser2-body">
+        <div class="nodeUser-choose-tree">
+            <div id="bjstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="bj1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="bj1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="bj1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="bj1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="bj1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="bj1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="bj1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="scripts/javascript.js"></script>
+<script>
+    $("[name='hiredate']").datepicker(
+            {dateFormat: "yy年mm月dd日"}
+    );
+    $(function () {
+        $('#ajstree1').jstree();
+        $('#bjstree1').jstree();
+    });
+</script>
+</body>
+</html>

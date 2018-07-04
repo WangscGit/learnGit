@@ -1,0 +1,236 @@
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+/********待办流程页面*******/
+.page-message {
+    width: 100%;
+    height: 80px;
+    border:1px solid #ddd;
+}
+.page-message h3 {
+    padding-left: 65px;
+    margin-top: 30px;
+    color: #9999b2;
+    font-size: 15px;
+}
+.flow-daili-table-box{
+    width: 100%;
+    margin: 0 auto;
+}
+.flow-daili-head{
+    width: 100%;
+    height: 120px;
+    background: #fff;
+    padding-top:10px;
+}
+.flow-daili-head-nav{
+    width: 220px;
+    height: 50px;
+    line-height: 45px;
+    float:right;
+    margin-top:-98px;
+}
+.flow-daili-head-nav a{
+    background: #33b388;
+    color: #fff;
+}
+.flow-daili-head-nav a:hover{
+    background: #11a166;
+    color: #fff;
+}
+.flow-daili-head-input{
+    width: 100%;
+    float: left;
+    height: 100px;
+}
+.flow-daili-head-input td{
+    width:300px;
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+}
+.flow-daili-head-input span{
+    display: block;
+    width: 110px;
+    float: left;
+    text-align: right;
+}
+.flow-daili-head-input .view-soso{
+    display: block;
+    width: 15px;
+    float: left;
+    text-align: right;
+    margin-top:2px;
+}
+.flow-daili-head-input input,.flow-daili-head-input select{
+    width:154px;
+    height: 34px;
+    margin-top: -6px;
+    float: right;
+    color: #bbb;
+}
+.flow-daili-head-input .short-input{
+    width: 112px;
+}
+.daili-table .edit-td-btn{
+	width:240px;
+}
+.daili-btnGroup2,.daili-btnGroup1{
+	width:100%;
+	height:22px;
+}
+.daili-btnGroup2 a,.daili-btnGroup1 a{
+	margin-right:8px;
+}
+.flow-daili-table-footer{
+    width: 300px;
+    margin:0 auto;
+}
+/********添加代理弹窗*******/
+.flow-daili-addWindow,.flow-daili-moreWindow,.flow-daili-editWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:500px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-180px;
+    margin-left: -400px;
+    z-index:33;
+    display: none;
+}
+.flow-daili-addWindow-header,.flow-daili-moreWindow-header,.flow-daili-editWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-daili-addWindow-header a,.flow-daili-moreWindow-header a,.flow-daili-editWindow-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-daili-addWindow-body,.flow-daili-moreWindow-body{
+    width: 100%;
+}
+.flow-daili-morewindow-box{
+	width:100%;
+	max-height:420px;
+	overflow-y:auto;
+	margin-top:20px;
+}
+.flow-daili-morewindow-box table td{
+	width:50%;
+}
+.flow-daili-morewindow-box table span{
+	float:right;
+}
+.flow-daili-morewindow-box table b{
+	color:red;
+}
+.flow-daili-window-box table span{
+    display: block;
+    text-align: right;
+}
+.flow-daili-window-box table .input-long{
+    width: 300px;
+    float: left;
+}
+.flow-daili-window-box table a{
+    margin-left: 12px;
+    margin-top: 6px;
+}
+.flow-daili-addWindow-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.flow-daili-addWindow-header2 a,.flow-daili-editWindow-header2 a{
+    width: 70px;
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+/********添加框>用户选择框......*******/
+.flow-daili-window-chooseUser1,.flow-daili-window-chooseUser2{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:500px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-180px;
+    margin-left: -400px;
+    z-index: 34;
+    display: none;
+}
+.flow-daili-window-chooseUser2{
+    z-index: 20;
+}
+.flow-daili-window-chooseUser1-header,.flow-daili-window-chooseUser2-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-daili-window-chooseUser1-header a,.flow-daili-window-chooseUser2-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-daili-window-chooseUser1-body,.flow-daili-window-chooseUser2-body{
+    float: left;
+    width: 100%;
+}
+.choose-table-box{
+    width: 72%;
+    max-height: 300px;
+    overflow-y:auto;
+    float: right;
+    margin-top: 10px;
+}
+.nodeUser-choose-tree{
+    width: 28%;
+    height: 300px;
+    float: left;
+    margin-top: 10px;
+}
+.choose-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    position:absolute;
+    bottom:0;
+}
+.table-footer{
+    margin-left: 340px;
+}
+.choose-bottom a{
+    float: right;
+    margin:8px 10px 10px 0;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.choose-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.choose-header2 a{
+    width: 70px;
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}

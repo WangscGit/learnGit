@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="org.activiti.rest.diagram.dao.ITaskUserDao">  
+
+<sql id="Base_Column_List1">
+     task_Def_Key,process_Inst_Id,user_Login_Name,ut_Type,is_Finish,create_Time,end_Time,task_Id,comment,is_agree,user_name,act_task_id,is_oneself
+</sql>
+
+<sql id="Base_Column_List3">
+     #{taskDefKey},#{processInstId},#{userLoginName},#{utType},#{isFinish},#{createTime},#{endTime},#{taskId},#{comment},#{isAgree},#{userName},#{actTaskId},#{isOneself}
+</sql>
+<select id="selectTaskUserList" parameterType="org.activiti.rest.diagram.pojo.TaskUser" resultType="org.activiti.rest.diagram.pojo.TaskUser">
+     select id, task_Def_Key taskDefKey,process_Inst_Id processInstId,user_Login_Name userLoginName,ut_Type utType,is_Finish isFinish,create_Time createTime,end_Time endTime,task_Id taskId,comment,is_agree isAgree,user_name userName,act_task_id actTaskId,is_oneself isOneself from task_user tu 
+     <where>
+          <if test="taskDefKey!=null">
+          and task_Def_Key=#{taskDefKey}
+          </if>
+          <if test="processInstId!=null">
+          and process_Inst_Id=#{processInstId}
+          </if>
+          <if test="userLoginName!=null">
+          and user_Login_Name=#{userLoginName}
+          </if>
+          <if test="utType!=null">
+          and ut_Type=#{utType}
+          </if>
+          <if test="isFinish!=null">
+          and is_Finish=#{isFinish}
+          </if>
+          <if test="taskId!=null">
+          and task_Id=#{taskId}
+          </if>
+          <if test="actTaskId!=null">
+          and act_Task_Id=#{actTaskId}
+          </if>
+          <if test="isAgree!=null">
+          and is_Agree=#{isAgree}
+          </if>
+          <if test="isOneself!=null">
+          and is_Oneself=#{isOneself}
+          </if>
+          <if test="queryList!=null">
+          and act_task_id in 
+          <foreach collection="queryList" index="index" item="item" open="(" separator="," close=")">
+		        #{item}
+	      </foreach>
+          </if>
+     </where>
+     order by id asc
+</select>
+<update id="updateTaskUser" parameterType="org.activiti.rest.diagram.pojo.TaskUser">
+     update task_user  set  user_Login_Name=#{userLoginName},is_Finish=#{isFinish},create_Time=#{createTime} ,end_Time=#{endTime},task_Id=#{taskId},is_Agree=#{isAgree},act_Task_Id=#{actTaskId},comment=#{comment},is_oneself=#{isOneself}  where id=#{id}
+</update>
+<insert id="insertTaskUser" parameterType="org.activiti.rest.diagram.pojo.TaskUser">
+         insert into task_user(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<delete id="deleteTaskUser" parameterType="org.activiti.rest.diagram.pojo.TaskUser">
+     delete from task_user where  process_Inst_Id=#{processInstId}
+     <if test="processInstId!=null">
+          and user_Login_Name = #{userLoginName}
+     </if>
+     <if test="taskDefKey!=null">
+          and task_Def_Key=#{taskDefKey}
+     </if>
+     <if test="isFinish!=null">
+          and is_Finish=#{isFinish}
+     </if>
+     <if test="actTaskId!=null">
+          and act_Task_Id=#{actTaskId}
+     </if>
+</delete>
+<delete id="deleteTaskUserByTaskid" parameterType="org.activiti.rest.diagram.pojo.TaskUser">
+     delete from task_user where task_id = #{taskId}
+     <if test="userLoginName!=null">
+          and user_Login_Name = #{userLoginName}
+     </if>
+     <if test="actTaskId!=null">
+          and act_Task_Id=#{actTaskId}
+     </if>
+</delete>
+
+<select id="selectProcUserList" parameterType="org.activiti.rest.diagram.pojo.ProcUser" resultType="org.activiti.rest.diagram.pojo.ProcUser">
+     select * from proc_user pu 
+     <where>
+          <if test="taskDefKey!=null">
+          	and pu.task_Def_Key=#{taskDefKey}
+          </if>
+          <if test="procDefId!=null">
+          	and pu.proc_Def_Id=#{procDefId}
+          </if>
+          <if test="loginName!=null">
+          	and pu.login_Name=#{loginName}
+          </if>
+          <if test="userName!=null">
+          	and pu.user_Name=#{userName}
+          </if>
+     </where>
+     order by id asc
+</select>
+<insert id="insertProcUser" parameterType="org.activiti.rest.diagram.pojo.ProcUser">
+      insert into proc_user(proc_def_id,login_name,user_name,task_def_key,ut_type) values (#{procDefId},#{loginName},#{userName},#{taskDefKey},#{utType})
+</insert>
+<delete id="deleteProcUser" parameterType="org.activiti.rest.diagram.pojo.ProcUser">
+     delete from proc_user where  proc_def_id=#{procDefId}
+     <if test="taskDefKey!=null">
+          and task_Def_Key=#{taskDefKey}
+     </if>
+     <if test="loginName!=null">
+          and login_Name=#{loginName}
+     </if>
+</delete>
+
+</mapper> 

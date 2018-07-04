@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.message.dao.ISysMessageDao">  
+<resultMap id="message" type="com.cms_cloudy.message.pojo.SysMessage">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="msg_type" property="msgType" jdbcType="NVARCHAR" />
+        <result column="msg_tittle" property="msgTittle" jdbcType="NVARCHAR" />
+        <result column="msg_content" property="msgContent" jdbcType="NVARCHAR" />
+        <result column="msg_level" property="msgLevel" jdbcType="NVARCHAR" />
+        <result column="launch_person" property="launchPerson" jdbcType="NVARCHAR" />
+        <result column="receiver_person" property="receiverPerson" jdbcType="NVARCHAR" />
+        <result column="whether_read" property="whetherRead" jdbcType="BOOLEAN" />
+        <result column="launch_time" property="launchTime" jdbcType="DATE" />
+        <result column="read_time" property="readTime" jdbcType="DATE" />
+        <result column="cdefine1" property="cdefine1" jdbcType="NVARCHAR" />
+        <result column="cdefine2" property="cdefine2" jdbcType="NVARCHAR" />
+        <result column="cdefine3" property="cdefine3" jdbcType="NVARCHAR" />
+        <result column="cdefine4" property="cdefine4" jdbcType="INTEGER" />
+        <result column="cdefine5" property="cdefine5" jdbcType="DATE" />
+</resultMap>
+<sql id="Base_Column_List1">
+     msg_type,msg_tittle,msg_content,msg_level,launch_person,receiver_person,whether_read,launch_time,read_time,cdefine1,cdefine2,cdefine3,cdefine4,cdefine5
+</sql>
+<sql id="Base_Column_List2">
+     id,msg_type,msg_tittle,msg_content,msg_level,launch_person,receiver_person,whether_read,launch_time,read_time,cdefine1,cdefine2,cdefine3,cdefine4,cdefine5
+</sql>
+<sql id="Base_Column_List3">
+     #{msgType},#{msgTittle},#{msgContent},#{msgLevel},#{launchPerson},#{receiverPerson},#{whetherRead},#{launchTime},#{readTime},#{cdefine1},#{cdefine2},#{cdefine3},#{cdefine4},#{cdefine5}
+</sql>
+
+<select id="selectMessageList" parameterType="Map" resultType="com.cms_cloudy.message.pojo.SysMessage">
+     select <include refid="Base_Column_List2"></include>  from Sys_Message 
+       <where>
+          <if test="whetherRead!=null">
+          and whether_read=#{whetherRead}
+          </if>
+          <if test="receiverPerson!=null">
+          and receiver_person=#{receiverPerson}
+          </if>
+          <if test="launchPerson!=null">
+          and launch_person=#{launchPerson}
+          </if>
+          <if test="id!=null">
+          and id=#{id}
+          </if>
+          <if test="receiver!=null">
+          and receiver_person LIKE '%${receiver}%'
+          </if>
+     </where>
+     order by id desc
+</select>
+
+<select id="selectMsgList" parameterType="Map" resultType="com.cms_cloudy.message.pojo.SysMessage">
+   SELECT d.id, m.msg_type, m.msg_tittle, m.msg_content, m.msg_level
+	, m.launch_person, m.launch_time, m.cdefine1, m.cdefine2
+	, m.cdefine3, m.cdefine4, m.cdefine5
+	, CASE 
+		WHEN d.state = '0' THEN 'false'
+		ELSE 'true'
+	END AS whether_read, d.receiver AS receiver_person, d.read_time AS read_time
+    FROM Sys_Message_Detail d
+	LEFT JOIN Sys_Message m ON m.id = d.msg_main_id
+	<where>
+          <if test="whetherRead!=null">
+          and d.state=#{whetherRead}
+          </if>
+          <if test="receiverPerson!=null">
+          and d.receiver=#{receiverPerson}
+          </if>
+          <if test="mainId!=null">
+          and m.id=#{mainId}
+          </if>
+          <if test="receiver!=null">
+          and receiver_person LIKE '%${receiver}%'
+          </if>
+     </where>
+     order by m.launch_time desc
+</select>
+
+<select id="selectMsgDetailList" parameterType="Map" resultType="com.cms_cloudy.message.pojo.SysMessageDetail">
+	select * from Sys_Message_Detail 
+	<where>
+          <if test="id!=null">
+          and id=#{id}
+          </if>
+   </where>
+</select>
+
+<select id="selectCount" parameterType="Map" resultType="long">
+     select count(1) from Sys_Message 
+       <where>
+          <if test="whetherRead!=null">
+          and whether_read=#{whetherRead}
+          </if>
+          <if test="receiverPerson!=null">
+          and receiver_person=#{receiverPerson}
+          </if>
+          <if test="receiver!=null">
+          and receiver_person LIKE '%${receiver}%'
+          </if>
+     </where>
+</select>
+
+<select id="selectCountByState" parameterType="Map" resultType="long">
+    select count(1) from Sys_Message_Detail 
+       <where>
+          <if test="whetherRead!=null">
+          and state=#{whetherRead}
+          </if>
+          <if test="receiverPerson!=null">
+          and receiver=#{receiverPerson}
+          </if>
+     </where>
+</select>
+
+<select id="selectMaxId" resultType="Map">
+	select MAX(ID) AS IDS FROM Sys_Message
+</select>
+
+<insert id="insertMessage" parameterType="com.cms_cloudy.message.pojo.SysMessage">
+     insert into Sys_Message(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+
+<insert id="insertMessageDetail" parameterType="com.cms_cloudy.message.pojo.SysMessageDetail">
+	insert into Sys_Message_Detail (msg_main_id,receiver,state,read_time) values (#{msgMainId},#{receiver},#{state},#{readTime})
+</insert>
+
+<update id="updateMessage" parameterType="com.cms_cloudy.message.pojo.SysMessage">
+     update Sys_Message set msg_type=#{msgType},msg_tittle=#{msgTittle},msg_content=#{msgContent},msg_level=#{msgLevel},launch_person=#{launchPerson},receiver_person=#{receiverPerson},launch_time=#{launchTime},whether_read=#{whetherRead},read_time=#{readTime},cdefine1=#{cdefine1},cdefine2=#{cdefine2},cdefine3=#{cdefine3},cdefine4=#{cdefine4},cdefine5=#{cdefine5} where id=#{id}
+</update>
+
+<update id="updateMessageDetail" parameterType="com.cms_cloudy.message.pojo.SysMessageDetail">
+    update Sys_Message_Detail set msg_main_id = #{msgMainId},receiver = #{receiver},state = #{state},read_time = #{readTime} where id = #{id}
+</update>
+
+<delete id="deleteMessage" parameterType="int">
+     delete from Sys_Message where id = #{id}
+</delete>
+
+<delete id="deleteMessageDetail" parameterType="int">
+	 delete from Sys_Message_Detail where msg_main_id = #{msgMainId}
+</delete>
+
+</mapper>

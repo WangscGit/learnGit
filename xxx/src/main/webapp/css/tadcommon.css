@@ -1,0 +1,171 @@
+ div.jtable-main-container table.jtable thead>tr{
+		border-left: 1px solid #C8C8C8!important;
+		border-top:1px solid #C8C8C8!important;
+	}
+	div.jtable-main-container table.jtable thead th{
+       border-left:none!important;
+	} 
+	#PersonTableContainer{
+	   margin-top:5px!important;
+	}
+	#tableContainer{
+	  margin-top:5px!important;
+	}
+	.jtable-main-container{
+	 margin-top:5px!important;
+	}
+	#searchEngineTableContainer{
+	 margin-top:5px!important;
+	}
+.tadialog-container {
+    background-color: #fcfcfc;
+    border: 1px solid #333;
+    padding: 1px;
+    width: 500px;
+    
+    display:none;position: absolute; z-index: 99999; width: 360px; left: 611.5px; top: 141.5px;
+}
+
+.tadialogbackground{display:none;position: absolute; top: 0px; left: 0px; background-color: black; width: 100%; height: 100%; opacity: 0.6; z-index: 99998; }
+
+.tadialog-container .dialog-title {
+    background-color: #666;
+    color: #fff;
+    height: 28px;
+    position: relative;
+}
+
+.tadialog-container .dialog-content {
+    color: #333;
+    padding: 8px;
+}
+
+.tadialog-container .dialog-title-text {
+    font-size: 12px;
+    left: 8px;
+    line-height: 16px;
+    position: absolute;
+    top: 6px;
+}
+
+.tadialog-container .dialog-close {
+    background-color: #fff;
+    border-radius: 2px;
+    color: #666;
+    cursor: pointer;
+    font-family: Simsun;
+    font-size: 16px;
+    font-weight: bold;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 16px;
+}
+
+.tadialog-container .download-report-title {
+    font-size: 16px;
+    font-weight: bolder;
+    padding-top: 10px;
+}
+
+
+
+.tadialog-container .download-report-items {
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+.tadialog-container .download-report-items label{
+	font-weight: normal;
+}
+
+.tadialog-container .download-report-tip {
+    color: Gray;
+    margin: 10px 0;
+}
+
+
+.tadialog-container .download-report-buttons {
+    padding-top: 10px;
+    text-align: right;
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    overflow: visible;
+}
+
+
+.tadialog-container .download-report-items label {
+    margin-right: 15px;
+}
+
+
+.tadialog-container label input {
+    margin-right: 2px;
+}
+.tadialog-container select, input {
+    font-size: 12px;
+    vertical-align: middle;
+   /*  height:20px; */
+}
+.tadialog-container input {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.tadialog-container .download-report-buttons .button {
+    margin-right: 10px;
+}
+.tadialog-container a {
+    color: #0965b8;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.tadialog-container a.button span, a.button input {
+    background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 6px;
+}
+.tadialog-container .download-report-buttons .button {
+    margin-right: 10px;
+}
+.tadialog-container a.button {
+/*     background-image: url("decorator/common-14a7f708498402ebc86dd4246d27695.png");
+    background-position: left -1279px;
+    background-repeat: repeat-x; */
+    border-color: #b1afb0 #8c8c8c;
+    border-style: solid;
+    border-width: 1px;
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.tadialog-container a {
+    color: #0965b8;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.tadialog-container a.button span, a.button input {
+    background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 6px;
+}
+
+#tadialogCancel{
+	position: relative;bottom: 4px;
+}

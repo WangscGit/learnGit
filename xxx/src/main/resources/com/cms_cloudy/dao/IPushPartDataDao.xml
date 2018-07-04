@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.cms_cloudy.websocket.dao.IPushPartDataDao">  
+<resultMap id="pushPartData" type="com.cms_cloudy.websocket.pojo.PushPartData">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="part_id" property="partId" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="input_content" property="inputContent" jdbcType="NVARCHAR" />
+        <result column="seq_no" property="seqNo" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="CHAR" />
+        <result column="times" property="times" jdbcType="INTEGER" />
+</resultMap>
+<sql id="Base_Column_List1">
+     part_id,user_id,input_content,seq_no,type,times
+</sql>
+<sql id="Base_Column_List2">
+     id,part_id,user_id,input_content,seq_no,type,times
+</sql>
+<sql id="Base_Column_List3">
+     #{partId},#{userId},#{inputContent},#{seqNo},#{type},#{times}
+</sql>
+<select id="selectPushPartData" parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushPartData">
+     select <include refid="Base_Column_List2"></include>  from Push_Partdata 
+       <where>
+          <if test="inputContent!=null">
+          and input_content=#{inputContent}
+          </if>
+           <if test="userId!=null">
+          and user_id=#{userId}
+          </if>
+           <if test="noUser!=null">
+          and user_id = #{noUser}
+          </if>
+           <if test="type!=null">
+          and type = #{type}
+          </if>
+           <if test="types!=null">
+          and type = 1 or type = 2
+          </if>
+          <if test="partId!=null">
+          and part_id = #{partId}
+          </if>
+     </where>
+     order by id asc
+</select>
+<select id="selectHotSearchData"  parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushPartData">
+     select top 6 input_content,part_id from Push_Partdata  
+     <where>
+          <if test="userId!=null">
+          and user_id=#{userId}
+          </if>
+          <if test="type!=null">
+          and type=#{type}
+          </if>
+           <if test="hotType!=null">
+          and type!=#{hotType}
+          </if>
+     </where>
+     order by times desc
+</select>
+<select id="selectPushNewPart"  parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushPartData">
+     select top 3 id,part_id,input_content from Push_Partdata  
+     <where>
+          <if test="type!=null">
+          and type=#{type}
+          </if>
+     </where>
+     order by id desc
+</select>
+<select id="selectFirstPartData"  parameterType="Map" resultType="HashMap">
+     select top 1 id,item,PartNumber,Part_Type from Part_Data  
+     <where>
+          <if test="id!=null">
+          and ID=#{id}
+          </if>
+          <if test="item!=null">
+          and item=#{item}
+          </if>
+           <if test="PartNumber!=null">
+          and PartNumber=#{PartNumber}
+          </if>
+     </where>
+     order by id desc
+</select>
+<insert id="insertPushPartData" parameterType="com.cms_cloudy.websocket.pojo.PushPartData" >
+     insert into Push_Partdata(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<update id="updatePushPartDatar" parameterType="com.cms_cloudy.websocket.pojo.PushPartData">
+     update Push_Partdata set   part_id=#{partId}, user_id=#{userId}, input_content=#{inputContent}, seq_no=#{seqNo}, type=#{type}, times=#{times} 
+     where id=#{id}
+</update>
+<delete id="deletePushPartData" parameterType="int">
+     delete from Push_Partdata where id = #{id}
+</delete>
+<insert id="insertPushPartDetail" parameterType="com.cms_cloudy.websocket.pojo.PushpartDetail" >
+     insert into Pushdata_Detail(part_id,input_content) values (#{partId},#{inputContent})
+</insert>
+<delete id="deletePushPartDetail" parameterType="int">
+     delete from Pushdata_Detail where id = #{id}
+</delete>
+<select id="selectPushPartDetail"  parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushpartDetail">
+     select id,part_id,input_content from Pushdata_Detail  
+     <where>
+          <if test="input!=null">
+          and input_content=#{input}
+          </if>
+          <if test="part_id!=null">
+          and part_id=#{part_id}
+          </if>
+     </where>
+     order by id desc
+</select>
+
+<select id="selectDistinctPushPart"  parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushPartData">
+select input_content from Push_Partdata group by input_content having(count(*))>1 
+</select>
+<select id="selectDistinctPushPartToshow"  parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushPartData">
+select top 6 * from Push_Partdata where type != 1 and input_content in ( select input_content from Push_Partdata group by input_content having(count(*))=1 ) order by times desc
+</select>
+<select id="selectDistinctPushPartToHot"  parameterType="Map" resultType="com.cms_cloudy.websocket.pojo.PushPartData">
+select top 6 * from Push_Partdata where user_id=#{userId} and type = 2 and input_content in ( select input_content from Push_Partdata group by input_content having(count(*))=1 ) order by times desc
+</select>
+<select id="selectDistinctSum"  parameterType="Map" resultType="int">
+select COALESCE(SUM(times),0)as times from Push_Partdata 
+ <where>
+          <if test="inputContent!=null">
+          and input_content = #{inputContent} 
+          </if>
+          <if test="type!=null">
+          and type=#{type}
+          </if>
+ </where>
+</select>
+<delete id="deletePartEvaluationByPartNumber" parameterType="int">
+     delete from Part_Evaluation where PartNumber = (select partNumber from part_Data where id =#{id})
+</delete>
+<delete id="deletePushPartDataByPartId" parameterType="int">
+     delete from Push_Partdata where part_id = #{id}
+</delete>
+<delete id="deletePartHistoryByPartNumber" parameterType="int">
+     delete from Part_Histories where PartNumber = (select partNumber from part_Data where id =#{id})
+</delete>
+</mapper>

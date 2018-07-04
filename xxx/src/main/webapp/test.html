@@ -1,0 +1,25 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>Raphael Test</title>  
+  
+</head>  
+<body>  
+  <div id="my-canvas" style="width:240px;height:100px;border:1px solid red;">  
+  </div>
+  <script type="text/javascript" src="scripts/jquery-1.11.3.js"></script> 
+  <script type="text/javascript" src="scripts/raphaeljS/raphael.js"></script>
+  <script type="text/javascript">
+		$(function(){
+			var elm= document.getElementById("my-canvas");
+			var paper = Raphael(elm, 650, 400);
+			var cir = paper.circle(24,25,20).attr({   
+				  "fill":"#17A9C6",   
+				  "stroke":"#2A6570",   
+				  "stroke-width":2  
+				});  
+		})
+  </script>
+</body>
+</html>  

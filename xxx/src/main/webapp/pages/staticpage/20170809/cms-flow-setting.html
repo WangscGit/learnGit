@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宇航元器件选用平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cms-flow-setting.css"/>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="js-tree/dist/themes/default/style.css">
+    <script type="text/javascript" src="scripts/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js-tree/dist/jstree.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/html5shiv.min.js"></script>
+    <script type="text/javascript" src="scripts/DOMAssistantCompressed-2.7.4.js"></script>
+    <script type="text/javascript" src="scripts/ie-css3.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="flow-setting-head">
+    <a class="btn flow-setting-BPM"><span class="glyphicon glyphicon-file"></span>  BPMNXML</a>
+    <a class="btn flow-setting-Dse"><span class="glyphicon glyphicon-file"></span>  DesignXML</a>
+</div>
+<div role="tabpanel" class="Tab">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li role="presentation" class="active"><a href="#flow-setting" aria-controls="flow-setting" role="tab" data-toggle="tab">流程配置</a></li>
+        <li role="presentation"><a href="#more-message" aria-controls="more-message" role="tab" data-toggle="tab">明细信息</a></li>
+        <li role="presentation"><a href="#business-object" aria-controls="business-object" role="tab" data-toggle="tab">业务对象</a></li>
+        <li role="presentation"><a href="#group" aria-controls="group" role="tab" data-toggle="tab">组管理</a></li>
+        <li role="presentation"><a href="#limits" aria-controls="limits" role="tab" data-toggle="tab">权限管理</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="flow-setting">
+            <div class="flow-picture">
+                <div class="flow-picture-head">
+                    <span>流程图</span>
+                </div>
+                <div class="flow-picture-body">
+                    <img src="images/flow-picture.png" alt=""/>
+                </div>
+            </div>
+            <div class="flow-accordion">
+                <div class="flow-accordion-head">
+                    <span>流程配置</span>
+                </div>
+                <div class="flow-accordion-body">
+                    <div class="flow-accordion-body-head">
+                        <a class="btn btn-info flow-setting-user"><span class="glyphicon glyphicon-user"></span>  表单人员配置</a>
+                        <a class="btn btn-warning flow-setting-save"><span class="glyphicon glyphicon-floppy-disk"></span>  保存配置</a>
+                    </div>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        全局设置
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                     <div class="well URLForm">
+                                         <table>
+                                             <tr>
+                                                 <td>全局表单：</td>
+                                                 <td>URL表单</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>PC端URL：</td>
+                                                 <td><input type="text" class="form-control"/></td>
+                                             </tr>
+                                         </table>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                       节点人员
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="well node-user">
+                                        用户任务一（user task1）
+                                        <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-plus node-user-add"></span></a>
+                                        <div class="alert alert-danger" role="alert">尚未配置节点人员，请添加人员设置</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        节点属性
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <div class="well node-attr1">
+                                        <p>批量勾选：</p>
+                                        <div>
+                                            <input type="checkbox"/>正常跳转
+                                            <input type="checkbox"/>自由跳转
+                                            <input type="checkbox"/>选择路径跳转
+                                            <input type="checkbox"/>内部消息
+                                            <input type="checkbox"/>邮件
+                                            <input type="checkbox"/>驳回后返回
+                                            <input type="checkbox"/>执行人为空时跳过
+                                        </div>
+                                    </div>
+                                    <div class="well node-attr2">
+                                        <p>用户任务1</p>
+                                        <table>
+                                            <tr>
+                                                <td><span>跳转类型：</span></td>
+                                                <td>
+                                                    <input type="checkbox"/>正常跳转
+                                                    <input type="checkbox"/>自由跳转
+                                                    <input type="checkbox"/>选择路径跳转
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>通知类型：</span></td>
+                                                <td>
+                                                    <input type="checkbox"/>内部消息
+                                                    <input type="checkbox"/>邮件
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>属性设置：</span></td>
+                                                <td>
+                                                    <a class="btn btn-info">执行人为空时跳过</a>
+                                                    <a class="btn btn-info">是否弹窗</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <input type="radio"/>驳回后按流程图执行
+                                                    <input type="radio"/>驳回后直接返回
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="bohuiren">驳回处理人模式：</span></td>
+                                                <td>
+                                                    <input type="radio"/>驳回历史处理人
+                                                    <input type="radio"/>驳回节点配置人
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>驳回节点：</span></td>
+                                                <td>
+                                                    <input type="text" class="form-control node-attr2-return" placeholder="驳回节点"/>
+                                                    <a class="btn btn-info">是否弹窗</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>前置处理器：</span></td>
+                                                <td><input type="text" class="form-control node-attr2-first" placeholder="前置处理器"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>后置处理器：</span></td>
+                                                <td><input type="text" class="form-control node-attr2-last" placeholder="后置处理器"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>审批期限：</span></td>
+                                                <td>
+                                                    <input type="radio"/>工作日
+                                                    <input type="radio"/>日历日
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <input type="text" class="node-attr2-day"/>天
+                                                    <select name="" id="" class="node-attr2-hour">
+                                                        <option value="">0小时</option>
+                                                        <option value="">1小时</option>
+                                                        <option value="">2小时</option>
+                                                        <option value="">3小时</option>
+                                                        <option value="">4小时</option>
+                                                        <option value="">5小时</option>
+                                                        <option value="">6小时</option>
+                                                    </select>小时
+                                                    <select name="" id="" class="node-attr2-hour">
+                                                        <option value="">0分</option>
+                                                        <option value="">1分</option>
+                                                        <option value="">2分</option>
+                                                        <option value="">3分</option>
+                                                        <option value="">4分</option>
+                                                        <option value="">5分</option>
+                                                        <option value="">10分</option>
+                                                    </select>分
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        节点按钮
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                   <div class="well node-btn">
+                                       <a class="btn btn-warning nodeBtn-editBtn" style="float: right"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="more-message">
+            <div class="table-responsive more-message-table-box">
+                <table class="table table-striped table-hover table-bordered" id="more-message-table">
+                    <tr>
+                        <td><span>流程名称：</span></td>
+                        <td>12345677</td>
+                        <td><span>流程业务主键：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                    <tr>
+                        <td><span>流程描述：</span></td>
+                        <td>12345677</td>
+                        <td><span>创建时间：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                    <tr>
+                        <td><span>流程状态：</span></td>
+                        <td>12345677</td>
+                        <td><span>更新时间：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                    <tr>
+                        <td><span>BPMN流程定义ID：</span></td>
+                        <td>12345677</td>
+                        <td><span>BPMN流程发布ID：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                    <tr>
+                        <td><span>版本-是否主版本：</span></td>
+                        <td>12345677</td>
+                        <td><span>测试状态：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                    <tr>
+                        <td><span>版本-当前版本号：</span></td>
+                        <td>12345677</td>
+                        <td><span>版本-主版本流程ID：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                    <tr>
+                        <td><span>版本-变更理由：</span></td>
+                        <td>12345677</td>
+                        <td><span>流程定义ID：</span></td>
+                        <td>12345677</td>
+                    </tr>
+                </table>
+                <div class="more-message-table-footer">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="business-object">
+            <div class="business-object-body">
+                <div class="business-object-header">
+                    <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-floppy-disk"></span>  保存</a>
+                    <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-repeat"></span>  重置</a>
+                    <a class="empty"><input type="checkbox"/>清空已配置的表单</a>
+                </div>
+                <div class="business-object-header2">
+                    <b><span class="glyphicon glyphicon-file"></span>  BO绑定</b>
+                </div>
+                <div class="table-responsive business-object-table-box">
+                    <div class="business-object-table-top">
+                        <p>业务数据保存方式：业务表
+                            <a class="btn btn-info btn-xs business-object-btn"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                        </p>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered" id="business-object-table">
+                        <thead>
+                        <tr role="row">
+                            <th>
+                                描述
+                            </th>
+                            <th>
+                                别名
+                            </th>
+                            <th>
+                                操作
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>合同业务对象</td>
+                            <td>1234567</td>
+                            <td>
+                                <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>外表业务对象</td>
+                            <td>1234567</td>
+                            <td>
+                                <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tbody id="hide-department">
+                        <tr style="display:none" id="hide-department-tr">
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td><input value='' type='text' class="form-control"></td>
+                            <td class="edit-td">
+                                <div class="user-btnGroup1">
+                                <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                                <a class="btn btn-danger btn-xs user-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                            </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="business-object-table-footer">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">下一页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="group">
+            <div class="table-responsive group-table-box">
+                <table class="table table-striped table-bordered" id="group-table">
+                    <thead>
+                    <tr role="row">
+                        <th>
+                            组编号
+                        </th>
+                        <th>
+                            组名称
+                        </th>
+                        <th>
+                            创建者
+                        </th>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            修改者
+                        </th>
+                        <th>
+                            修改时间
+                        </th>
+                        <th>
+                            编辑
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="show-group">
+                    <tr>
+                        <td>12</td>
+                        <td>开发2组</td>
+                        <td>邓超</td>
+                        <td>2017/4/5</td>
+                        <td>郑恺</td>
+                        <td>2017/7/17</td>
+                        <td class="edit-td">
+                            <div class="user-btnGroup1" style="display:none">
+                                <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                                <a class="btn btn-success btn-xs user-edit-delete"><span class="glyphicon glyphicon-remove"></span>  取消</a>
+                            </div>
+                            <div class="user-btnGroup2">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs group-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs group-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>开发2组</td>
+                        <td>邓超</td>
+                        <td>2017/4/5</td>
+                        <td>郑恺</td>
+                        <td>2017/7/17</td>
+                        <td class="edit-td"><div class="user-btnGroup1" style="display:none">
+                            <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                            <a class="btn btn-success btn-xs user-edit-delete"><span class="glyphicon glyphicon-remove"></span>  取消</a>
+                        </div>
+                            <div class="user-btnGroup2">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs group-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs group-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>开发2组</td>
+                        <td>邓超</td>
+                        <td>2017/4/5</td>
+                        <td>郑恺</td>
+                        <td>2017/7/17</td>
+                        <td class="edit-td"><div class="user-btnGroup1" style="display:none">
+                            <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                            <a class="btn btn-success btn-xs user-edit-delete"><span class="glyphicon glyphicon-remove"></span>  取消</a>
+                        </div>
+                            <div class="user-btnGroup2">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs group-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs group-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>开发2组</td>
+                        <td>邓超</td>
+                        <td>2017/4/5</td>
+                        <td>郑恺</td>
+                        <td>2017/7/17</td>
+                        <td class="edit-td"><div class="user-btnGroup1" style="display:none">
+                            <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                            <a class="btn btn-success btn-xs user-edit-delete"><span class="glyphicon glyphicon-remove"></span>  取消</a>
+                        </div>
+                            <div class="user-btnGroup2">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs group-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs group-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>开发2组</td>
+                        <td>邓超</td>
+                        <td>2017/4/5</td>
+                        <td>郑恺</td>
+                        <td>2017/7/17</td>
+                        <td class="edit-td"><div class="user-btnGroup1" style="display:none">
+                            <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                            <a class="btn btn-success btn-xs user-edit-delete"><span class="glyphicon glyphicon-remove"></span>  取消</a>
+                        </div>
+                            <div class="user-btnGroup2">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs group-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs group-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>开发2组</td>
+                        <td>邓超</td>
+                        <td>2017/4/5</td>
+                        <td>郑恺</td>
+                        <td>2017/7/17</td>
+                        <td class="edit-td"><div class="user-btnGroup1" style="display:none">
+                            <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                            <a class="btn btn-success btn-xs user-edit-delete"><span class="glyphicon glyphicon-remove"></span>  取消</a>
+                        </div>
+                            <div class="user-btnGroup2">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs group-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs group-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tbody id="hide-group">
+                    <tr style="display:none" id="hide-group-tr">
+                        <td><input value='' type='text' class="form-control"></td>
+                        <td><input value='' type='text' class="form-control"></td>
+                        <td><input value='' type='text' class="form-control"></td>
+                        <td><input value='' type='text' class="form-control"></td>
+                        <td><input value='' type='text' class="form-control"></td>
+                        <td><input value='' type='text' class="form-control"></td>
+                        <td class="edit-td"><div class="user-btnGroup1">
+                            <a class="btn btn-primary btn-xs user-save"><span class="glyphicon glyphicon-edit"></span>  保存</a>
+                            <a class="btn btn-danger btn-xs user-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                        </div>
+                            <div class="user-btnGroup2" style="display:none">
+                                <a class="btn btn-info btn-xs user-edit"><span class="glyphicon glyphicon-edit"></span>  编辑</a>
+                                <a class="btn btn-danger btn-xs user-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                                <a class="btn btn-warning btn-xs department-add"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+                                <a class="btn btn-success btn-xs group-member"><span class="glyphicon glyphicon-star-empty"></span>  显示成员</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="table-footer">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="limits">
+        </div>
+    </div>
+</div>
+<div class="flow-setting-addUser">
+    <div class="flow-setting-addUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  节点人员条件</a>
+        <button type="button" class="close flow-setting-addUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="flow-setting-addUser-body">
+        <p><span class="glyphicon glyphicon-edit"></span>  人员设置</p>
+        <div>
+            <a class="btn btn-info flow-setting-addUser-btn"><span class="glyphicon glyphicon-plus"></span>  添加</a>
+            <a class="btn btn-warning flow-setting-addUser-view"><span class="glyphicon glyphicon-play-circle"></span>  预览</a>
+        </div>
+        <table class="table table-striped table-hover table-bordered" id="flow-setting-addUser-table">
+            <thead>
+            <tr role="row">
+                <th>
+                    用户类型
+                </th>
+                <th>
+                    用户来自
+                </th>
+                <th>
+                    抽取用户
+                </th>
+                <th>
+                    运算类型
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+            </thead>
+
+            <tbody id="flow-setting-show-user">
+            <tr>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='用户'>用户</option>
+                        <option value='人员脚本'>人员脚本</option>
+                        <option value='脚本'>脚本</option>
+                        <option value='相同节点执行人'>相同节点执行人</option>
+                        <option value='流程实例审批人'>流程实例审批人</option>
+                    </select>
+                </td>
+                <td><a class="btn btn-info btn-xs flow-setting-choice">选择</a>发起人</td>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='不抽取'>不抽取</option>
+                        <option value='抽取'>抽取</option>
+                    </select>
+                </td>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='或'>或</option>
+                        <option value='与'>与</option>
+                        <option value='排除'>排除</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="user-btnGroup2">
+                        <a class="btn btn-info btn-xs flow-setting-up"><span class="glyphicon glyphicon-chevron-up"></span>  上移</a>
+                        <a class="btn btn-warning btn-xs flow-setting-down"><span class="glyphicon glyphicon-chevron-down"></span>  下移</a>
+                        <a class="btn btn-danger btn-xs flow-setting-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='用户'>用户</option>
+                        <option value='人员脚本'>人员脚本</option>
+                        <option value='脚本'>脚本</option>
+                        <option value='相同节点执行人'>相同节点执行人</option>
+                        <option value='流程实例审批人'>流程实例审批人</option>
+                    </select>
+                </td>
+                <td><a class="btn btn-info btn-xs flow-setting-choice">选择</a>发起人</td>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='不抽取'>不抽取</option>
+                        <option value='抽取'>抽取</option>
+                    </select>
+                </td>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='或'>或</option>
+                        <option value='与'>与</option>
+                        <option value='排除'>排除</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="user-btnGroup2">
+                        <a class="btn btn-info btn-xs flow-setting-up"><span class="glyphicon glyphicon-chevron-up"></span>  上移</a>
+                        <a class="btn btn-warning btn-xs flow-setting-down"><span class="glyphicon glyphicon-chevron-down"></span>  下移</a>
+                        <a class="btn btn-danger btn-xs flow-setting-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            <tbody id="flow-setting-hide-user">
+            <tr style="display:none" id="flow-setting-hide_tr">
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                    <option value='用户'>用户</option>
+                    <option value='人员脚本'>人员脚本</option>
+                    <option value='脚本'>脚本</option>
+                    <option value='相同节点执行人'>相同节点执行人</option>
+                    <option value='流程实例审批人'>流程实例审批人</option>
+                    </select>
+                </td>
+                <td><a class="btn btn-info btn-xs flow-setting-choice">选择</a>发起人</td>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='不抽取'>不抽取</option>
+                        <option value='抽取'>抽取</option>
+                    </select>
+                </td>
+                <td class="edit-select">
+                    <select name='' class='form-control select-control' type='text'>
+                        <option value='或'>或</option>
+                        <option value='与'>与</option>
+                        <option value='排除'>排除</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="user-btnGroup2">
+                        <a class="btn btn-info btn-xs flow-setting-up"><span class="glyphicon glyphicon-chevron-up"></span>  上移</a>
+                        <a class="btn btn-warning btn-xs flow-setting-down"><span class="glyphicon glyphicon-chevron-down"></span>  下移</a>
+                        <a class="btn btn-danger btn-xs flow-setting-delete"><span class="glyphicon glyphicon-remove"></span>  删除</a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="addUser-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="flow-setting-nodeUser">
+    <div class="flow-setting-nodeUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择器</a>
+        <button type="button" class="close flow-setting-nodeUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="flow-setting-nodeUser-body">
+        <table>
+            <tr>
+                <td><span>用户：</span></td>
+                <td>
+                    <input type="radio"/>发起人
+                    <input type="radio" id="nodeUser-radio" name="nodeUser-radio"/>指定用户
+                </td>
+            </tr>
+            <tr class="nodeUser-hide">
+                <td><span>指定用户：</span></td>
+                <td>
+                    <input type="text" class="form-control nodeUser-input"/>
+                    <a class="btn btn-info btn-xs nodeUser-body-choose-btn">选择用户</a>
+                </td>
+            </tr>
+        </table>
+        <div class="nodeUser-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="flow-setting-nodeUser-choose">
+    <div class="flow-setting-nodeUser-choose-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close flow-setting-nodeUser-choose-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="flow-setting-nodeUser-choose-body">
+        <div class="nodeUser-choose-tree">
+            <div id="jstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="j1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="j1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="j1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="j1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="j1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="j1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="nodeUser-choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="flow-setting-nodeBtn">
+    <div class="flow-setting-nodeBtn-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  设置按钮</a>
+        <button type="button" class="close flow-setting-nodeBtn-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="flow-setting-nodeBtn-body">
+        <div class="div1">
+            <div class="nodeBtn-title"><a class="btn-list"><span class="glyphicon glyphicon-list-alt"></span>  按钮列表</a></div>
+            <div class="nodeBtn-btn">
+                <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-list-alt"></span>  新建</a>
+                <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-list-alt"></span>  初始化按钮</a>
+                <a class="btn btn-success btn-xs"><span class="glyphicon glyphicon-list-alt"></span>  保存</a>
+            </div>
+            <div class="table-box nodeBtn-table1">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-title">
+                    <tr>
+                        <td>序号</td>
+                        <td>alias</td>
+                        <td>名字</td>
+                        <td>排序</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>admin</td>
+                        <td>八王爷</td>
+                        <td>
+                            <input type="text" class="form-control nodeBtn-btn-input"/>
+                            <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-circle-arrow-up"></span>  上移</a>
+                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-circle-arrow-down"></span>  下移</a>
+                        </td>
+                        <td><a class="btn btn-danger btn-xs nodeBtn-table1-deleteBtn"><span class="glyphicon glyphicon-remove"></span>  删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>admin</td>
+                        <td>八王爷</td>
+                        <td>
+                            <input type="text" class="form-control nodeBtn-btn-input"/>
+                            <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-circle-arrow-up"></span>  上移</a>
+                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-circle-arrow-down"></span>  下移</a>
+                        </td>
+                        <td><a class="btn btn-danger btn-xs nodeBtn-table1-deleteBtn"><span class="glyphicon glyphicon-remove"></span>  删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>admin</td>
+                        <td>八王爷</td>
+                        <td>
+                            <input type="text" class="form-control nodeBtn-btn-input"/>
+                            <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-circle-arrow-up"></span>  上移</a>
+                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-circle-arrow-down"></span>  下移</a>
+                        </td>
+                        <td><a class="btn btn-danger btn-xs nodeBtn-table1-deleteBtn"><span class="glyphicon glyphicon-remove"></span>  删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>admin</td>
+                        <td>八王爷</td>
+                        <td>
+                            <input type="text" class="form-control nodeBtn-btn-input"/>
+                            <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-circle-arrow-up"></span>  上移</a>
+                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-circle-arrow-down"></span>  下移</a>
+                        </td>
+                        <td><a class="btn btn-danger btn-xs nodeBtn-table1-deleteBtn"><span class="glyphicon glyphicon-remove"></span>  删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>admin</td>
+                        <td>八王爷</td>
+                        <td>
+                            <input type="text" class="form-control nodeBtn-btn-input"/>
+                            <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-circle-arrow-up"></span>  上移</a>
+                            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-circle-arrow-down"></span>  下移</a>
+                        </td>
+                        <td><a class="btn btn-danger btn-xs nodeBtn-table1-deleteBtn"><span class="glyphicon glyphicon-remove"></span>  删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="nodeBtn-title"><a class="btn-list"><span class="glyphicon glyphicon-edit"></span>  按钮编辑</a></div>
+            <div class="table-box nodeBtn-table2">
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <td class="word"><b>按钮名称：</b></td>
+                    <td><input type="text" class="form-control must" data-toggle="tooltip" data-placement="right" title="必填"/></td>
+                </tr>
+                <tr>
+                    <td class="word"><b>动作：</b></td>
+                    <td>
+                        <input type="text" class="form-control must" data-toggle="tooltip" data-placement="right" title="必填"/>
+                        <select name="" id="" class="form-control">
+                            <option value="">-请选择-</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="word"><b>前置脚本：<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="JavaScript脚本，在提交前做些处理。"></span></b></td>
+                    <td><input type="text" class="form-control big"/></td>
+                </tr>
+                <tr>
+                    <td class="word"><b>后置脚本：<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="JavaScript脚本，在提交前做些处理。"></span></b></td>
+                    <td><input type="text" class="form-control big"/></td>
+                </tr>
+                <tr>
+                    <td class="word"><b>groovy脚本：<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="JavaScript脚本，在提交前做些处理。"></span></b></td>
+                    <td><input type="text" class="form-control big"/></td>
+                </tr>
+                <tr>
+                    <td class="word"><b>urlForm：<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="JavaScript脚本，在提交前做些处理。"></span></b></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="business-object-window">
+    <div class="business-object-window-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  BO定义选择器</a>
+        <button type="button" class="close business-object-window-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="business-object-window-header2">
+        <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+        <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-repeat"></span>  重置</a>
+    </div>
+    <table class="table1">
+        <tr>
+            <td>别名：</td>
+            <td class="input-width"><input type="text" class="form-control"/></td>
+            <td>表单定义描述：</td>
+            <td><input type="text" class="form-control"/></td>
+        </tr>
+    </table>
+        <div class="business-object-window-table-box table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>别名</td>
+                    <td>描述</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="object-window-table-footer">
+        <ul class="pagination">
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">下一页</a></li>
+        </ul>
+    </div>
+        <div class="nodeUser-choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+</div>
+<script type="text/javascript" src="scripts/javascript.js"></script>
+<script>
+    $(function () {
+        $('.must').tooltip()
+    });
+    $(function () { $('#jstree1').jstree(); });
+</script>
+</body>
+</html>

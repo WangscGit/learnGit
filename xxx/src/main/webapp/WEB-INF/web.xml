@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	<display-name>cms_cloudy</display-name>
+	<!-- 起始欢迎界面 -->
+	<welcome-file-list>
+		<welcome-file>/pages/loginpage/index.jsp</welcome-file>
+	</welcome-file-list>
+ 
+	<!-- 读取spring配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:application.xml,classpath:activiti.cfg.xml</param-value>
+	</context-param>
+	<!-- 设计路径变量值 -->
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>springmvc.root</param-value>
+	</context-param>
+ 
+ 
+	<!-- Spring字符集过滤器 -->
+	<filter>
+		<filter-name>SpringEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SpringEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 配置登录过滤器 -->
+	<filter>
+		<filter-name>login</filter-name>
+		<filter-class>com.cms_cloudy.util.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/pages/data/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/pages/productPage/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/pages/workflowPage/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/pages/loginpage/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/pages/parts/cms-parts-save.jsp</url-pattern>
+		<url-pattern>/pages/parts/cms-parts-add.jsp</url-pattern>
+		<url-pattern>/pages/parts/cms-parts-edit.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 日志记录 -->
+	<context-param>
+		<!-- 日志配置文件路径 -->
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<!-- 日志页面的刷新间隔 -->
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>6000</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+ 
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!--session监听器
+	<listener>
+		<listener-class>com.cms_cloudy.web.controller.SessionListener</listener-class>
+	</listener>-->
+	<!--Session有效期
+	<session-config>
+         <session-timeout>3</session-timeout>
+    </session-config>-->
+	<!-- springMVC核心配置 -->
+	<servlet>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<!--spingMVC的配置路径  -->
+			<param-value>classpath:springmvc/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- Restlet 适配器，主要用于通过Rest API，将Modeler功能加入进来--> 
+	<!-- 	<servlet>      -->
+	<!-- 	<servlet-name>RestletServlet</servlet-name>      -->
+	<!-- 	<servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>     -->
+	<!-- 	 <init-param>         -->
+	<!-- 此处为应用服务器的名称          -->
+	<!-- 	  <param-name>org.restlet.application</param-name>          -->
+	<!-- 	  <param-value>org.activiti.explorer.rest.application.ExplorerRestApplication</param-value>      -->
+	<!-- 	  </init-param>  -->
+	<!-- 	</servlet>  -->
+	<!-- 拦截所有Service目录下的请求  -->
+	<!-- 	<servlet-mapping>      -->
+	<!-- 	<servlet-name>RestletServlet</servlet-name>      -->
+	<!-- 	<url-pattern>/service/* -->
+	<!-- 	</url-pattern>  -->
+	<!-- 	</servlet-mapping> -->
+	<!-- 拦截设置 -->
+	<servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+	</servlet-mapping>
+	<!-- websocket 映射-->
+	<servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>/websocket/*</url-pattern>
+	</servlet-mapping>
+	<!-- 导出拦截 -->
+	<servlet>
+		<servlet-name>export</servlet-name>
+		<servlet-class>com.cms_cloudy.controller.ExcelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>export</servlet-name>
+		<url-pattern>/export</url-pattern>
+	</servlet-mapping>
+	<!-- 复制文件 -->
+	<servlet>
+		<servlet-name>copyPartClassImg</servlet-name>
+		<servlet-class>com.cms_cloudy.util.CopyPartClassImg</servlet-class>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>copyPartClassImg</servlet-name>
+		<url-pattern>/copyPartClassImg</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 错误跳转页面 -->
+	<error-page>
+		<!-- 路径不正确 -->
+		<error-code>404</error-code>
+		<location>/pages/errorpage/404.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- 没有访问权限，访问被禁止 -->
+		<error-code>405</error-code>
+		<location>/pages/errorpage/405.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- 内部错误 -->
+		<error-code>500</error-code>
+		<location>/pages/errorpage/500.jsp</location>
+	</error-page>
+</web-app>

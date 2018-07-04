@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.component.dao.IPartDataDao">  
+
+	<select id="selectPartData" parameterType="String" resultType="java.util.LinkedHashMap">
+    ${sql}
+	</select>
+	<select id="countPartData" parameterType="String" resultType="long">
+    ${sql}
+	</select>
+	<update id="updatePartData" parameterType="String">
+	${sql}
+	</update>
+	<select id="selectPartDataById" parameterType="String" resultType="java.util.LinkedHashMap">
+    ${sql}
+	</select>
+	<select id="selectManufacturer" parameterType="String" resultType="String">
+    ${sql}
+	</select>
+	<select id="selectKeyComponent" parameterType="String" resultType="String">
+    ${sql}
+	</select>
+	<delete id="deletePartData" parameterType="String">
+    ${sql}
+	</delete>
+
+	<insert id="insertPartData" parameterType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+          SELECT @@IDENTITY AS id
+		</selectKey>
+    ${fieldName}
+	</insert>
+
+	<select id="getPartType" parameterType="HashMap" resultType="com.cms_cloudy.database.pojo.PartTypeTree">
+	select  fi.img_url imgUrl,pd.part_type partType,pd.tempPartMark,count(pd.part_type)  coun ,pc.parent_num parentNum,pc.pn_code pnCode from part_data pd left join part_class pc on pd.part_type=pc.part_type left join file_img fi on pc.img_id=fi.id  
+		<if test="sql != null">
+         ${sql}
+		</if>
+   group by pd.part_type,pc.parent_num,pc.pn_code,pd.tempPartMark,fi.img_url
+	</select>
+	<select id="getDirInOROut" parameterType="HashMap" resultType="HashMap">
+	select  distinct DirInOROut from part_data
+	</select>
+	<select id="countAddPartData" parameterType="HashMap" resultType="HashMap">
+	select pd.part_type name,count(pd.part_type) value from part_data pd where pd.CreateDate &gt;=#{startDate} and pd.CreateDate &lt;=#{endDate} group by pd.part_type;
+	</select>
+
+	<select id="countAllPartData" resultType="long">
+	select count(*) from part_data
+	</select>
+
+	<select id="countProductPnByTime" parameterType="HashMap" resultType="long" >
+	select count(distinct pp.PartNumber) from part_data pd left join product_pn pp on pp.PartNumber=pd.PartNumber
+		<where> 
+			<if test="startDate!=null and startDate != ''">
+    	and pp.SelectedTime &gt;=#{startDate}
+			</if> 
+			<if test="endDate!=null and endDate != ''">
+    	and pp.SelectedTime &lt;=#{endDate}
+			</if> 
+		</where>
+	</select>
+
+	<select id="countPpCountry" parameterType="HashMap" resultType="long" >
+	select count(distinct pp.PartNumber) from product_pn pp left join part_data pd on pp.partNumber=pd.partNumber where pd.country ='国产'
+		<if test="startDate!=null and startDate != ''">
+    	and pp.SelectedTime &gt;=#{startDate}
+		</if> 
+		<if test="endDate!=null and endDate != ''">
+    	and pp.SelectedTime &lt;=#{endDate}
+		</if> 
+	</select>
+	<select id="selectProductBomByPn" parameterType="Map" resultType="HashMap" >
+	select pd.id,pd.PartNumber,pd.Part_Type,pd.ITEM,pd.Part_Reference,pd.Value,pd.Country,pp.Numbers,pd.Manufacturer,pd.KeyComponent,pd.Datesheet from product_pn pp left join part_data pd on pp.partNumber=pd.partNumber
+		<where>
+			<if test="productID != null">
+         	pp.productID=#{productID}
+			</if>    	
+		</where>
+    order by pp.id asc
+	</select>
+	<select id="selectDataByPartNumber" parameterType="Map" resultType="HashMap" >
+	select * from product_bom_pn
+		<where>
+			<if test="partNumber != null">
+         	PartNumber=#{partNumber}
+			</if>    	
+		</where>
+    order by productID asc
+	</select>
+	<select id="countPptempPartMark" parameterType="HashMap" resultType="long" >
+	select count(distinct pp.PartNumber) from product_pn pp left join part_data pd on pp.partNumber=pd.partNumber where pd.tempPartMark =0
+		<if test="startDate!=null and startDate != ''">
+    		and pp.SelectedTime &gt;=#{startDate}
+		</if> 
+		<if test="endDate!=null and endDate != ''">
+    		and pp.SelectedTime &lt;=#{endDate}
+		</if> 
+	</select>
+
+	<select id="selectPtByProSelTime" parameterType="HashMap" resultType="com.cms_cloudy.database.pojo.PartTypeTree">
+	select  pd.part_type partType,count(pd.part_type)  coun ,pc.parent_num parentNum,pc.pn_code pnCode from product_pn pp left join  part_data pd on pp.partNumber=pd.partNumber left join part_class pc on pd.part_type=pc.part_type  where pd.part_type!='null' 
+		<if test="startDate!=null and startDate != ''">
+    	and pp.SelectedTime &gt;=#{startDate}
+		</if> 
+		<if test="endDate!=null and endDate != ''">
+    	and pp.SelectedTime &lt;=#{endDate}
+		</if> 
+	 group by pd.part_type,pc.parent_num,pc.pn_code
+	
+	</select>
+
+	<select id="selectPartDataBySearchInp" parameterType="String" resultType="HashMap">
+     select id,PartNumber from part_data 
+		<where>
+			<if test="searchInp!=null">
+          and item LIKE '%${searchInp}%' or Part_Type LIKE '%${searchInp}%' or Manufacturer LIKE '%${searchInp}%' or KeyComponent LIKE '%${searchInp}%' or Datesheet LIKE '%${searchInp}%'
+			</if>
+		</where>
+     order by id desc
+	</select>
+
+	<select id="selectHotSearchFromSelf" parameterType="String" resultType="HashMap">
+     select top 1 pd.id,pd.item,pe.Votes,pd.PartNumber,pd.Part_Type from part_data pd left join Part_Evaluation pe on pd.PartNumber = pe.PartNumber
+		<where>
+			<if test="searchInp!=null">
+          and pd.item LIKE '%${searchInp}%' or pd.Part_Type LIKE '%${searchInp}%' or pd.Manufacturer LIKE '%${searchInp}%' or pd.KeyComponent LIKE '%${searchInp}%' or pd.Datesheet LIKE '%${searchInp}%'
+			</if>
+		</where>
+     order by pe.Votes desc
+	</select>
+	<select id="selectProductBomByBomPn" parameterType="Map" resultType="HashMap" >
+	select pp.id as bomPnId,pp.remark,pd.id,pd.PartNumber,pd.Part_Type,pd.ITEM,pd.Part_Reference,pd.Value,pd.Country,pp.Numbers,pd.Manufacturer,pd.KeyComponent,pd.Datesheet,pp.excel_name,pp.version,pp.productID from product_bom_pn pp left join part_data pd on pp.PartNumber=pd.PartCode
+		<where>
+			<if test="productID != null">
+         	and pp.productID=#{productID}
+			</if>
+			<if test="excelName != null and '' != excelName">
+         	and pp.excel_name=#{excelName}
+			</if>
+			<if test="partNumber != null and '' != partNumber">
+         	and pp.PartNumber=#{partNumber}
+			</if>
+		</where>
+    order by pp.id asc
+	</select>
+	
+	<delete id="deleteProductBomPn" parameterType="com.cms_cloudy.product.pojo.ProductBomPn">
+	delete  from product_bom_pn  where  id=#{id}
+	</delete>
+	<update id="updateProductBomPn" parameterType="com.cms_cloudy.product.pojo.ProductBomPn">
+	update product_bom_pn  set remark=#{remark} where id=#{id}
+	</update>
+	<insert id="insertproductBomPn" parameterType="com.cms_cloudy.product.pojo.ProductBomPn">
+	insert into product_bom_pn values(#{productId},#{partNumber},#{numbers},#{selectedTime},#{excelName},#{excelUrl},#{remark},#{sheetName},#{version})
+	</insert>
+	<select id="checkProductBomByExcelName" parameterType="Map" resultType="com.cms_cloudy.product.pojo.ProductBomPn" >
+	select * from product_bom_pn pp 
+		<where>
+			<if test="excelName != null">
+			and pp.excel_name like ${excelName}   <![CDATA[ escape '\']]>
+			</if>
+			<if test="productId != null">
+			and pp.productId = #{productId}
+			</if>
+		</where>
+  	 order by pp.version DESC
+	</select>
+	<select id="selectAllfieldFromProductBomPn" parameterType="com.cms_cloudy.product.pojo.ProductBomPn" resultType="HashMap" >
+	select pp.id bomPnId,pp.remark,pp.numbers,pd.* from product_bom_pn pp left join part_data pd on pp.PartNumber=pd.PartCode
+		<where>
+			<if test="productId != null">
+         	and pp.productId=#{productId}
+			</if>
+			<if test="excelName != null and '' != excelName">
+         	and pp.excel_name=#{excelName}
+			</if>
+		</where>
+    order by pp.id desc
+	</select>
+	<select id="selectPartCodeByBomPn" parameterType="com.cms_cloudy.product.pojo.ProductBomPn" resultType="HashMap" >
+	select distinct pd.PartCode from product_bom_pn pp left join part_data pd on pp.PartNumber=pd.PartCode
+		<where>
+			<if test="productId != null">
+         	and pp.productId=#{productId}
+			</if>
+			<if test="excelName != null and '' != excelName">
+         	and pp.excel_name=#{excelName}
+			</if>
+		</where>
+	</select>
+	<select id="selectfieldByCode" parameterType="com.cms_cloudy.product.pojo.ProductBomPn" resultType="HashMap" >
+	select pp.id bomPnId,pp.remark,pp.numbers,pd.* from product_bom_pn pp left join part_data pd on pp.PartNumber=pd.PartCode
+		<where>
+			<if test="productId != null">
+         	and pp.productId=#{productId}
+			</if>
+			<if test="excelName != null and '' != excelName">
+         	and pp.excel_name=#{excelName}
+			</if>
+			<if test="partCode != null and '' != partCode">
+         	and pd.PartCode=#{partCode}
+			</if>
+		</where>
+    order by pp.id desc
+	</select>
+	<select id="selectVersion" parameterType="Map" resultType="com.cms_cloudy.product.pojo.ProductBomPn" >
+	select * from product_bom_pn pp 
+		<where>
+			<if test="version != null">
+			and pp.version  &gt; #{version}
+			</if>
+			<if test="productId != null">
+			and pp.productId = #{productId}
+			</if>
+			<if test="excelName != null">
+			and pp.excel_name like ${excelName}
+			</if>
+			<if test="escape != null">
+				escape '\'
+			</if>
+		</where>
+    order by pp.version DESC
+	</select>
+	<update id="updatepbpVersion" parameterType="com.cms_cloudy.product.pojo.ProductBomPn">
+	update product_bom_pn  set version=#{version},excel_name=#{excelName} where id=#{id}
+	</update>
+	<select id="selectHotSearchFromPHTB" parameterType="String" resultType="HashMap">
+     select top 1 pd.id,pd.item,pd.PartNumber,pd.Part_Type from part_data pd
+		<where>
+			<if test="searchInp!=null">
+          and pd.item LIKE '%${searchInp}%' or pd.Part_Type LIKE '%${searchInp}%' or pd.Manufacturer LIKE '%${searchInp}%' or pd.KeyComponent LIKE '%${searchInp}%' or pd.Datesheet LIKE '%${searchInp}%'
+			</if>
+		</where>
+     order by pd.id desc
+	</select>
+	<delete id="deleteProductBomPnByPartNumber" parameterType="long">
+     	delete from product_bom_pn where partNumber = (select partCode from part_Data where id =#{id})
+	</delete>
+</mapper>

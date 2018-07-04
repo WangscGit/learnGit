@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.cms_cloudy.user.dao.IPositionDao">  
+<resultMap id="hrPosition" type="com.cms_cloudy.user.pojo.HrPosition">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="position_name" property="positionName" jdbcType="NVARCHAR" />
+        <result column="position_remark" property="positionRemark" jdbcType="NVARCHAR" />
+        <result column="createuser" property="createuser" jdbcType="NVARCHAR" />
+        <result column="createtime" property="createtime" jdbcType="DATE" />
+        <result column="modifyuser" property="modifyuser" jdbcType="NVARCHAR" />
+        <result column="modifytime" property="modifytime" jdbcType="DATE" />
+</resultMap>
+<sql id="Base_Column_List1">
+     position_name,position_remark,createuser,createtime,modifyuser,modifytime
+</sql>
+<sql id="Base_Column_List2">
+     id,position_name,position_remark,createuser,createtime,modifyuser,modifytime
+</sql>
+<sql id="Base_Column_List3">
+     #{positionName},#{positionRemark},#{createuser},#{createtime,jdbcType=DATE},#{modifyuser},#{modifytime,jdbcType=DATE}
+</sql>
+<select id="selectPositionList" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrPosition">
+     select <include refid="Base_Column_List2"></include>  from Hr_Position 
+       <where>
+          <if test="positionName!=null">
+          and position_name=#{positionName}
+          </if>
+          <if test="id!=null">
+          and id=#{id}
+          </if>
+     </where>
+     order by id asc
+</select>
+<select id="checkPositionName" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrPosition">
+     select <include refid="Base_Column_List2"></include>  from Hr_Position 
+       <where>
+          <if test="checkName!=null">
+          and position_name=#{checkName}
+          </if>
+          <if test="id!=null">
+          and id not in (#{id})
+          </if>
+     </where>
+     order by id asc
+</select>
+<insert id="insertPosition" parameterType="com.cms_cloudy.user.pojo.HrPosition" >
+     insert into Hr_Position(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<update id="updatePosition" parameterType="com.cms_cloudy.user.pojo.HrPosition">
+     update Hr_Position set   position_name=#{positionName}, position_remark=#{positionRemark},createuser=#{createuser}, createtime=#{createtime,jdbcType=DATE},modifyuser=#{modifyuser}, modifytime=#{modifytime,jdbcType=DATE} 
+     where id=#{id}
+</update>
+<delete id="deletePosition" parameterType="int">
+     delete from Hr_Position where id = #{id}
+</delete>
+</mapper>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.user.dao.IHrRightsDao"> 
+
+<sql id="Base_Column_List1">
+     id,rights_Name,rights_Note,parent_Id,is_Data_Rights,url ,create_Date,create_User,modify_User,modify_Date
+</sql>
+<sql id="Base_Column_List2">
+    rights_Name,rights_Note,parent_Id,is_Data_Rights,url,create_Date,create_User,modify_User,modify_Date
+</sql>
+<sql id="Base_Column_List3">
+     #{rightsName},#{rightsNote},#{parentId},#{isDataRights},#{url},#{createDate},#{createUser},#{modifyUser},#{modifyDate}
+</sql>
+
+<select id="selectHrRightsList" parameterType="Map" resultType="com.cms_cloudy.user.pojo.RightsTree">
+     select (case when hrr.parent_Id is null then '0' else hrr.parent_Id end) pId,hrr.id,hrr.rights_Name name,hrr.rights_Note rightsNote,hrr.is_Data_Rights isDataRights,hrr.url menuUrl,hrr.create_Date createDate,hrr.create_User createUser,hrr.modify_User modifyUser,hrr.modify_Date modifyDate from hr_rights  hrr
+     order by id desc
+</select>
+<select id="checkHrRightsForDelete" parameterType="Map" resultType="int">
+     select count(id)  from hr_rights  hrr where hrr.parent_id=#{id}
+</select>
+<insert id="insertHrRights" parameterType="com.cms_cloudy.user.pojo.HrRights">
+	<selectKey resultType="int" order="AFTER" keyProperty="id">
+          SELECT @@IDENTITY AS id
+    </selectKey>
+     insert into hr_rights(<include refid="Base_Column_List2" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<delete id="deleteHrRights" parameterType="Map">
+     delete from hr_rights where id = #{id}
+</delete>
+<select id="checkHrRightsForInsert" parameterType="String" resultType="int">
+     select count(id)  from hr_rights where rights_name=#{rightsName}
+</select>
+<update id="updateHrRights" parameterType="com.cms_cloudy.user.pojo.HrRights">
+     update hr_rights  set  rights_Name=#{rightsName}, is_Data_Rights=#{isDataRights}, url=#{url},rights_Note=#{rightsNote},modify_Date=#{modifyDate},modify_User=#{modifyUser} where id=#{id}
+</update>
+<insert id="insertHrRightsGroup" parameterType="com.cms_cloudy.user.pojo.HrRightsGroup">
+	insert into hr_rights_group (group_Id,rights_Id) values (#{groupId},#{rightsId})
+</insert>
+<delete id="deleteHrRightsGroup" parameterType="com.cms_cloudy.user.pojo.HrRightsGroup">
+	delete from  hr_rights_group   
+	<where>
+		<if test="groupId!=null and groupId != ''">
+    		and group_id=#{groupId} 
+   		</if>
+		<if test="rightsId!=null and rightsId != ''">
+    		and rights_id=#{rightsId}
+   		</if>
+	</where>
+</delete>
+<select id="selectHrRightsByGroupId" parameterType="Map" resultType="com.cms_cloudy.user.pojo.RightsTree">
+	select hrs.id,hrs.rights_Name name,hrs.rights_Note rightsNote,(case when hrs.parent_Id is null then '0' else hrs.parent_Id end) pId,hrs.is_Data_Rights isDataRights,hrs.url menuUrl,hrs.create_Date createDate, hrs.create_User createUser,hrs.modify_User modifyUser,hrs.modify_Date modifyDate,(case when shg.hid is null then 'False' else 'True' end) checked from hr_rights hrs left join  (select hrr.id hid from hr_rights_group hrg left join hr_rights hrr on hrr.id=hrg.rights_Id
+	<where> 
+    	<if test="groupId!=null and groupId != ''">
+    		and hrg.group_id = #{groupId}
+    	</if> 
+  	</where>
+	 ) shg on hrs.id=shg.hid order by hrs.id
+</select>
+
+<select id="selectUserRights" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrRights">
+	select distinct(hr.id),hr.rights_name,hr.rights_note,(case when hr.parent_id in (62,63) then '0' else hr.parent_id end) parent_id,hr.is_data_rights,hr.url,hr.create_date,hr.create_user,hr.modify_user,hr.modify_date from  hr_rights_group hrg left join hr_rights hr on hr.id=hrg.rights_id where hrg.group_id in (select group_id from hr_group_user hgu left join hr_user hu on hgu.user_id=hu.user_id where hu.login_name=#{loginName}) 
+	<if test="isDataRights!=null and isDataRights != ''">
+    		and hr.is_Data_Rights = #{isDataRights}
+    </if>
+    <if test="type!=null and type!=''">
+    		and hr.id not in (62,63)
+    </if>
+    order by hr.Rights_Note
+</select>
+<select id="selectParamConfig" parameterType="Map" resultType="com.cms_cloudy.user.pojo.ParameterConfig">
+	select * from parameter_config pc
+	<where> 
+		<if test="parameterName!=null and parameterName != ''">
+    		pc.parameter_name = #{parameterName}
+    	</if>
+	</where>
+</select>
+<insert id="insertParamConfig" parameterType="com.cms_cloudy.user.pojo.ParameterConfig">
+	insert into parameter_config (parameter_name,parameter_value) values (#{parameterName},#{parameterValue})
+</insert>
+<delete id="deleteParamConfig" parameterType="com.cms_cloudy.user.pojo.ParameterConfig">
+	delete from  parameter_config   
+	<where>
+		<if test="parameterName!=null and parameterName != ''">
+    		and parameter_name=#{parameterName} 
+   		</if>
+	</where>
+</delete>
+</mapper>

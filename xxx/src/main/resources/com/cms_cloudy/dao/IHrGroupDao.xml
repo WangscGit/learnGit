@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.user.dao.IHrGroupDao"> 
+
+<select id="selectOneGroup" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrGroup">
+     select * from Hr_Group where group_id=#{groupId}
+</select>
+
+<select id="selectAllGroup" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrGroup">
+     select *  from Hr_Group  hg order by group_index
+</select>
+
+<select id="checkGroupForinsert" parameterType="String" resultType="int">
+	select count(*) from hr_group hg where hg.group_Name=#{groupName}
+</select>
+
+<delete id="deleteGroup" parameterType="Map">
+     delete from hr_group where group_id = #{groupId}
+</delete>
+
+<update id="updateGroup" parameterType="com.cms_cloudy.user.pojo.HrGroup">
+     update Hr_Group  set  group_Name=#{groupName},modifyuser=#{modifyuser},modifytime=#{modifytime} ,modifyuser_Name=#{modifyuserName},group_Index=#{groupIndex} where group_Id=#{groupId}
+</update>
+
+<insert id="insertGroup" parameterType="com.cms_cloudy.user.pojo.HrGroup">
+     insert into Hr_Group(group_Name,group_State,createuser,modifyuser,createtime,modifytime,createuser_Name,modifyuser_Name,group_Index) values (#{groupName},#{groupState},#{createuser},#{modifyuser},#{createtime},#{modifytime},#{createuserName},#{modifyuserName},#{groupIndex})
+</insert>
+
+<select id="selectAllGroupTree"  resultType="java.util.HashMap">
+     select group_id as id , '-1' as pId , group_Name as name  from Hr_Group  hg 
+    <where>
+    <if test="groupIdList != null">
+          and group_id in 
+          <foreach collection="groupIdList" index="index" item="item" open="(" separator="," close=")">
+		        #{item}
+	      </foreach>
+    </if>
+    </where>
+    order by group_index
+</select>
+
+<select id="selectGroupByUserId" parameterType="long" resultType="java.util.HashMap">
+	select group_id from hr_group_user hgu where hgu.user_id=#{userId}
+</select>
+
+<delete id="deleteUserGroupRelation" parameterType="Map">
+     delete from hr_group_user where user_id = #{userId}
+</delete>
+
+<insert id="insertHrGroupUser" parameterType="Map">
+     insert into hr_group_user(group_id,user_id,group_name) values (#{groupId},#{userId},#{groupName})
+</insert>
+
+<select id="getGroupIds"  parameterType="java.lang.String"  resultType="java.lang.String">
+    select group_id from hr_rights_group where rights_id = (select id from HR_RIGHTS where url = #{url})
+ </select>
+</mapper>

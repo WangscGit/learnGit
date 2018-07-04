@@ -1,0 +1,35 @@
+FILE_TYPE=LIBRARY_PARTS;
+primitive 'AC_HC_74_V1';
+  pin
+    'CLK'<0>:
+      PIN_NUMBER='(3,11)';
+      INPUT_LOAD='(-0.01,0.01)';
+    'D'<0>:
+      PIN_NUMBER='(2,12)';
+      INPUT_LOAD='(-0.01,0.01)';
+    'CLR'<0>:
+      PIN_NUMBER='(1,13)';
+      INPUT_LOAD='(-0.01,0.01)';
+    'Q'<0>:
+      PIN_NUMBER='(5,9)';
+      OUTPUT_LOAD='(1.0,-1.0)';
+    '-Q'<0>:
+      PIN_NUMBER='(6,8)';
+      OUTPUT_LOAD='(1.0,-1.0)';
+    'PRE'<0>:
+      PIN_NUMBER='(4,10)';
+      INPUT_LOAD='(-0.01,0.01)';
+  end_pin;
+  body
+    PART_NAME='AC_HC_74_V1';
+    BODY_NAME='AC_HC_74_V1';
+    JEDEC_TYPE='dip14_3_v1';
+    PHYS_DES_PREFIX='U';
+    CLASS='IC';
+    GROUND_NETS='GND';
+    POWER_PINS='(VCC:14)';
+    POWER_PINS='(GND:7)';
+  end_body;
+end_primitive;
+
+END.

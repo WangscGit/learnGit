@@ -1,0 +1,134 @@
+/*******公共样式*******/
+* {
+    box-sizing: border-box;
+}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{
+    margin: 0;
+    padding: 0;
+}
+body,button,input,select,textarea{
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53;
+}
+body{
+    position: relative;
+}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea{
+    font-size: 100%;
+}
+address,cite,em,var{
+    font-style: normal;
+}
+code,kbd,pre,samp{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+small{
+    font-size: 12px;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a:hover {text-decoration:none;}
+legend{
+    color: #000;
+}
+fieldset,img{
+    border:0;
+    max-width:100%;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.clear{
+    clear: both;
+    float: none;
+    height:0;
+    overflow: hidden;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+/********导航*******/
+.nav-son-box{
+    width:100%;
+    height:150px;
+    background: url("../images/banner.png")no-repeat;
+    background-size: cover;
+    min-width: 1235px;
+}
+.nav .dropdown{
+    width:100px;
+}
+/*.navbar-form{
+    margin-left: 160px;
+}*/
+.nav-son{
+    background-color: transparent;
+}
+.nav-son .navbar-nav-son,.nav-son .navbar-nav-son a,.nav-son .navbar-nav-son .active a{
+    background: transparent;
+}
+.navbar-default .navbar-nav-son > li > a{
+    color: #b9b99b;
+}
+.btn1,.btn2{
+    background: transparent;
+}
+/*********TAB*******/
+#myTab{
+    width:91%;
+    margin: 0 auto;
+}
+#myTab a{
+    color: #000;;
+}
+/*********表格*******/
+.table-responsive{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+    min-width: 1230px;
+    border: 1px solid #000000;
+}
+.tr-number-box{
+    width: 400px;
+    height:50px;
+}
+.tr-number{
+    color:#333;
+    width: 82px;
+}
+.tr-number:hover{
+    color:#333;
+}
+#user-table{
+    border-bottom: 1px solid #ddd;
+}
+#user-table thead{
+    border-top: 2px solid #ddd;
+}
+.soso-user{
+    width: 300px;
+}
+.soso-user>span>span{
+    color: #d9534f;
+}
+#show .form-control{
+    padding:0;
+}
+.select-control{
+    font-size: 12px;
+}
+.table-footer{
+    width:300px;
+    height:60px;
+    margin:0 auto;
+}

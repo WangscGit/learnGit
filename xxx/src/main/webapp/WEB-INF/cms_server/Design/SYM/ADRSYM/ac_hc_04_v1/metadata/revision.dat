@@ -1,0 +1,158 @@
+(Cell	ac_hc_04_v1
+
+	(RevisionInfoBlock	
+
+		(Baselined	0)
+
+		(Revision	1.0)
+
+		(ModificationStatus	NULL)
+
+		(Status	)
+
+		(ErrorStatus	0)
+
+		(CreateInfo	
+
+			(Time	)
+
+			(User	)
+
+			(Path	)
+
+		)
+
+	)
+
+	(Views	
+
+		(View	Symbol
+
+			(Symbols	1
+
+				(Symbol	sym_1
+
+					(Checksum	fcf6b461)
+
+					(RevisionInfoBlock	
+
+						(Baselined	0)
+
+						(Revision	1.0)
+
+						(ModificationStatus	NULL)
+
+						(Status	Created)
+
+						(ErrorStatus	0)
+
+						(CreateInfo	
+
+							(Time	06/23/04,20:00:38)
+
+							(User	Administrator)
+
+							(Path	concept.54ac04discret)
+
+						)
+
+					)
+
+				)
+
+			)
+
+			(Checksum	7d3c0308)
+
+		)
+
+		(View	Chips
+
+			(Checksum	9a0a7212)
+
+			(Primitives	1
+
+				(Primitive	AC_HC_04_V1
+
+					(RevisionInfoBlock	
+
+						(Baselined	0)
+
+						(Revision	1.0)
+
+						(ModificationStatus	NULL)
+
+						(Status	Created)
+
+						(ErrorStatus	0)
+
+						(CreateInfo	
+
+							(Time	06/23/04,20:02:28)
+
+							(User	Administrator)
+
+							(Path	concept.54ac04discret)
+
+						)
+
+					)
+
+					(LogicalPhysicalPartRelation	
+
+						(LogicalPart	AC_HC_04_V1
+
+							(PackType	AC_HC_04_V1)
+
+						)
+
+					)
+
+					(Packages	1
+
+						(FunctionGroups	1
+
+							(FunctionGroup	1[6]
+
+								(Linkages	
+
+									(Linkage	Symbol
+
+										(Name	sym_1)
+
+									)
+
+								)
+
+							)
+
+						)
+
+						(Linkages	)
+
+					)
+
+				)
+
+			)
+
+		)
+
+		(Checksum	df8800ee)
+
+	)
+
+	(VersionInfoBlock	
+
+		(ToolName	PDV)
+
+		(Version	15.20-p003)
+
+		(License	PCB_librarian_expert)
+
+	)
+
+	(Checksum	f0d200ef)
+
+)
+

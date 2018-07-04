@@ -1,0 +1,93 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.capture-uploadWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:90%;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-22%;
+    margin-left: -400px;
+    z-index: 35;
+    display: none;  
+}
+.capture-uploadWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.capture-uploadWindow-header a{
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.capture-uploadWindow-body{
+	width:98%;
+	margin:0 auto;
+}
+.capture-uploadWindow-body table{
+	margin-top:10px;
+}
+.capture-uploadWindow-body table span{
+	float:right;
+}
+.pictureBox{
+	width:100%;
+}
+.pictureLeft{
+	width:40%;
+}
+.capture-uploadWindow-body .pictureBox>div table tr td{
+	border:none;
+}
+.pictureLeft>table{
+	margin-bottom:0;
+}
+.pictureLeft>div{
+	width:100%;
+	height:100px;
+    border:1px solid #ccc;
+}
+.pictureLeft .three{
+	height:150px;
+}
+.pictureLeft b{
+	display:inline-block;
+	padding:5px 10px;
+}
+.pictureRight{
+	width:60%;
+	text-align:center;
+}
+ .uploadFileBtnBox{
+	 display: inline-block;
+    padding: 4px 10px;
+    margin-top:2px;
+    height: 30px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align:center;
+    cursor: pointer;
+    position: relative;
+}
+.uploadFileBtn{
+	width: 75px;
+    height: 30px;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}

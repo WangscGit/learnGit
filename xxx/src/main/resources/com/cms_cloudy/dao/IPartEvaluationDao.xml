@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.component.dao.IPartEvaluationDao">  
+<resultMap id="partEvaluation" type="com.cms_cloudy.component.pojo.PartEvaluationEntity">
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="PartNumber" property="partNumber" jdbcType="NVARCHAR" />
+        <result column="UserName" property="userName" jdbcType="NVARCHAR" />
+        <result column="Eva_Content" property="evaContent" jdbcType="NVARCHAR" />
+        <result column="CreateTime" property="createTime" jdbcType="DATE" />
+        <result column="Votes" property="votes" jdbcType="INTEGER" />
+</resultMap>
+<sql id="Base_Column_List1">
+     PartNumber,UserName,Eva_Content,CreateTime,Votes
+</sql>
+<sql id="Base_Column_List2">
+     ID,PartNumber,UserName,Eva_Content,CreateTime,Votes
+</sql>
+<sql id="Base_Column_List3">
+     #{partNumber},#{userName},#{evaContent},#{createTime},#{votes}
+</sql>
+<select id="selectPartEvaluationList" parameterType="Map" resultType="com.cms_cloudy.component.pojo.PartEvaluationEntity">
+     select <include refid="Base_Column_List2"></include>  from Part_Evaluation 
+     <where>
+          <if test="PartNumber!=null">
+          and PartNumber=#{PartNumber}
+          </if>
+     </where>
+     order by CreateTime desc
+</select>
+<select id="selectPartEvaluationCount" parameterType="Map" resultType="int">
+     select count(1)  from Part_Evaluation 
+     <where>
+          <if test="PartNumber!=null">
+          and PartNumber=#{PartNumber}
+          </if>
+          <if test="Votes == 5">
+          and Votes=5
+          </if>
+          <if test="Votes == 3">
+          and Votes=3
+          </if>
+          <if test="Votes == 1">
+          and Votes=1
+          </if>
+     </where>
+</select>
+<insert id="insertPartEvaluation" parameterType="com.cms_cloudy.component.pojo.PartEvaluationEntity">
+         insert into Part_Evaluation(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<delete id="deletePartEvaluation" parameterType="int">
+     delete from Part_Evaluation where ID = #{id}
+</delete>
+<update id="updatePartEvaluation" parameterType="com.cms_cloudy.component.pojo.PartEvaluationEntity">
+	update Part_Evaluation  set Votes=#{votes},Eva_Content=#{evaContent} where ID = #{id}
+</update>
+</mapper> 

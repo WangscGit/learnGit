@@ -1,0 +1,21 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.selectBox{
+	width:50%;
+	height:400px;
+	margin:0 auto;
+	padding:40px 60px;
+}
+.selectBox span{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+	font-size:15px;
+}
+.selectBox select{
+	width:400px;
+}

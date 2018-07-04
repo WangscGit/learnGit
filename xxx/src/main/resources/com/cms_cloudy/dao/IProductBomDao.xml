@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.product.dao.IProductBomDao">  
+<resultMap id="productBomEntity" type="com.cms_cloudy.product.pojo.ProductBomEntity">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <id column="parent_id" property="parentId" jdbcType="BIGINT" />
+        <id column="node_stage" property="nodeStage" jdbcType="BOOLEAN" />
+        <result column="part_number" property="partNumber" jdbcType="NVARCHAR" />
+        <result column="product_name" property="productName" jdbcType="NVARCHAR" />
+        <result column="product_model" property="productModel" jdbcType="NVARCHAR" />
+        <result column="product_type" property="productType" jdbcType="NVARCHAR" />
+        <result column="product_no" property="productNo" jdbcType="NVARCHAR" />
+        <result column="product_code" property="productCode" jdbcType="NVARCHAR" />
+        <result column="product_stage" property="productStage" jdbcType="NVARCHAR" />
+        <result column="number" property="number" jdbcType="INTEGER" />
+        <result column="version" property="version" jdbcType="NVARCHAR" />
+        <result column="receiver" property="receiver" jdbcType="NVARCHAR" />
+        <result column="receivetime" property="receiveTime" jdbcType="DATE" />
+        <result column="createuser" property="createuser" jdbcType="NVARCHAR" />
+        <result column="createdate" property="createDate" jdbcType="DATE" />
+        <result column="modifyuser" property="modifyuser" jdbcType="NVARCHAR" />
+        <result column="modifydate" property="modifyDate" jdbcType="DATE" />
+        <result column="p_tool" property="pTool" jdbcType="NVARCHAR" />
+</resultMap>
+<sql id="Base_Column_List1">
+     parent_id,node_stage,part_number,product_name,product_model,product_type,product_no,product_code,product_stage,number,version,receiver,receivetime,createuser,createdate,modifyuser,modifydate,p_tool
+</sql>
+<sql id="Base_Column_List2">
+     id,parent_id,node_stage,part_number,product_name,product_model,product_type,product_no,product_code,product_stage,number,version,receiver,receivetime,createuser,createdate,modifyuser,modifydate,p_tool
+</sql>
+<sql id="Base_Column_List3">
+     #{parentId},#{nodeStage},#{partNumber},#{productName},#{productModel},#{productType},#{productNo},#{productCode},#{productStage},#{number},#{version},#{receiver},#{receiveTime,jdbcType=DATE},#{createuser},#{createDate,jdbcType=DATE},#{modifyuser},#{modifyDate,jdbcType=DATE},#{pTool}
+</sql>
+<select id="selectProductBomList" parameterType="Map" resultType="com.cms_cloudy.product.pojo.ProductBomEntity">
+     select <include refid="Base_Column_List2"></include>  from Product_Bom 
+       <where>
+          <if test="parentId!=null">
+          and parent_id=#{parentId}
+          </if>
+          <if test="id!=null">
+          and id=#{id}
+          </if>
+          <if test="receiver!=null">
+          and receiver LIKE '%${receiver}%'
+          </if>
+          <if test="receiverAndLoginName!=null">
+          and receiver LIKE '%${receiverAndLoginName}%' or createuser = #{receiverAndLoginName}
+          </if>
+          <if test="productName!=null">
+          and product_name =#{productName}
+          </if>
+          <if test="productType!=null">
+          and product_type =#{productType}
+          </if>
+          <if test="nodeStage!=null">
+          and node_stage =#{nodeStage}
+          </if>
+          <if test="number!=null">
+          and number =#{number}
+          </if>
+          <if test="version!=null">
+          and version =#{version}
+          </if>
+          <if test="productNo!=null">
+          and product_no =#{productNo}
+          </if>
+     </where>
+     order by id asc
+</select>
+
+<insert id="insertProductPn" parameterType="com.cms_cloudy.product.pojo.ProductPn" >
+     <selectKey resultType="int" order="AFTER" keyProperty="id">
+          SELECT @@IDENTITY AS id
+      </selectKey>
+     insert into product_pn (ProductId,PartNumber,Numbers,SelectedTime,coun) values (#{productId},#{partNumber},#{numbers},#{selectedTime},#{coun})
+</insert>
+
+<select id="checkProductPn" parameterType="Map" resultType="Map">
+	select coun from product_pn where partNumber=#{partNumber} and productId=#{productId}
+</select>
+<update id="updateProductPnCoun" parameterType="com.cms_cloudy.product.pojo.ProductPn">
+     update product_pn set   coun=#{coun} where partNumber=#{partNumber} and productId=#{productId}
+</update>
+<select id="selectProductPnList" parameterType="Map" resultType="com.cms_cloudy.product.pojo.ProductPn">
+	select * from product_pn
+	<where>
+          <if test="productId!=null">
+          and productID=#{productId}
+          </if>
+	</where>
+</select>
+<select id="selectAllParentData" parameterType="Map" resultType="com.cms_cloudy.product.pojo.ProductBomEntity">
+with cte_parent(<include refid="Base_Column_List2"></include>
+)
+as
+(
+    select <include refid="Base_Column_List2"></include>
+    from product_bom
+    <where>
+          <if test="id!=null">
+          and id =#{id}
+          </if>
+   </where>
+    union all
+    select a.id,a.parent_id,a.node_stage,a.part_number,a.product_name,a.product_model,a.product_type,a.product_no,a.product_code,a.product_stage,a.number,a.version,a.receiver,a.receivetime,a.createuser,a.createdate,a.modifyuser,a.modifydate,a.p_tool
+    from product_bom a
+    inner join 
+    cte_parent b
+    on a.id=b.parent_id  
+)                       
+select * from cte_parent;
+</select>
+<select id="selectAllChildData" parameterType="Map" resultType="com.cms_cloudy.product.pojo.ProductBomEntity">
+with CTEGetChild as 
+( 
+select * from product_bom
+ <where>
+          <if test="parentId!=null">
+          and parent_id =#{parentId}
+          </if>
+ </where>
+UNION ALL 
+(SELECT a.* from product_bom as a inner join 
+CTEGetChild as b on a.parent_id=b.id 
+) 
+) 
+SELECT * FROM CTEGetChild
+</select>
+<insert id="insertProductBom" parameterType="com.cms_cloudy.product.pojo.ProductBomEntity">
+     insert into product_bom(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<update id="updateProductBom" parameterType="com.cms_cloudy.product.pojo.ProductBomEntity">
+     update product_bom set   parent_id=#{parentId}, node_stage=#{nodeStage}, part_number=#{partNumber}, product_name=#{productName}, product_model=#{productModel}, 
+     product_type=#{productType}, product_no=#{productNo}, product_code=#{productCode}, product_stage=#{productStage}, number=#{number},
+     version=#{version},p_tool=#{pTool},receiver=#{receiver},receivetime=#{receiveTime,jdbcType=DATE}, createuser=#{createuser}, createdate=#{createDate,jdbcType=DATE},modifyuser=#{modifyuser}, modifydate=#{modifyDate,jdbcType=DATE} 
+     where id=#{id}
+</update>
+<delete id="deleteProductBom" parameterType="int">
+     delete from product_bom where id = #{id}
+</delete>
+<delete id="deleteProductPn" parameterType="int">
+     delete from product_pn where id = #{id}
+</delete>
+<delete id="deleteProductPnByPartNumber" parameterType="long">
+     delete from product_pn where partNumber = (select partNumber from part_Data where id =#{id})
+</delete>
+<delete id="deleteProcessTaskDetailByPartId" parameterType="long">
+     delete from WF_TASK_ENTITY where cdefine4 = #{id}
+</delete>
+<delete id="deleteProductPnByProductId" parameterType="Map">
+     delete from product_pn where productID = #{id} and PartNumber = #{partNumber}
+</delete>
+<delete id="deleteProductBomPnByCondition" parameterType="Map">
+	delete from product_bom_pn where productID = #{productID}
+          <if test="excelName!=null and ''!=excelName">
+          and excel_name =#{excelName}
+          </if>
+</delete>
+</mapper>

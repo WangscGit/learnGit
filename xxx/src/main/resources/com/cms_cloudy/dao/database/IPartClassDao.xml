@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.dao.database.IPartClassDao">
+<resultMap id="PartClass" type="com.cms_cloudy.database.pojo.PartClass">
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="PARENT_NUM" property="parentNum" jdbcType="NVARCHAR" />
+        <result column="CHILD_NUM" property="childNum" jdbcType="NVARCHAR" />
+        <result column="PN_CODE" property="pnCode" jdbcType="NVARCHAR" />
+        <result column="PART_TYPE" property="partType" jdbcType="NVARCHAR" />
+</resultMap>
+<sql id="Base_Column_DataList">
+         #{parentNum}, #{childNum}, #{pnCode}, #{partType},#{imgId},#{enName}
+</sql>
+<sql id="Base_Column_RowList">
+        PARENT_NUM, CHILD_NUM, PN_CODE, PART_TYPE,img_id,en_name
+</sql>
+<sql id="Base_Column_DataList1">
+         #{classId},#{specialPropertie1}, #{specialPropertie2}, #{specialPropertie3}, #{specialPropertie4}, #{specialPropertie5}, #{specialPropertie6}, #{specialPropertie7}, #{specialPropertie8}, #{specialPropertie9}, #{specialPropertie10}, #{specialPropertie11}, #{specialPropertie12}
+</sql>
+<sql id="Base_Column_RowList1">
+        class_Id,special_Propertie1, special_Propertie2, special_Propertie3, special_Propertie4, special_Propertie5, special_Propertie6, special_Propertie7, special_Propertie8, special_Propertie9, special_Propertie10, special_Propertie11, special_Propertie12
+</sql>
+
+<select id="selectAllPartClass" parameterType="java.util.HashMap" resultType="java.util.HashMap"> 
+		select pc.id oid,pc.img_id imgId,fi.img_Url imgUrl,fi.img_Sname imgSname,fi.img_name imgName,pc.en_name enName, (case when pc.parent_Num is null then '0' else pc.parent_Num end) pId,pc.pn_Code id,pc.part_Type name, pc.child_Num childNum,pd.special_propertie1 specialPropertie1,pd.special_propertie2 specialPropertie2,pd.special_propertie3 specialPropertie3,pd.special_propertie4 specialPropertie4,pd.special_propertie5 specialPropertie5,pd.special_propertie6 specialPropertie6,pd.special_propertie7 specialPropertie7,pd.special_propertie8 specialPropertie8,pd.special_propertie9 specialPropertie9,pd.special_propertie10 specialPropertie10,pd.special_propertie11 specialPropertie11,pd.special_propertie12 specialPropertie12 from PART_CLASS pc left join Part_DefineAttributes pd on pc.id=pd.class_id left join file_img fi on pc.img_id=fi.id
+	<where> 
+    	<if test="partType != null and partType != ''">
+        	 and pc.PART_TYPE = #{partType}
+    	</if>
+    	<if test="pnCode != null and pnCode != ''">
+        	 and pc.parent_Num = #{pnCode}
+    	</if>
+    	<if test="parentNode != null and parentNode != ''">
+        	 and pc.parent_Num = null or pc.parent_Num = ''
+    	</if>
+  	</where>
+  	order by convert(int,pc.CHILD_NUM)
+</select>
+
+<update id="updatePartClass" parameterType="com.cms_cloudy.database.pojo.PartClass">
+     update part_class set   PN_CODE=#{pnCode}, PART_TYPE=#{partType}, CHILD_NUM=#{childNum},parent_Num=#{parentNum}
+     <if test="imgId != 0">
+        ,img_id=#{imgId}
+     </if>
+     <if test="enName != null and enName != ''">
+        ,en_name=#{enName}
+     </if>
+   	 where ID=#{id}
+</update>
+
+<delete id="deletePartClass" parameterType="int">
+     delete from part_class  where ID=#{id}
+</delete>
+
+<insert id="insertPartClass" parameterType="com.cms_cloudy.database.pojo.PartClass" >
+     <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+          SELECT @@IDENTITY AS id
+      </selectKey>
+     insert into part_class(<include refid="Base_Column_RowList" />) values (<include refid="Base_Column_DataList" />)
+</insert>
+
+<insert id="insertPartDefineAttributes" parameterType="com.cms_cloudy.database.pojo.PartDefineAttributes">
+     insert into Part_DefineAttributes(<include refid="Base_Column_RowList1" />) values (<include refid="Base_Column_DataList1" />)
+</insert>
+
+<update id="updatePartDefineAttributes" parameterType="com.cms_cloudy.database.pojo.PartDefineAttributes">
+     update Part_DefineAttributes   set
+     
+     special_propertie1=#{specialPropertie1}, 
+     special_propertie2=#{specialPropertie2}, 
+     special_propertie3=#{specialPropertie3},
+     special_propertie4=#{specialPropertie4},
+     special_propertie5=#{specialPropertie5},
+     special_propertie6=#{specialPropertie6},
+     special_propertie7=#{specialPropertie7},
+     special_propertie8=#{specialPropertie8},
+     special_propertie9=#{specialPropertie9},
+     special_propertie10=#{specialPropertie10},
+     special_propertie11=#{specialPropertie11},
+     special_propertie12=#{specialPropertie12}
+     
+     where Class_ID=#{classId}
+     
+</update>
+
+<select id="selectPartDefineAttributes" parameterType="int" resultType="int"> 
+		select count(1)  from Part_DefineAttributes where class_id=#{classId}
+</select>
+<delete id="deletePartDefineAttributes" parameterType="int">
+     delete from Part_DefineAttributes  where Class_id=#{classId}
+</delete>
+
+<select id="childNumIsRepeat" parameterType="HashMap" resultType="int">
+	select count(1) from Part_Class p where p.parent_Num=#{parentNum} and p.child_Num=#{childNum}
+</select>
+
+<select id="getPnCode" parameterType="HashMap" resultType="HashMap">
+	select p.pn_code pnCode from part_class p where p.parent_num not in
+	<foreach collection="parentNumList" index="index" item="item" open="(" separator="," close=")">
+		#{item}
+	</foreach>
+</select>
+<select id="getAllPnCode" parameterType="HashMap" resultType="HashMap">
+	select p.pn_code pnCode from part_class p 
+	<where> 
+    	<if test="parentNum != null">
+        	p.parent_num = #{parentNum}
+    	</if>
+  	</where>
+</select>
+
+<select id="getNodeByPnCode" parameterType="HashMap" resultType="HashMap">
+	select fi.img_url imgUrl,p.id,p.part_type partType,p.parent_Num parentNum,p.pn_code PnCode from part_class p left join file_img fi on p.img_id=fi.id where p.pn_code = #{pnCode}
+</select>
+
+<insert id="insertFileImg" parameterType="com.cms_cloudy.database.pojo.FileImg" >
+     <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+          SELECT @@IDENTITY AS id
+     </selectKey>
+     insert into File_Img(img_url,img_name,img_sname,create_user,create_time) values (#{imgUrl},#{imgName},#{imgSname},#{createUser},#{createTime})
+</insert>
+<select id="selectImgByName" parameterType="HashMap" resultType="com.cms_cloudy.database.pojo.FileImg">
+	select * from File_Img where img_name=#{imgName}
+</select>
+<delete id="deleteFileImg" parameterType="long">
+     delete from File_Img  where id=#{id}
+</delete>
+</mapper>

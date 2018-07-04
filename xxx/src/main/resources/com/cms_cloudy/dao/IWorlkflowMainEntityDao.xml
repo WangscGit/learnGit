@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="org.activiti.rest.diagram.dao.IWorlkflowMainEntityDao">  
+
+
+<select id="getWfmByProdefId" parameterType="org.activiti.rest.diagram.pojo.WorlkflowMainEntity" resultType="org.activiti.rest.diagram.pojo.WorlkflowMainEntity">
+     select *  from WF_MAIN_ENTITY 
+     <where>
+          <if test="processDefinitionId!=null">
+			and process_Definition_Id=#{processDefinitionId}
+          </if>
+          <if test="id!=null and id!=0">
+			and id=#{id}
+          </if>
+     </where>
+</select>
+<select id="getWteByProInsId" parameterType="org.activiti.rest.diagram.pojo.WorkflowTaskEntitiy" resultType="org.activiti.rest.diagram.pojo.WorkflowTaskEntitiy">
+     select *  from WF_TASK_ENTITY 
+     <where>
+          <if test="cdefine2!=null">
+			and cdefine2=#{cdefine2}
+          </if>
+          <if test="id!=null and id!=0">
+			and id=#{id}
+          </if>
+     </where>
+</select>
+
+<select id="getWteByProInstanceId" parameterType="org.activiti.rest.diagram.pojo.WorkflowTaskEntitiy" resultType="org.activiti.rest.diagram.pojo.WorkflowTaskEntitiy">
+     select *  from WF_TASK_ENTITY 
+     <where>
+          <if test="cdefine2!=null">
+			and cdefine2=#{cdefine2}
+          </if>
+          <if test="id!=null">
+			and id=#{id}
+          </if>
+     </where>
+</select>
+</mapper> 

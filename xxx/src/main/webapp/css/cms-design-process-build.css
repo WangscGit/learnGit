@@ -1,0 +1,88 @@
+.pageBox{
+	width:100%;
+	border:1px solid #ccc;
+	margin-top:30px;
+}
+.top,.creatework{
+	width:100%;	
+}
+.top,.middle{
+	border-bottom:1px solid #ccc;
+	padding-bottom:20px;
+}
+.top p,.middle p,.bottom p{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	padding-left:20px;
+	border-bottom:1px solid #ccc;
+}
+.top p span{
+	color:#2285d3;
+}
+.creatework{
+	height:50px;
+	line-height:50px;
+	padding-left:20px;
+}
+.creatework a{
+	margin-right:5px;
+}
+.topTable,.middleTable{
+	width:96%;
+	margin:0 auto;
+}
+.pageBox .top .topTable tr td{
+	width:25%;
+		vertical-align:middle;
+}
+.topTable td>span{
+	width:100%;
+	display:inline-block;
+	text-align:right;
+}
+.spec a{
+	position:relative;
+}
+.uploadspec{
+	width: 50px;
+    height: 22px;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}
+.spec b{
+	display:inline-block;
+	font-weight:normal;
+	margin-left:5px;
+}
+.messageFind{
+	width:100%;
+	height:60px;
+	padding-left:20px;
+}
+.messageFind input{
+	width:300px;
+	margin-top:6px;
+}
+.messageFind a{
+	height:30px;
+	margin-left:10px;
+	margin-top:8px;
+}
+.bottom{
+	padding-bottom:20px;
+}
+.bottom .more{
+	width:96%;
+	height:100px;
+	line-height:100px;
+	margin:0 auto;
+	margin-top:20px;
+	border:1px solid #ccc;
+	text-align:center;
+}

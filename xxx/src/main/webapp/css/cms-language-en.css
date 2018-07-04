@@ -1,0 +1,215 @@
+/* 元器件页面 */
+.parts-search .view-box{
+    text-align:left;
+}
+.parts-search .view-box-work{
+    padding-left:0px;
+    width:172px;
+}
+.parts-search td a {
+    display: inline-block;
+    margin: 5px 8px 0 10px;
+}
+.parts-search .view-box i{
+	margin: 5px 0px 0 0px;
+}
+/* 元器件五院添加*/
+.parts-add-window-table span, .parts-change-window-table span, .parts-into-window-table span {
+    width: 140px;
+}
+/* 元器件收藏页面 */
+.parts-search .save-table .view-box{
+	text-align:left;
+	padding-left:50px; 
+}
+.parts-search .save-table .view-box-work{
+	padding-left:20px; 
+}
+/* 添加权限 */
+.addlimitBtn-box {
+    width: 465px;
+}
+/* 添加权限下拉 */
+#limitUl{
+	width:130px;
+}
+/* 收藏页面*/
+.parts-search .save-table .view-box {
+	width:200px;
+}
+/* 统计页面Tab */
+.cd-tabs-navigation li a{
+	padding:0 30px;
+}
+/* 产品结构 */
+.attr-message span {
+    width: 150px;
+}
+/* 数据库管理 */
+.data-more .inputBox{
+	margin-top:10px;
+}
+#typeImg{
+	width:100px;
+}
+/* 流程设计按钮 */
+.flow-table .table-title-work {
+    width: 388px;
+}
+/* 元器件详情页表格信息 */
+.partsAddTable .normalAttrs{
+	width:70px;
+} 
+/* 流程中元器件申请表格信息 */
+.shenqingTable .normalAttrs{
+	width:70px;
+}
+/* 流程中元器件申请表格上传原理图符号按钮 */ 
+.symbol {
+    width: 66%;
+}
+/* 流程管理中鼠标滑上流程表单出现的元器件申请下拉 */
+.flow-manage-head ul{
+	width:200px;
+}
+/* 流程模块左边树的宽度 */
+.flow-manage,.flow-daiban ,.flow-yiban ,.flow-monitoring,.flow-parts,.flow-categoryTree{
+    width: 16%;
+    min-width: 205px;
+}
+.flow-manage-right,.flow-daiban-right,.flow-yiban-right,.flow-monitoring-right,.flow-parts-right,.flow-category{
+    width: 81%;
+}
+/* 表格input span媒体查询 */
+@media screen and (min-width:799px) and (max-width:1022px){
+	.daibanTable .daibanBtns,.yibanTable .daibanBtns{
+	width:100px;
+}
+.daibanTable .daibanBtns a,.yibanTable .daibanBtns a{
+	margin-bottom:10px;
+}
+.jiankongBtns {
+    /* width: 100px; */
+}
+.jiankongBtns a{
+    margin-bottom:10px;
+}
+}
+ @media screen and (min-width:1023px) and (max-width:1280px){
+.flow-manage-right,.flow-daiban-right,.flow-yiban-right,.flow-monitoring-right,.flow-parts-right{
+    width: 81%;
+} 
+.flow-view-head-input input,.flow-view-head-input select{
+    width:98px; 
+   }
+.flow-view-head-input .chooseUser{
+	width:300px; 
+}
+.flow-view-head-input .chooseUserBox{
+	width:94px;
+}
+ .flow-daiban-head-input .chooseUserBox,.flow-yiban-head-input .chooseUserBox{
+   width:115px;
+ } 
+ .flow-daiban-head-input .chooseUser, .flow-yiban-head-input .chooseUser{
+	width:302px;
+}
+.daibanTable .daibanBtns,.yibanTable .daibanBtns{
+	width:100px;
+}
+.daibanTable .daibanBtns a,.yibanTable .daibanBtns a{
+	margin-bottom:10px;
+}
+.jiankongBtns {
+    /* width: 100px; */
+}
+.jiankongBtns a{
+    margin-bottom:10px;
+}
+} 
+ @media screen and (min-width:1280px) and (max-width:1366px){
+.flow-manage-right,.flow-daiban-right,.flow-yiban-right,.flow-monitoring-right,.flow-parts-right,.flow-category{
+    width: 82%;
+}
+.flow-view-head-input input,.flow-view-head-input select{
+    width:100px; 
+   }
+.flow-view-head-input span{
+	width:100px;
+    }
+.flow-view-head-input .chooseUser{
+	width:330px; 
+}
+.flow-view-head-input .chooseUserBox{
+	width:120px;
+}
+.flow-daiban-head-input input,.flow-daiban-head-input select,.flow-yiban-head-input input,.flow-yiban-head-input select{
+    width:100px; 
+   }
+.flow-daiban-head-input span,.flow-yiban-head-input span{
+	width:110px;
+    }
+ .flow-daiban-head-input .chooseUserBox, .flow-yiban-head-input .chooseUserBox{
+   width:115px;
+ } 
+ .flow-daiban-head-input .chooseUser, .flow-yiban-head-input .chooseUser{
+	width:302px;
+}
+.jiankongBtns {
+/*     width: 100px; */
+}
+.jiankongBtns a{
+    margin-bottom:10px;
+}
+} 
+ @media screen and (min-width:1367px) and (max-width:1500px){
+.flow-manage-right,.flow-daiban-right,.flow-yiban-right,.flow-monitoring-right,.flow-parts-right{
+    width: 83%;
+}
+.flow-view-head-input input,.flow-view-head-input select{
+    width:110px; 
+   }
+.flow-view-head-input .chooseUser{
+	width:315px;
+}
+   .flow-daiban-head-input input,.flow-daiban-head-input select, .flow-yiban-head-input input,.flow-yiban-head-input select{
+    width:120px; 
+   }
+.flow-daiban-head-input span,.flow-yiban-head-input span{
+	width:110px;
+    }
+} 
+@media screen and (min-width:1500px) {
+.flow-manage-right,.flow-daiban-right,.flow-yiban-right,.flow-monitoring-right,.flow-parts-right{
+    width: 84%;
+}
+.flow-daiban-head-input input,.flow-daiban-head-input select,.flow-yiban-head-input input,.flow-yiban-head-input select{
+    width:140px; 
+     }
+.flow-view-head-input .chooseUser{
+	width:340px; 
+}
+.flow-view-head-input .chooseUserBox{
+	width:120px;
+}
+} 
+/* 消息发布表格某列宽度 */
+.messageword{
+	width:320px;
+}
+/* 元器件修改页pdf宽度 */
+.DatesheetShow{
+	width:220px;
+}
+.partsAddTable .DatesheetShow{
+	width:220px;
+}
+.partsAddTable .valueLength{
+	width:30%;
+}
+.valueLength{
+	width:32%;
+}
+:root .login-div a {
+    margin-top: 5px\9;
+}

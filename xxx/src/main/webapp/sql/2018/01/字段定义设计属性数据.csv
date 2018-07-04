@@ -1,0 +1,7 @@
+﻿ID,FieldName,ShowName,DataType,IsNULL,Description,IsUsed,IsDisplay,IsUpdate,IsAudit,IsSearch,IsMatch,seq_no,type,IsInsert,EnglishName
+510,shape_img,外形图,nvarchar(500),是,外形图,0,0,0,0,0,0,0,3,1,shape Image
+511,size_img,尺寸图,nvarchar(500),是,尺寸图,0,0,0,0,0,0,0,3,1,size Image
+512,characteristic_curve_img,特性曲线图,nvarchar(500),是,特性曲线图,0,0,0,0,0,0,0,3,1,characteristic Curve Image
+513,typical_ap_img,典型应用电路图,nvarchar(500),是,典型应用电路图,0,0,0,0,0,0,0,3,1,Typical Application Circuit Image
+514,schematic_img,原理图符号,nvarchar(500),是,原理图符号,0,0,0,0,0,0,0,3,1,Schematic symbols
+515,ens_img,封装符号,nvarchar(500),是,封装符号,0,0,0,0,0,0,0,3,1,Encapsulation symbol

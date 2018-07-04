@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/jdbc
+    http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+    http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 自动扫描注解的bean -->
+	<context:component-scan base-package="com.cms_cloudy" />
+     <!-- 引入jdbc配置文件 -->  
+     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+               <value>classpath:properties/*.properties</value>
+                <!--要是有多个配置文件，只需在这里继续添加即可 -->
+            </list>
+        </property>
+    </bean>
+    <!-- 导入redis配置文件 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="${redis.pool.maxTotal}" />
+        <property name="maxIdle" value="${redis.pool.maxIdle}" />
+        <property name="minIdle" value="${redis.pool.minIdle}" />
+        <property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
+    </bean>
+    <bean id="jedisConnectionFactory"
+        class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="${redis.host}" />
+        <property name="port" value="${redis.port}" />
+        <property name="timeout" value="${redis.timeout}" />
+        <property name="usePool" value="${redis.usePool}" />
+        <property name="poolConfig" ref="jedisPoolConfig" />
+    </bean>
+    <bean id="stringRedisSerializer"
+        class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
+        <property name="keySerializer" ref="stringRedisSerializer"/>
+        <property name="hashKeySerializer" ref="stringRedisSerializer"/>
+        <property name="valueSerializer" ref="stringRedisSerializer"/>
+    </bean>
+	<!-- 配置数据源 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	   <!-- 使用properties来配置 -->
+		<property name="driverClassName">
+			<value>${jdbc_driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc_url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc_username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc_password}</value>
+		</property>
+		  <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="10"/>
+        <property name="minIdle" value="10"/>
+        <property name="maxActive" value="50"/>
+
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+
+        <property name="validationQuery" value="SELECT 'x'" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。-->
+<!--         <property name="poolPreparedStatements" value="true" /> -->
+<!--         <property name="maxPoolPreparedStatementPerConnectionSize" value="20" /> -->
+
+<!--         配置监控统计拦截的filters -->
+<!--         <property name="filters" value="wall,stat" /> -->
+	</bean>
+    <!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:com/cms_cloudy/dao/**/*.xml"/>  
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+		<!-- <property name="typeAliasesPackage" value="com.tiantian.ckeditor.model" 
+			/> -->
+			  <!-- 配置mybatis分页插件PageHelper -->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <!-- 什么都不配，使用默认的配置 -->
+                        <value></value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+	</bean>
+	<!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
+	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	   	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
+		<property name="basePackage" value="com.cms_cloudy.dao,com.cms_cloudy.component.dao,com.cms_cloudy.upload.dao,com.cms_cloudy.product.dao,com.cms_cloudy.user.dao,com.cms_cloudy.websocket.dao,com.cms_cloudy.message.dao,org.activiti.rest.diagram.dao" />
+	</bean> 
+   <!-- 配置sqlsession 产生这个实例就是通过 sqlsessionTemplate来实现的 -->      
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">  
+    <constructor-arg index="0">  
+    <ref  bean="sqlSessionFactory"/>  
+    </constructor-arg>  
+    </bean> 
+    <!-- 事务 需要三件事才可以  一具体的事务实现着  二事务管理器  三  aop 事务控制  不起作用-->  
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">      
+        <property name="dataSource" ref="dataSource" />      
+    </bean>
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="dataSource"></property>
+</bean>
+    <!-- 事务管理 通知 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 对insert,update,delete 开头的方法进行事务管理,只要有异常就回滚 -->
+            <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <!-- select,count开头的方法,开启只读,提高数据库访问性能 -->
+            <tx:method name="select*" read-only="true"/>
+            <tx:method name="count*" read-only="true"/>
+            <!-- 对其他方法 使用默认的事务管理 -->
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+     <!-- 事务 aop 配置 -->
+    <aop:config>
+        <aop:pointcut id="serviceMethods" expression="execution(* com.cms_cloudy.service..*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
+    </aop:config>
+    <!-- 配置使Spring采用CGLIB代理 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+     <!-- 使用全注释事务 -->  
+    <tx:annotation-driven transaction-manager="transactionManager" />  
+    <!-- Cache配置 -->
+    <cache:annotation-driven cache-manager="cacheManager"/>
+    <bean id="ehCacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+          p:configLocation="classpath:ehcache.xml"/>
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
+          p:cacheManager-ref="ehCacheManagerFactory"/>
+</beans>

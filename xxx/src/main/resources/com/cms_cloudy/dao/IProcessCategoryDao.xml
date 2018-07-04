@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="org.activiti.rest.diagram.dao.IProcessCategoryDao">  
+	<resultMap id="processCategory" type="org.activiti.rest.diagram.pojo.ProcessCategory">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="category_sign" property="categorySign" jdbcType="NVARCHAR" />
+		<result column="category_name" property="categoryName" jdbcType="NVARCHAR" />
+		<result column="create_person" property="createPerson" jdbcType="NVARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="DATE" />
+		<result column="remark" property="remark" jdbcType="NVARCHAR" />
+		<result column="cdefine1" property="cdefine1" jdbcType="NVARCHAR" />
+		<result column="cdefine2" property="cdefine2" jdbcType="NVARCHAR" />
+		<result column="cdefine3" property="cdefine3" jdbcType="NVARCHAR" />
+		<result column="cdefine4" property="cdefine4" jdbcType="INTEGER" />
+		<result column="cdefine5" property="cdefine5" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Base_Column_List1">
+     category_sign,category_name,create_person,create_time,remark,cdefine1,cdefine2,cdefine3,cdefine4,cdefine5
+	</sql>
+	<sql id="Base_Column_List2">
+     id,category_sign,category_name,create_person,create_time,remark,cdefine1,cdefine2,cdefine3,cdefine4,cdefine5
+	</sql>
+	<sql id="Base_Column_List3">
+     #{categorySign},#{categoryName},#{createPerson},#{createTime},#{remark},#{cdefine1},#{cdefine2},#{cdefine3},#{cdefine4},#{cdefine5}
+	</sql>
+	<select id="selectProcessCategoryList" parameterType="Map" resultType="org.activiti.rest.diagram.pojo.ProcessCategory">
+		select <include refid="Base_Column_List2"></include>  from Process_Category 
+      <where>
+          <if test="0!=id and null != id">
+          and id=#{id}
+          </if>
+          <if test="null != sign">
+          and category_sign=#{sign}
+          </if>
+	</where>
+     order by id desc
+	</select>
+	<insert id="insertProcessCategory" parameterType="org.activiti.rest.diagram.pojo.ProcessCategory">
+		insert into Process_Category(<include refid="Base_Column_List1" />) values (
+		<include refid="Base_Column_List3" />)
+	</insert>
+	<update id="updateProcessCategory" parameterType="org.activiti.rest.diagram.pojo.ProcessCategory">
+     update Process_Category set   category_sign=#{categorySign}, category_name=#{categoryName},create_person=#{createPerson}, create_time=#{createTime},remark=#{remark}, cdefine1=#{cdefine1},cdefine2=#{cdefine2}, cdefine3=#{cdefine3},cdefine4=#{cdefine4}, cdefine5=#{cdefine5} 
+     where id=#{id}
+	</update>
+	<delete id="deleteProcessCategory" parameterType="long">
+     delete from Process_Category where id = #{id}
+	</delete>
+</mapper> 

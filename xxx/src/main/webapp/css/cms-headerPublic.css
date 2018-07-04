@@ -1,0 +1,420 @@
+/*******高级查询框*******/
+#search-box{
+	width:700px;
+	background: #fff;
+}
+/******高级查询上下左右居中******/
+#search-box{
+    height:380px;
+    position: absolute;
+    top:-550px;
+    left:0;
+    border-radius:6px;
+}
+ #search-box{
+ height:340px;
+	top:0;
+}
+#login-box-out1,#login-box-out,#search-box-out{
+    width:504px;
+    height:384px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top: -192px;
+    margin-left:-252px;
+}
+#search-box-out{
+	width:704px;
+	height:344px;
+	margin-top: -172px;
+    margin-left:-350px;
+}
+.search-title b{
+	display:block;
+	width:315px;
+	height:50px;
+	margin: 0 auto;
+	padding-top: 27px;
+	font-size:16px;
+	text-align:center;
+}
+.search-group{
+	padding-top:30px;
+	width:90%;
+	margin:0 auto;
+}
+.search-group select{
+	font-size:13px;
+	padding:0;
+}
+.search-group table{
+	width:94%;
+	margin:0 auto;
+}
+.SearchMore-btn{
+	display:block;
+	width:100%;
+	height:30px;
+}
+.search-group table tr .searchEmpty{
+	padding-top:14px;
+	padding-right:0;
+}
+.SearchMore-btn{
+    display: block;
+    width:95%;
+    height:40px;
+    line-height: 40px;
+    background: #688ac8;
+    color:#fff;
+    font-size: 1.2em;
+    text-align: center;
+     border-radius:5px;
+}
+.SearchMore-btn{
+	width:60%;
+	margin-top:32px;
+	margin-left:118px;
+	background: #d9534f;
+}
+.SearchMore-btn:hover{
+	color:#fff;
+	background: #d43f3a;
+}
+ .index-nav { 
+     background: transparent; 
+ }
+.index-nav>li{
+    float:left;
+   margin-left:20px;
+}
+.navbar-default .index-nav>li>a{
+    color: #fff;
+    padding:15px 0 0 15px;   
+    background:transparent;
+}
+.nav-son-box .navbar-default .navbar-nav > .active1 > a{
+	color:#fff;
+}
+.navLi>ul{
+   background:#4c4c4c; 
+    position:absolute;
+    padding-left:16px;
+    width:160px; 
+    display: none; 
+    z-index:100;
+}
+.navLi>ul>li{
+	height:20px;
+}
+.navLi>ul>li>a{
+	height:20px;
+}
+.navLi>ul a{
+    padding:0 5px;
+    color: #fff;
+}
+.navLi>ul a:hover{
+	border:1px dotted #fff;
+}
+.nav > li > a:hover{
+  text-decoration: none;
+  background-color: #eee;
+  color:#333;
+}
+ .navbar-header .navbar-brand > img{
+	filter:alpha(opacity=50); 
+	-moz-opacity:0.7;
+	 -khtml-opacity: 0.7;
+	  opacity: 0.7;
+	  border-radius:20px;
+	  margin-top:-22px;
+}
+/* *******固定住登录按钮的位置****** */ 
+ .no-message{
+    /* width: 300px; */
+    height: 44px;
+    position:absolute;
+    top:-44px;
+    right:53px;
+    margin-top:-5px;
+}
+.no-message>div .num-group{
+    width: 26px;
+    height: 36px;
+    display: block;
+    float: left;
+    position: relative;
+}
+.no-message b{
+    float: left;
+    display: block;
+    width: 60px;
+    height: 40px;
+    line-height: 32px;
+    color: #fff;
+    overflow: hidden;
+}
+.no-message b:hover{
+    color: #fff;
+}
+.no-message .span1{
+    background: url("/cms_cloudy/images/message.png") no-repeat center;
+}
+.no-message .span2{
+    background: url("/cms_cloudy/images/work.png") no-repeat center;
+}
+.no-message .badge-box{
+    display:inline-block; 
+	width:24px;
+	height:20px;
+	margin:0;
+	text-align:center;
+	background:#f05920;
+	border-radius: 10px;
+	 -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+	position:absolute;
+	left:-8px;
+    z-index:19;
+    behavior: url(/cms_cloudy/scripts/ie-css3.htc) ;
+	over-flow:hidden;
+} 
+.index-nav .dropdown{
+    width: 100px;
+}
+.navbar-nav{
+	margin-top:0px;
+}
+ .no-message .change-language{
+   display:block;
+   width:100px;
+   color:#b9b9b9;
+   margin-top:13px;
+   /* margin-right:20px; */
+ }
+  .no-message .change-language a{
+  color:#b9b9b9;
+  margin-left:2px;
+  font-weight:bold;
+  }
+  .no-message .change-language a:hover{
+     color:#fff;
+  }
+  .no-message .change-language img{
+    margin-top:-2.5px;
+  }
+  .index-login {
+    width: 100px;
+    height:44px;
+}
+/*******其他页登录按钮*******/
+ .login-div{
+    margin-top:8px;
+    height:44px;
+    margin-right:-25px;
+}
+.login-div .dropdown{
+	height:36px;
+	margin-right:12px;	
+	margin-top:-2px;
+}
+.login-div button{
+	height:36px;
+	padding:1px 0;
+	background:#eee;
+}
+.login-div a{
+    display: inline-block;
+    margin-left: 4%;
+    cursor:pointer;
+}
+.login-div .btn1{
+	width:60px;
+}
+.change-language a {
+    margin-left: 2px;
+    cursor: pointer;
+}
+.btn2,.btn1{
+    background-color: #1d1d1d;
+} 
+.btn1 b{
+	font-weight:normal;
+}
+/* ****banner搜索框****** */
+.navbar-form .form-group{
+	display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    border:1px solid #b9b9b9;
+    border-radius:6px;
+    width:200px;
+}
+.form-group input{
+	background:none;
+	width:400px;
+	height:38px;
+	border:none;
+	color:#666;
+	padding:4px 10px;
+}
+	#model:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #b9b9b9; opacity:1; 
+}
+#model::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #b9b9b9;opacity:1;
+}
+#model:-ms-input-placeholder{
+    color: #b9b9b9;opacity:1;
+}
+#model::-webkit-input-placeholder{
+    color: #b9b9b9;opacity:1;
+}
+.form-group div{
+	width:28px;
+	height:34px;
+	margin-top:4px;
+	cursor:pointer;
+}
+.form-group i{
+	display:inline-block;
+	width:23px;
+	height:23px;
+	margin-top:4px;
+	margin-right:7px;
+	background:url("/cms_cloudy/images/cssJL.png") no-repeat;
+	background-position: -362px -112px;
+}
+/*********TAB*******/
+#main{
+	min-width:1235px;
+}
+#myTab{
+    width:91.1%;
+    margin: 0 auto;
+}
+#myTab a{
+    color: #000;;
+}
+.Tab{
+    margin-top: 30px;
+}
+.nav-son-outbox{
+	position:fixed;
+    top: 0;
+    left: 0;
+     right:0; 
+    height:150px;
+     z-index: 20;
+}
+.nav-son-box{
+    width:100%;
+    /* max-width:100%; */
+    height:146px;
+    background: url("../images/banner123.png") no-repeat;
+    background-size: cover;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/cms_cloudy/images/banner.png',sizingMethod='scale');  
+ }
+ .nav .dropdown{
+    width:100px;
+}
+.active1 a{
+	background:transparent;
+}
+.nav-son{
+    background-color: transparent;
+    padding:0 30px 0 60px;
+}
+.nav-son .navbar-nav-son,.nav-son .navbar-nav-son a,.nav-son .navbar-nav-son .active a{
+    background: transparent;
+}
+.navbar-default .navbar-nav-son > li > a{
+    color: #fff;
+}
+.nav-son-box .navbar-default .navbar-nav-son > .active1 a{
+    color: #fff;
+}
+.btn1,.btn2{
+    background: transparent;
+}
+.table-footer{
+	margin:0 auto;
+	width:300px;
+}
+.Header{
+	width:100%;
+	height:140px;
+	border:1px solid #000;
+}
+/*新Header的Css  */
+.CmsHeader{
+	width:100%;
+	height:140px;
+	border:1px solid #ccc;
+}
+.searchBox{
+	height:80px;
+}
+.searchInput{
+	padding-top:13px;
+	width:645px;
+	height:80px;
+	margin-right:40px;
+}
+.menu{
+   height:60px;
+   background:#383838;
+   color:#fff;
+   padding-left:30px;
+}
+.menu>ul{
+	height:60px;
+	margin:0;
+}
+.menu>ul>li{
+	height:60px;
+}
+.menu a{
+	color:#fff;
+}
+.navbar-nav > li > a{
+	line-height:40px;
+	font-size:14px;
+}
+.logoBox{
+	height:80px;
+	width:300px;
+}
+.logoBox img{
+	max-width:100%;
+	max-height:80px;
+}
+.navbar-form .form-group{
+	width:470px;
+	height:40px;
+}
+#SearchMore{
+	height:40px;
+	line-height:27px;
+}
+.loginBox{
+	width:200px;
+	margin-top:20px;
+	margin-right:40px;
+}
+.login-div{
+	margin-right:0;
+	margin-top:4px;
+}
+.login{
+	margin-top:4px;
+}
+.login-div a{
+	margin-top:5px;
+}
+:root .login-div a { margin-top:7px\9; }
+
+

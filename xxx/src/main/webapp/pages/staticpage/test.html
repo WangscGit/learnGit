@@ -1,0 +1,144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=GBK" http-equiv="Content-Type" />
+
+<title>无标题 1</title>
+</head>
+<body>
+<table width="100%" border="1"> 
+<tr> 
+<td width="10%"><table width="100%" height="100%" border="1"> 
+<tr> 
+<td><input type="button" name="Submit3" value="最上" onClick="moveFirst()"></td> 
+</tr> 
+<tr> 
+<td><input type="button" name="Submit" value="向上" onClick="moveUp()"></td> 
+</tr> 
+<tr> 
+<td><input type="button" name="Submit2" value="向下" onClick="moveDown()"></td> 
+</tr> 
+<tr> 
+<td><input type="button" name="Submit4" value="最下" onClick="moveEnd()"></td> 
+</tr> 
+</table></td> 
+<td>
+<table width="100%" border="1" id="DynaTable"><tbody><tr> 
+<td><input type="radio" name="radio1" value="1" onClick="radioChecked(this)"></td> 
+<td>第一个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="2" onClick="radioChecked(this)"></td> 
+<td>第二个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="3" onClick="radioChecked(this)"></td> 
+<td>第三个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="4" onClick="radioChecked(this)"></td> 
+<td>第四个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="5" onClick="radioChecked(this)"></td> 
+<td>第五个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="6" onClick="radioChecked(this)"></td> 
+<td>第六个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="7" onClick="radioChecked(this)"></td> 
+<td>第七个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="8" onClick="radioChecked(this)"></td> 
+<td>第八个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="9" onClick="radioChecked(this)"></td> 
+<td>第九个</td> 
+</tr> 
+<tr> 
+<td><input type="radio" name="radio1" value="10" onClick="radioChecked(this)"></td> 
+<td>第十个</td> 
+</tr> 
+</tbody>
+</table></td> 
+</tr> 
+</table> 
+<script language="javascript"> 
+<!-- 
+var moveRow=false; 
+var moveRadio=false; 
+var rowIndex = 0;
+function radioChecked(obj){ 
+	moveRadio=obj; 
+	moveRow=obj.parentNode.parentNode;
+	var trs =  document.getElementById("DynaTable").rows;
+	for(var i = 0 ;i<trs.length;i++){
+		alert(trs[i].innerHTML);
+	};
+} 
+function moveUp(){ 
+	if(moveRow ){ 
+		var prevRow =moveRow.previousSibling;
+		alert(prevRow.nodeName);
+		while(prevRow.nodeName=='#text'){
+			prevRow=prevRow.previousSibling;
+		}
+		
+		if(prevRow){ 
+		alert(prevRow.innerHTML);
+			document.getElementById("DynaTable").childNodes[0].insertBefore(moveRow,prevRow); 
+			moveRadio.checked=true; 
+		} 
+	} 
+} 
+function moveDown(){ 
+	if(moveRow){ 
+	
+		var nexRow=moveRow.nextSibling; 
+			alert(nexRow.index);
+		alert(document.getElementById("DynaTable").rows.length);
+		while(nexRow.nodeName=='#text'){
+			nexRow=nexRow.nextSibling;
+		}
+			alert(nexRow.innerHTML);
+		if(nexRow){
+		
+			var nnextRow=nexRow.nextSibling; 
+		
+			while(nnextRow.nodeName=='#text'){
+				nnextRow=nnextRow.nextSibling;
+				alert(nnextRow.nodeName);
+				alert(nnextRow.nextSibling);
+			}
+				alert("aaaaaa");
+			if(nnextRow){ 
+				document.getElementById("DynaTable").childNodes[0].insertBefore(moveRow,nnextRow); 
+			}else{ 
+				document.getElementById("DynaTable").childNodes[0].appendChild(moveRow); 
+			} 
+			moveRadio.checked=true; 
+		} 
+	} 
+} 
+function moveEnd(){ 
+	if(moveRow){ 
+		document.getElementById("DynaTable").childNodes[0].appendChild(moveRow); 
+		moveRadio.checked=true; 
+	} 
+} 
+function moveFirst(){ 
+	if(moveRow){ 
+		document.getElementById("DynaTable").childNodes[0].insertBefore(moveRow,document.getElementById("DynaTable").childNodes[0].childNodes[0]); 
+		moveRadio.checked=true; 
+	} 
+} 
+//--> 
+</script> 
+</body>
+</html>

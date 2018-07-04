@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="NANANA" name="NANANA" isExecutable="true">
+    <startEvent id="startEvent1" name="开始1"/>
+    <userTask id="userTask1" name="提交申请"/>
+    <endEvent id="endEnvent1" name="结束1"/>
+    <userTask id="userTask2" name="经理审批"/>
+    <sequenceFlow id="flow2" name="重要" sourceRef="userTask1" targetRef="userTask2">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${message == '重要'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="userTask2" targetRef="endEnvent1"/>
+    <sequenceFlow id="flow1" sourceRef="startEvent1" targetRef="userTask1"/>
+    <sequenceFlow id="flow3" name="不重要" sourceRef="userTask1" targetRef="endEnvent1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${message == '不重要'}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_NANANA">
+    <bpmndi:BPMNPlane bpmnElement="NANANA" id="BPMNPlane_NANANA">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="225.0" y="60.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask1" id="BPMNShape_userTask1">
+        <omgdc:Bounds height="80.0" width="100.0" x="408.0" y="34.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endEnvent1" id="BPMNShape_endEnvent1">
+        <omgdc:Bounds height="28.0" width="28.0" x="444.0" y="255.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask2" id="BPMNShape_userTask2">
+        <omgdc:Bounds height="80.0" width="100.0" x="660.0" y="34.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="458.0" y="114.0"/>
+        <omgdi:waypoint x="458.0" y="255.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="508.0" y="74.0"/>
+        <omgdi:waypoint x="660.0" y="74.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="660.0" y="112.69047619047619"/>
+        <omgdi:waypoint x="469.0721898064959" y="260.43223407830675"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="254.99984218749177" y="74.93119338446104"/>
+        <omgdi:waypoint x="408.0" y="74.22935779816514"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

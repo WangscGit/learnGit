@@ -1,0 +1,522 @@
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+.clear{
+    clear: both;
+}
+/**********流程配置首页**********/
+.flow-setting-head{
+    width: 100%;
+    height: 55px;
+    background: #f4f6fd;
+}
+.flow-setting-head a{
+    background: #33b388;
+    color: #fff;
+    margin: 10px;
+}
+.flow-setting-head a:hover{
+    background: #11a166;
+    color: #fff;
+}
+.Tab{
+    padding-top: 6px;
+    padding-left: 10px;
+    background: #f2f2f2;
+    margin-top:10px;
+}
+.Tab li a{
+    color: #0088cc;
+}
+#flow-setting>div{
+    border: 1px solid #ccc;
+}
+.flow-picture{
+    width: 65%;
+    float: left;
+    margin-left:-10px;
+}
+.flow-accordion{
+    width: 35%;
+    float: right;
+}
+.flow-picture-head,.flow-accordion-head{
+    width: 100%;
+    height: 40px;
+    padding-top:4px;
+    font-size:14px;
+    background: #e4393c;
+}
+.flow-picture-head span,.flow-accordion-head span{
+    display: block;
+    width: 80px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+.flow-picture-body{
+    background: #f2f2f2;
+    width: 100%;
+    /* height:500px; */
+}
+.flow-accordion-body-head{
+    padding: 15px;
+}
+/*******手风琴********/
+#accordion{
+    margin:0 15px;
+}
+#accordion .panel-default > .panel-heading{
+   background: #e4393c;
+    color: #fff;
+}
+.panel-title > a{
+    display: block;
+    width: 100%;
+    height: 20px;
+    line-height:20px;
+    font-size:14px;
+    text-decoration:none;
+}
+.panel-body .URLForm{
+    width:98%;
+    height: 150px;
+}
+.panel-body .URLForm table{
+    margin: 0 auto;
+    height: 100px;
+}
+#userTaskInsert  select{
+	width:70%;
+	float:left;
+	margin-left:4px;
+}
+#userTaskInsert  b{
+	/* width:100%; */
+	height:32px;
+	line-height:32px;
+	display:block;
+	float:left;
+}
+#userTaskInsert  .shenpi{
+	float:left;
+    display:inline-block;
+	font-weight:normal;
+}
+#userTaskInsert  .worker{
+	display:block;
+	font-weight:normal;
+	/* width:60px; */
+	margin-top:4px;
+}
+#userTaskInsert  a{
+	display:inline-block;
+	float:left;
+	margin-top:10px;
+	margin-left:4px;
+}
+#userTaskInsert .UserName{
+	width:70%;
+	margin-top:5px;
+	margin-left:10px;
+	display:inline-block;
+	line-height:25px;
+	word-break:break-all;
+    word-wrap: break-word;
+}
+#userTaskInsert>div{
+	height:110px;
+}
+/********添加用户*********/
+.node-user div{
+    margin-top: 14px;
+}
+.node-attr2 .node-attr2-return{
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+}
+.node-attr2 table{
+    width: 102%;
+}
+.node-attr2 table input,.node-attr2 table a{
+    margin-top: 15px;
+}
+.node-attr2 table span{
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+}
+.node-attr2 .node-attr2-day,.node-attr2 .node-attr2-hour{
+    width: 60px;
+}
+.node-attr2 .node-attr2-hour{
+    height: 26px;
+}
+.node-btn{
+    height: 70px;
+}
+/********节点人员条件弹窗，选择用户弹窗******/
+.flow-setting-addUser{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 900px;
+    height:540px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-222px;
+    margin-left: -450px;
+    z-index: 33;
+    display: none;
+}
+.flow-setting-nodeUser,.flow-setting-nodeUser-choose{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:532px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-222px;
+    margin-left: -400px;
+    z-index: 35;
+    display: none;
+}
+.flow-setting-nodeUser-choose{
+    z-index: 37;
+}
+.flow-setting-addUser-header,.flow-setting-nodeUser-header,.flow-setting-nodeUser-choose-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-setting-addUser-header a,.flow-setting-nodeUser-header a,.flow-setting-nodeUser-choose-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-setting-addUser-body{
+    width: 100%;
+}
+.flow-setting-addUser-body p{
+    height: 35px;
+    line-height: 48px;
+    font-size: 16px;
+    color: #333;
+    margin-left: 20px;
+}
+.flow-setting-addUser-body>div,.flow-setting-nodeUser-body>div{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+}
+.flow-setting-addUser-body>div a{
+    margin:8px 4px 10px 10px;
+}
+.addUser-bottom,.nodeUser-bottom,.nodeUser-choose-bottom{
+    position: absolute;
+    bottom: 0;
+}
+.addUser-bottom a,.nodeUser-bottom a{
+    float: right;
+}
+.flow-setting-addUser-body .flow-setting-addUser-table-box{
+	width:100%;
+	height:380px;
+	max-height:380px;
+	overflow-y:auto;
+}
+.flow-setting-nodeUser-body table{
+    width: 70%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.flow-setting-nodeUser-body table span{
+    display: block;
+    text-align: right;
+}
+.flow-setting-nodeUser-body table a{
+    margin-left: 10px;
+    margin-top: 22px;
+}
+.flow-setting-nodeUser-body table .nodeUser-input{
+    width: 100px;
+    margin-top: 15px;
+    float: left;
+}
+.flow-setting-nodeUser-body table .nodeUser-hide{
+    visibility: hidden;
+}
+/*******选择用户弹窗*****/
+.flow-setting-nodeUser-choose-body{
+    float: left;
+    width: 100%;
+}
+.choose-table-box{
+    width: 72%;
+    max-height: 300px;
+    overflow-y:auto;
+    float: right;
+    margin-top: 10px;
+}
+.nodeUser-choose-tree{
+    width: 26%;
+    height: 300px;
+    float: left;
+    margin-top: 10px;
+}
+#jstree1 a{
+    margin: 0;
+}
+.nodeUser-choose-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+}
+.table-footer{
+    margin-left: 340px;
+}
+.nodeUser-choose-bottom a{
+    float: right;
+    margin-right:10px;
+    margin-top:8px;
+}
+.flow-setting-nodeUser-choose-body>div a,.flow-setting-nodeUser-body>div a{
+    margin:8px 10px 10px 0;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.choose-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.choose-header2 a{
+    width: 70px;
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+/***********节点按钮部分********/
+.flow-setting-nodeBtn{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:530px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-222px;
+    margin-left: -400px;
+    z-index: 33;
+    display: none;
+}
+.flow-setting-nodeBtn-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-setting-nodeBtn-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-setting-nodeBtn-body>div{
+    border: 1px solid #ccc;
+}
+.flow-setting-nodeBtn-body .nodeBtn-title{
+    height: 40px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+}
+.flow-setting-nodeBtn-body>div .btn-list{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.nodeBtn-btn{
+    background: #fff;
+    height: 30px;
+}
+.nodeBtn-btn a{
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.nodeBtn-btn-input{
+    width: 40px;
+    height: 20px;
+    float: left;
+    font-size: 12px;
+    margin-right: 15px;
+}
+.flow-setting-nodeBtn-body .div1{
+    width: 60%;
+    float: left;
+}
+.flow-setting-nodeBtn-body .div2{
+    width: 38%;
+    float: right;
+}
+.flow-setting-nodeBtn-body .div2 table select{
+    margin-top: 4px;
+    width: 110px;
+}
+.flow-setting-nodeBtn-body .div2 table input{
+    width: 110px;
+}
+.flow-setting-nodeBtn-body .div2 table b{
+    display: block;
+    text-align: right;
+}
+.flow-setting-nodeBtn-body .div2 table .big{
+    height: 100px;
+    padding-top: 0;
+}
+.flow-setting-nodeBtn-body .div2 table .word{
+    width:120px;
+}
+.table-box{
+    margin: 0 auto;
+    overflow-y:auto;
+}
+.nodeBtn-table1{
+    margin-top: 10px;
+    width: 97%;
+    max-height: 500px;
+}
+.nodeBtn-table2{
+    width: 100%;
+    max-height: 442px;
+}
+/*******明细信息部分**********/
+.more-message-table-box{
+    margin-top: 40px;
+    margin-bottom:40px;
+}
+#more-message-table td{
+    width: 25%;
+}
+#more-message-table span{
+    display: block;
+    text-align: right;
+}
+#more-message-table b{
+    color:red;
+}
+.more-message-table-footer{
+    margin: 0 auto;
+    width: 300px;
+}
+/*******业务对象部分**********/
+.business-object-body{
+    background: #fff;
+}
+.business-object-header{
+    width: 100%;
+    height: 40px;
+    float: left;
+    margin-top: 10px;
+    background: #f4f6fd;
+}
+.business-object-header>a{
+    margin: 10px 5px 0 5px;
+    float: left;
+}
+.business-object-header .empty{
+    float: left;
+    display: block;
+    width: 150px;
+    height: 20px;
+}
+.business-object-header2{
+    height: 40px;width: 100%;
+    height: 40px;
+    float: left;
+    background: #f2f2f2;
+}
+.business-object-header2 b{
+    display: block;
+    width: 100px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.business-object-table-top p{
+    margin:10px;
+}
+#business-object-table{
+    border: 1px solid #ccc;
+    margin-bottom:30px;
+}
+.business-object-table-footer{
+    width: 300px;
+    margin: 0 auto;
+}
+/*******业务对象里面的弹出窗口**********/
+.business-object-window{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 900px;
+    height:525px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-220px;
+    margin-left: -450px;
+    z-index: 33;
+    display: none;
+}
+.business-object-window-header,.business-object-window-header2{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.business-object-window-header2{
+    background: #f4f6fd;
+}
+.business-object-window-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.business-object-window-header2 a{
+    display: block;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.business-object-window .table1{
+    height: 80px;
+    margin-left: 50px;
+}
+.business-object-window .table1 .input-width{
+    width: 200px;
+}
+.business-object-window .table1 input{
+    width: 130px;
+}
+.business-object-window-table-box{
+    max-height: 300px;
+}
+.object-window-table-footer{
+    margin-left: 300px;
+}

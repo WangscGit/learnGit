@@ -1,0 +1,96 @@
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+/********元器件申请表样式*******/
+.flow-manageAddLeft{
+	width:80%;
+	padding:15px 0 15px 0;
+}
+.flow-manageAddLeft-head{
+	width:90%;
+	height:40px;
+	line-height:40px;
+	background:#dff0d8;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	margin:0 auto;
+}
+.manageAddtable{
+	width:90%;
+	margin:0 auto;
+}
+.manageAddtable span{
+	float:right;
+	text-align:right;
+}
+.manageaddBtns{
+	width:90%;
+	text-align:center;
+	margin:0 auto;
+	padding:15px 0;
+	border:1px solid #ccc;
+	border-top:none;
+}
+.manageaddBtns a{
+	background: #33b388;
+    color: #fff;
+    margin-left:10px;
+}
+.manageaddBtns a:hover{
+	background: #11a166;
+    color: #fff;
+}
+/********流程图样式*******/
+.flow-manageAddRight{
+	width:200px;
+	margin-top:50px;
+}
+.flow-manageAddRight div{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	border:1px solid #ccc;
+	text-align:center;
+	margin:0 auto;
+}
+.flow-manageAddRight .finished{
+	background:#dff0d8;
+}
+.flow-manageAddRight .doing{
+	background:#fceed1;
+}
+.flow-manageAddRight .todo{
+	background:#ccc;
+}
+.flow-manageAddRight p{
+	display:block;
+	text-align:center;
+}
+.flow-manageAddRight .first{
+	width:70px;
+	border-radius:20px;
+	color:red;
+}
+.flow-manageAddRight .first span:first-child {
+	color:blue;
+}
+
+
+
+
+
+
+
+
+
+/********右侧流程图样式*******/

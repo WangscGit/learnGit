@@ -1,0 +1,294 @@
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+/********流程监控页面*******/
+.page-message {
+    width: 100%;
+    height: 80px;
+    border:1px solid #ddd;
+}
+.page-message h3 {
+    padding-left: 65px;
+    margin-top: 30px;
+    color: #9999b2;
+    font-size: 15px;
+}
+.flow-monitoring{
+    width: 14%; 
+    min-width:150px;
+    height:500px;
+    margin-top:15px;
+    float:left;
+}
+.flow-monitoring-right{
+	margin-top:15px;
+	width:86%;
+	float:left;
+}
+.flow-monitoring-right .monitoring-table td{
+	word-break:break-all;
+    word-wrap: break-word;
+    vertical-align:middle;
+} 
+.flow-view-table-box{
+    width: 100%;
+    max-height: 320px;
+    margin: 0 auto;
+    overflow-y:auto
+}
+.flow-manage-head-nav,.flow-view-head-nav{
+    width: 100%;
+    height: 40px;
+    line-height: 35px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-left:10px;
+}
+.flow-view-head-nav{
+	width:140px;
+    height: 50px;
+    line-height: 45px;
+    float: right;
+    margin-top: -146px;
+    border:none;
+}
+.flow-manage-head-nav a{
+    background: #33b388;
+    color: #fff;
+}
+.flow-manage-head-nav a:hover{
+    background: #11a166;
+    color: #fff;
+}
+.flow-design-head{
+    width: 100%;
+    height: 70px;
+    background: #fff;
+}
+.flow-view-head-input{
+    width: 100%;
+    float: left;
+    height: 70px;
+    padding-top:10px;
+    border:1px solid #ccc;
+    border-bottom:none;
+}
+.manageTable{
+	width:100%;
+}
+.manageTable tbody tr td{
+	border-top:none;
+}
+.manageTable a{
+
+}
+.flow-view-head-input td{
+    height: 50px;
+    padding: 15px 0px;
+}
+.flow-view-head-input .chooseUser{
+	width:300px; 
+}
+.flow-view-head-input span{
+	 width:100px; 
+    display:inline-block;
+    float: left;
+    text-align: right;
+}
+.flow-view-head-input .chooseUserBox{
+	 width: 36%; 
+	float: left;
+	text-align: left;
+	margin-top:3px;
+	margin-left:5px;
+	word-break:break-all;
+    word-wrap: break-word;
+}
+.flow-view-head-input input,.flow-view-head-input select{
+    width:96px;  
+    height: 34px;
+    margin-top: -6px;
+    float: left;
+    color: #bbb;
+}
+.flow-view-head-input .view-soso{
+    display: block;
+    width: 15px;
+    min-width:15px;
+    float: left;
+    text-align: right;
+    margin-top:2px;
+}
+/* 表格input span媒体查询 */
+ @media screen and (min-width:1023px) and (max-width:1280px){
+.flow-view-head-input input,.flow-view-head-input select{
+    width:105px; 
+   }
+.flow-view-head-input span{
+	width:100px;
+    }
+.jiankongBtns {
+/*     width: 100px; */
+}
+.jiankongBtns a{
+    margin-bottom:10px;
+}
+} 
+ @media screen and (min-width:1280px) and (max-width:1366px){
+.flow-view-head-input input,.flow-view-head-input select{
+    width:115px; 
+   }
+.flow-view-head-input span{
+	width:110px;
+    }
+} 
+ @media screen and (min-width:1367px) and (max-width:1500px){
+.flow-view-head-input input,.flow-view-head-input select{
+    width:140px; 
+   }
+.flow-view-head-input span{
+	width:136px;
+    }
+} 
+@media screen and (min-width:1501px) and (max-width:1700px){
+.flow-view-head-input input,.flow-view-head-input select{
+    width:140px; 
+     }
+.flow-view-head-input span{
+	width:150px;
+     }
+} 
+ @media screen and (min-width:1700px) {
+.flow-view-head-input input,.flow-view-head-input select{
+    width:170px; 
+     }
+.flow-view-head-input span{
+	width:150px;
+     }
+} 
+.monitoringChart{
+	width:85%;
+	height:400px;
+	float:right;
+	margin-top:-100px;
+}
+.Chart2Box{
+	float:left;
+	margin-left:40px;
+}
+#Chart1,#Chart2{
+	float:left;
+}
+.flow-view-table-footer{
+    width: 300px;
+    margin:0 auto;
+}
+/********查看详情弹窗*******/
+.flow-view-lookWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 700px;
+    height:500px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-170px;
+    margin-left: -350px;
+    z-index: 33;
+    display: none;
+}
+.flow-view-lookWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-view-lookWindow-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-view-lookWindow-body{
+    width: 100%;
+}
+.flow-view-lookWindow-box table span{
+    display: block;
+    text-align: right;
+}
+.flow-view-lookWindow-box table .input-long{
+    width: 300px;
+    float: left;
+}
+/********催办,转办弹窗*******/
+.flow-view-askWindow,.flow-view-turnWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 700px;
+    height:450px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-160px;
+    margin-left: -350px;
+    z-index: 33;
+    display: none;
+}
+.flow-view-turnWindow{
+    z-index: 20;
+}
+.flow-view-turnWindow-header,.flow-view-askWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.flow-view-turnWindow-header a,.flow-view-askWindow-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.flow-view-turnWindow-body,.flow-view-askWindow-body{
+    float: left;
+    width: 100%;
+}
+
+.ask-input{
+    width: 400px;
+    height: 200px;
+}
+.input-short{
+    width: 100px;
+}
+.choose-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    position: absolute;
+    bottom: 0;
+}
+.choose-bottom a{
+    float: right;
+    margin:8px 10px 10px 0;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.choose-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.choose-header2 a{
+    display: block;
+    float: left;
+    margin:16px 0 10px 18px;
+}

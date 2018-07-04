@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.component.dao.IPartPrimaryAttributesDao">  
+<resultMap id="pfsResult" type="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="FieldName" property="fieldName" jdbcType="NVARCHAR" />
+        <result column="ShowName" property="showName" jdbcType="NVARCHAR" />
+        <result column="EnglishName" property="englishName" jdbcType="NVARCHAR" />
+        <result column="DataType" property="dataType" jdbcType="NVARCHAR" />
+        <result column="IsNULL" property="IsNull" jdbcType="NVARCHAR" />
+        <result column="Description" property="description" jdbcType="NVARCHAR" />
+        <result column="IsUsed" property="isUsed" jdbcType="BOOLEAN" />
+        <result column="IsDisplay" property="isDisplay" jdbcType="BOOLEAN" />
+        <result column="IsUpdate" property="isUpdate" jdbcType="BOOLEAN" />
+        <result column="IsAudit" property="isAudit" jdbcType="BOOLEAN" />
+        <result column="IsSearch" property="isSearch" jdbcType="BOOLEAN" />
+        <result column="IsMatch" property="isMatch" jdbcType="BOOLEAN" />
+        <result column="IsInsert" property="isInsert" jdbcType="BOOLEAN" />
+        <result column="IsApply" property="isApply" jdbcType="BOOLEAN" />
+        <result column="seq_no" property="seqNo" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        
+        <collection property="fsList" ofType="com.cms_cloudy.component.pojo.FieldSelect"  javaType="List" >  
+        	<id column="fsId" property="id"  />
+        	<result  column="field_Name" property="fieldName"/> 
+        	<result  column="value" property="value"/>  
+        	<result  column="name" property="name"/>  
+    	</collection>
+</resultMap>
+<sql id="Base_Column_List1">
+     FieldName,ShowName,DataType,IsNULL,Description,IsUsed,IsDisplay,IsUpdate,IsAudit,IsSearch,IsMatch,seq_no,type,IsInsert,EnglishName,IsApply
+</sql>
+<sql id="Base_Column_List2">
+     ID,FieldName,ShowName,DataType,IsNULL,Description,IsUsed,IsDisplay,IsUpdate,IsAudit,IsSearch,IsMatch,seq_no,type,IsInsert,EnglishName
+</sql>
+<sql id="Base_Column_List3">
+     #{fieldName},#{showName},#{dataType},#{IsNull},#{description},#{isUsed},#{isDisplay},#{isUpdate},#{isAudit},#{isSearch},#{isMatch},#{seqNo},#{type},#{isInsert},#{englishName},#{isApply}
+</sql>
+<select id="selectPartPrimaryAttributesList" parameterType="Map" resultMap="pfsResult">
+     select pp.ID,pp.FieldName,pp.ShowName,pp.EnglishName,pp.IsInsert,pp.IsApply,pp.DataType,pp.IsNULL,pp.Description,pp.IsUsed,pp.IsDisplay,pp.IsUpdate,pp.IsAudit,pp.IsSearch,pp.IsMatch,pp.seq_no,pp.type,fs.name,fs.value,fs.ID fsId,fs.field_name from Part_PrimaryAttributes pp left join field_select fs  on pp.fieldName=fs.field_name  
+     <where>
+          <if test="fieldName!=null">
+          and pp.FieldName=#{fieldName}
+          </if>
+          <if test="isUsed!=null">
+          and pp.IsUsed=#{isUsed}
+          </if>
+          <if test="type!=null">
+          and pp.type!=0
+          </if>
+          <if test="minu!=null">
+          and pp.FieldName!=#{minu}
+          </if>
+          <if test="id!=null">
+          and pp.ID=#{id}
+          </if>
+          <if test="hidePicture!=null">
+          and pp.FieldName not in ('shape_img','size_img','characteristic_curve_img','typical_ap_img','schematic_img','ens_img')
+          </if>
+     </where>
+     order by pp.seq_no asc
+</select>
+
+<select id="selectPartPrimaryAttributesByList" parameterType="Map" resultType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     select <include refid="Base_Column_List2"></include>  from Part_PrimaryAttributes 
+     <where>
+          <if test="fieldName!=null">
+          and FieldName=#{fieldName}
+          </if>
+          <if test="isUsed == 1">
+          and IsUsed=1
+          </if>
+     </where>
+     order by seq_no asc
+</select>
+<select id="selectFieldAndName" parameterType="Map" resultMap="pfsResult">
+     select pp.ID,pp.dataType,pp.FieldName,pp.ShowName,pp.EnglishName,pp.seq_no,fs.name,fs.value,fs.ID fsId,fs.field_name from Part_PrimaryAttributes pp left join field_select fs  on pp.fieldName=fs.field_name 
+     <where>
+          <if test="isUsed == 1">
+          and pp.IsUsed=1
+          </if>
+          <if test="fieldShowCol != '' and fieldShowCol != null">
+          and pp.FieldName in ('TempPartMark','PartCode','PartNumber','Item','Datesheet','Part_Type','Price','KeyComponent','Manufacturer','Country')
+          </if>
+          <if test="type != null">
+          and pp.type=#{type}
+          </if>
+          <if test="filterField != null">
+          and pp.FieldName not in 
+          <foreach collection="filterField" index="index" item="item" open="(" separator="," close=")">
+		        #{item}
+	      </foreach>
+          </if>
+           <if test="minu!= null">
+          and pp.FieldName!='Datesheet' and pp.FieldName!='state' and pp.FieldName!='ApprovalDate' and  pp.FieldName!='Requester' and pp.FieldName!='RequestDate'
+          and pp.FieldName!='Creator' and pp.FieldName!='CreateDate' and pp.FieldName!='Createchecker' and pp.FieldName!='CreateCheckeDate' and pp.FieldName!='Modifier' 
+          and pp.FieldName!='ModifyDate' and pp.FieldName!='Approval' and pp.FieldName!='shape_img' and pp.FieldName!='size_img' and pp.FieldName!='characteristic_curve_img' and pp.FieldName!='typical_ap_img'
+          and pp.FieldName!='schematic_img' and pp.FieldName!='ens_img'
+          </if>
+          <if test="partExport!= null">
+          and pp.FieldName!='state' and pp.FieldName!='PartNumber' and  pp.FieldName!='Requester' and pp.FieldName!='RequestDate'
+          and pp.FieldName!='Creator' and pp.FieldName!='CreateDate' and pp.FieldName!='Createchecker' and pp.FieldName!='CreateCheckeDate' and pp.FieldName!='Modifier' 
+          and pp.FieldName!='ModifyDate' and pp.FieldName!='Approval' and pp.FieldName!='shape_img' and pp.FieldName!='size_img' and pp.FieldName!='characteristic_curve_img' and pp.FieldName!='typical_ap_img'
+          and pp.FieldName!='schematic_img' and pp.FieldName!='ens_img'
+          </if>
+     </where>
+     order by seq_no asc
+</select>
+
+<select id="selectSeachField" parameterType="Map" resultType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     select fieldName,showName,dataType from Part_PrimaryAttributes where isSearch='1'
+     order by seq_no
+</select>
+
+<select id="selectAddOrUpdateField" parameterType="Map" resultType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     select fieldName,showName,dataType from Part_PrimaryAttributes  where fieldName not in ('Creator','CreateDate','Modifier','ModifyDate')
+     order by seq_no
+</select>
+
+<select   id="selectImportantField" resultMap="pfsResult" >
+     select pp.ID,fieldName,pp.EnglishName,showName,dataType,fs.name,fs.value,fs.ID fsId,fs.field_name from Part_PrimaryAttributes pp left join field_select fs  on pp.fieldName=fs.field_name where fieldName  in ('partNumber','Part_Type','ITEM','Manufacturer','KeyComponent','Datesheet','tempPartMark')
+</select>
+
+<insert id="insertPartPrimaryAttributes" parameterType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+         insert into Part_PrimaryAttributes(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<update id="updatePartPrimaryAttributes" parameterType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     update Part_PrimaryAttributes set   FieldName=#{fieldName}, ShowName=#{showName}, DataType=#{dataType}, IsNULL=#{IsNull}, Description=#{description}, 
+     IsUsed=#{isUsed}, IsDisplay=#{isDisplay}, IsUpdate=#{isUpdate}, IsAudit=#{isAudit}, IsSearch=#{isSearch},
+     IsMatch=#{isMatch}, seq_no=#{seqNo},type=#{type},IsInsert=#{isInsert},EnglishName=#{englishName},IsApply=#{isApply} where ID=#{id}
+</update>
+<update id="updatePartAttrSeqNo" parameterType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     update [CMS_Cloudy_database].[dbo].[Part_PrimaryAttributes] set  IsUsed=#{isUsed}, IsDisplay=#{isDisplay}, IsUpdate=#{isUpdate}, IsAudit=#{isAudit}, IsSearch=#{isSearch},
+     IsMatch=#{isMatch}, seq_no=#{seqNo},type=#{type},IsInsert=#{isInsert},isApply=#{isApply}  where FieldName=#{fieldName}
+</update>
+<delete id="deletePartPrimaryAttributes" parameterType="int">
+     delete from Part_PrimaryAttributes where ID = #{id}
+</delete>
+
+<select id="selectTableField"  resultType="java.util.LinkedHashMap">
+	select showName,englishName from Part_PrimaryAttributes where FieldName in ('Part_Type','ITEM','Manufacturer','KeyComponent','Datesheet') order by charindex(','+convert(varchar,FieldName)+',',',Part_Type,ITEM,Manufacturer,KeyComponent,Datesheet,')
+</select>
+
+<select id="selectPrimaryCount" parameterType="Map" resultType="long">
+    select count(1) from Part_PrimaryAttributes
+    <where>
+      <if test="type!=null">
+        and type=#{type}
+      </if>
+     </where>
+</select>
+<select id="selectFixedInsertField" parameterType="Map" resultMap="pfsResult">
+	select pp.ID,fieldName,showName,pp.EnglishName,dataType,pp.type,fs.name,fs.value,fs.ID fsId,fs.field_name from Part_PrimaryAttributes pp left join field_select fs  on pp.fieldName=fs.field_name where fieldName in ('Part_Type','ITEM','KeyComponent','PartNumber','Datesheet','Weight','Country','TempPartMark','Specification','PackageType','shape_img','size_img','characteristic_curve_img','typical_ap_img','schematic_img','ens_img','Part_Forbidden','Alternative_Part','FootprintLevel','FirstUsed','Remark','ALT_Symbols','DirInOROut','Manufacturer')
+</select>
+<select id="selectInsertField" parameterType="Map" resultMap="pfsResult">
+	select pp.ID,fieldName,showName,pp.EnglishName,dataType,pp.type,fs.name,fs.value,fs.ID fsId,fs.field_name from Part_PrimaryAttributes pp left join field_select fs  on pp.fieldName=fs.field_name where isInsert='true' and pp.IsUsed='true'  order by pp.seq_no
+</select>
+<select id="selectProperiesByName" parameterType="Map" resultType="Map">
+    SELECT special_Propertie1, special_Propertie2, special_Propertie3, special_Propertie4, special_Propertie5
+	, special_Propertie6, special_Propertie7, special_Propertie8,special_Propertie9,special_Propertie10,special_Propertie11,special_Propertie12
+    FROM Part_DefineAttributes a LEFT JOIN Part_Class b ON a.Class_ID = b.ID
+    <where>
+      <if test="partType!=null">
+        and b.PART_TYPE=#{partType}
+      </if>
+      <if test="tempPartMark!=null">
+        and b.TempPartMark=#{tempPartMark}
+      </if>
+     </where>
+</select>
+
+<update id="updateState" parameterType="Map">
+   update part_data set state = #{state} where PartNumber=#{partNumber}
+</update>
+
+<update id="updateAlternativePart" parameterType="Map">
+   update part_data set Alternative_Part = #{alternativePart} where PartNumber=#{PartNumber}
+</update>
+<insert id="insertFieldSelect" parameterType="com.cms_cloudy.component.pojo.FieldSelect">
+         insert into Field_Select(field_Name,name,value) values (#{fieldName},#{name},#{value})
+</insert>
+
+<delete id="deleteFieldSelect" parameterType="String">
+     delete from Field_Select where field_Name = #{fieldName}
+</delete>
+
+<select id="getFieldSelectByFieldName" parameterType="Map" resultType="com.cms_cloudy.component.pojo.FieldSelect">
+	select * from Field_Select where field_name=#{fieldName}
+</select>
+
+<update id="updateFieldAttr" parameterType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     update [CMS_Cloudy_database].[dbo].[Part_PrimaryAttributes] set  ShowName=#{showName},Description=#{description}, 
+     IsDisplay=#{isDisplay}, IsUpdate=#{isUpdate}, IsAudit=#{isAudit}, IsSearch=#{isSearch},
+     IsMatch=#{isMatch},type=#{type},EnglishName=#{englishName},IsInsert=#{isInsert},IsApply=#{isApply}  where FieldName=#{fieldName}
+</update>
+
+<select id="selectPartGopage" parameterType="Map" resultType="HashMap">
+	select top 1 id,PartNumber,Part_Type from Part_Data order by id desc
+</select>
+
+<select id="selectPartToUpdataAlternativePart" parameterType="int" resultType="HashMap">
+	<!-- update Part_Data set aa = replace(aa,'23','null') where id = '1' -->
+    select  id,Alternative_Part,PartNumber,(select PartNumber from part_Data where id =#{id})as pNumber from Part_Data where Alternative_Part like '%'+(select PartNumber from part_Data where id =#{id})+'%'
+</select>
+<select id="selectApplyField" parameterType="Map" resultMap="pfsResult">
+	select pp.ID,fieldName,showName,pp.EnglishName,dataType,pp.type,fs.name,fs.value,fs.ID fsId,fs.field_name from Part_PrimaryAttributes pp left join field_select fs  on pp.fieldName=fs.field_name where isApply='true' and pp.IsUsed='true'  order by pp.seq_no
+</select>
+<select id="selectCompareBom" parameterType="Map" resultType="HashMap">
+	select pd.PartNumber,pd.Value,pd.Manufacturer,pd.Part_Type,pd.Item,pd.Part_Reference,pd.PartCode from part_data pd
+		<where>
+			<if test="filterField != null">
+          and pd.PartNumber in 
+				<foreach collection="filterField" index="index" item="item" open="(" separator="," close=")">
+		        #{item}
+				</foreach>
+			</if>
+		</where>
+	order by pd.id desc 
+</select>
+<select id="selectUsedField" parameterType="Map" resultType="com.cms_cloudy.component.pojo.PartPrimaryAttributes">
+     select fieldName,showName from Part_PrimaryAttributes where IsUsed='1'
+     order by seq_no
+</select>
+</mapper> 

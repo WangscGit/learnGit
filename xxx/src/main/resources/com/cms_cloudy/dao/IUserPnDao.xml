@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.component.dao.IUserPnDao">  
+<resultMap id="userPn" type="com.cms_cloudy.component.pojo.UserPn">
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="UserID" property="userId" jdbcType="BIGINT" />
+        <result column="PartNumber" property="partNumber" jdbcType="NVARCHAR" />
+        <result column="SelectedTime" property="selectedTime" jdbcType="DATE" />
+</resultMap>
+<sql id="Base_Column_List1">
+     UserID,PartNumber,SelectedTime
+</sql>
+<sql id="Base_Column_List2">
+     ID,UserID,PartNumber,SelectedTime
+</sql>
+<sql id="Base_Column_List3">
+     #{userId},#{partNumber},#{selectedTime,jdbcType=DATE}
+</sql>
+<select id="selectUserPnList" parameterType="Map" resultType="com.cms_cloudy.component.pojo.UserPn">
+     select <include refid="Base_Column_List2"></include>  from User_PN 
+     <where>
+          <if test="partNumber!=null">
+          and PartNumber=#{partNumber}
+          </if>
+     </where>
+     order by ID asc
+</select>
+<select id="isCollection" parameterType="Map" resultType="int">
+	select count(id) from User_Pn where userid=#{userId} and partNumber=#{partNumber}
+</select>
+
+<insert id="insertUserPn" parameterType="com.cms_cloudy.component.pojo.UserPn">
+         insert into User_PN(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<delete id="deleteUserPn" parameterType="Map">
+     delete from User_PN where partNumber = #{partNumber} 
+     <if test="userId!=null">
+          and userId=#{userId}
+     </if>
+</delete>
+</mapper> 

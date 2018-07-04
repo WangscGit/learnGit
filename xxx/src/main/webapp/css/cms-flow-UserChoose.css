@@ -1,0 +1,113 @@
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+/*用户选择弹窗  */
+.UserChooseWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 800px;
+    height:370px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-108px;
+    margin-left: -400px;
+    z-index: 40;
+    display: none;
+}
+.UserChooseWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.UserChooseWindow-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.UserChooseWindow-body{
+    float: left;
+    width: 100%;
+    margin-top:5px;
+}
+.choose-table-box{
+    width: 72%;
+    max-height: 380px;
+    overflow-y:auto;
+    float: right;
+    margin-top: 5px;
+}
+.nodeUser-choose-tree{
+    width: 28%;
+    height: 300px;
+    float: left;
+    margin-top: 10px;
+}
+.choose-bottom{
+    width: 100%;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    position:absolute;
+    bottom:0;
+}
+.choose-bottom a{
+    float: right;
+    margin:8px 10px 10px 0;
+}
+.choose-table-input{
+    width: 70px;
+    text-align: center;
+}
+.choose-header2 input{
+    width: 200px;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.choose-header2 a{
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.nodeUser-choose-tree1{
+	width:26%;
+	height:249px;
+	max-height:249px;
+	overflow-y:auto;
+	float: left;
+    margin-top: 10px;
+}
+.ue-container { 
+    width: 98%; 
+    margin: 0 auto; 
+    margin-top: 3%; 
+    margin-right:10px;
+    padding: 20px 20px; 
+    border: 1px solid #ccc; 
+    background: #fff; 
+}
+.ue-form{
+	margin-bottom:5px;
+}
+.ue-container .col-md-1{
+	width:55px;
+	padding:0;
+	margin:0;
+	margin-top:26px;
+}
+.ue-container .col-md-5{
+	width:40.5%;
+}
+.settingUp-btns{
+	width:100%;
+	margin-top:26px;
+}

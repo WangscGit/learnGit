@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.upload.dao.IFileUploadDao">  
+<resultMap id="fileUploadEntity" type="com.cms_cloudy.upload.pojo.FileUploadEntity">
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="Name" property="Name" jdbcType="NVARCHAR" />
+        <result column="FilePath" property="filePath" jdbcType="NVARCHAR" />
+        <result column="Size" property="Size" jdbcType="NVARCHAR" />
+        <result column="Uploader" property="uploader" jdbcType="NVARCHAR" />
+        <result column="UploadDate" property="uploadDate" jdbcType="DATE" />
+</resultMap>
+<sql id="Base_Column_List1">
+     Name,FilePath,Size,Uploader,UploadDate
+</sql>
+<sql id="Base_Column_List2">
+     ID,Name,FilePath,Size,Uploader,UploadDate
+</sql>
+<sql id="Base_Column_List3">
+     #{Name},#{filePath},#{Size},#{uploader},#{uploadDate,jdbcType=DATE}
+</sql>
+<select id="selectFileUploadList" parameterType="Map" resultType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+     select <include refid="Base_Column_List2"></include>  from File_Upload 
+       <where>
+          <if test="Name!=null">
+          and Name=#{Name}
+          </if>
+          <if test="fileName!=null">
+          and Name like '%${fileName}%'
+          </if>
+          <if test="FilePath!=null">
+          and FilePath=#{FilePath}
+          </if>
+          <if test="id!=null">
+          and ID=#{id}
+          </if>
+          <if test="startName!=null">
+          and Name like '${startName}%'
+          </if>
+          <if test="endName!=null">
+          and Name like '%${endName}'
+          </if>
+     </where>
+     order by id desc
+</select>
+<select id="selectFileUploadListByName" parameterType="Map" resultType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+     select <include refid="Base_Column_List2"></include>  from File_Upload 
+       <where>
+          <if test="Name!=null">
+          and Name like #{Name}
+          </if>
+     </where>
+     order by ID desc
+</select>
+<insert id="inserttFileUpload" parameterType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+         insert into File_Upload(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<update id="updateFileUpload" parameterType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+          update File_Upload set Name=#{Name},FilePath=#{filePath},Size=#{Size},Uploader=#{uploader},UploadDate=#{uploadDate,jdbcType=DATE} where ID=#{id}
+</update>
+<delete id="deleteFileUpload" parameterType="int">
+     delete from File_Upload where ID = #{id}
+</delete>
+<select id="selectFileByPath" parameterType="String" resultType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+    ${sql}
+</select>
+<select id="selectFileOrderByName" parameterType="Map" resultType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+     select <include refid="Base_Column_List2"></include>  from File_Upload 
+       <where>
+          <if test="Name!=null">
+          and Name=#{Name}
+          </if>
+          <if test="fileName!=null">
+          and Name like '%${fileName}%'
+          </if>
+          <if test="FilePath!=null">
+          and FilePath=#{FilePath}
+          </if>
+          <if test="id!=null">
+          and ID=#{id}
+          </if>
+          <if test="startName!=null">
+          and Name like '${startName}%'
+          </if>
+          <if test="endName!=null">
+          and Name like '%${endName}'
+          </if>
+     </where>
+     order by Name asc
+</select>
+<select id="selectLatestData" parameterType="Map" resultType="com.cms_cloudy.upload.pojo.FileUploadEntity">
+	select Name from file_upload where id=(select max(id) from file_upload where FilePath = #{FilePath})
+</select>
+<update id="updateFileUploadByName" parameterType="Map">
+          update File_Upload set Name=#{upName} where Name=#{wrName} and FilePath=#{path}
+</update>
+</mapper> 

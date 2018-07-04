@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宇航元器件选用平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/cms-user.css"/>
+    <link rel="stylesheet" href="css/cms-parts-compare.css"/>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="js-tree/dist/themes/default/style.css">
+    <script type="text/javascript" src="scripts/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js-tree/dist/jstree.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/html5shiv.min.js"></script>
+    <script type="text/javascript" src="scripts/DOMAssistantCompressed-2.7.4.js"></script>
+    <script type="text/javascript" src="scripts/ie-css3.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--登录框-->
+<div id="modal-login" class="modal">  <!--半透明遮罩-->
+    <div class="modal-content"> <!--背景边框倒角阴影-->
+        <div id="login-box-out">
+            <div id="login-box">
+                <span data-dismiss="modal" class="close">&times;</span>
+                <div class="login-title">
+                    <a><img src="images/cloud.png"/></a>
+                    <b>CmsCloudy</b>
+                </div>
+                <br/>
+                <div class="with-line">
+                    <div class="line"></div>
+                    <b>请输入账号密码登录</b>
+                    <div class="line"></div>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <input type="text" placeholder="请输入账号"/><br/><br/>
+                    <input type="password" placeholder="请输入密码"/><br/><br/>
+                    <a class="login-btn">登录</a><br/>
+                    <p>
+                        <span class="left">忘记密码>></span>
+                        <span class="right click-register" data-toggle="modal" data-dismiss="modal" data-target="#modal-register">点击注册>></span>
+                        <b class="right">还没有cms账号？</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--注册框-->
+<div id="modal-register" class="modal">  <!--半透明遮罩-->
+    <div class="modal-content"> <!--背景边框倒角阴影-->
+        <div id="register-box-out">
+            <div id="register-box">
+                <span data-dismiss="modal" class="close">&times;</span>
+                <div class="login-title">
+                    <a><img src="images/cloud.png"/></a>
+                    <b>CmsCloudy</b>
+                </div>
+                <br/>
+                <div class="with-line">
+                    <div class="line"></div>
+                    <b>请输入基本信息注册</b>
+                    <div class="line"></div>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <input type="text" placeholder="请输入账号"/><br/><br/>
+                    <input type="password" placeholder="请输入密码"/><br/><br/>
+                    <input type="password" placeholder="请确认密码"/><br/><br/>
+                    <input type="email" placeholder="请输入邮箱"/><br/><br/>
+                    <div class="register-statement">
+                        <input type="checkbox" class="register-check"/>
+                        <i>我已认真阅读并接受</i>
+                        <a href="#">《CmsCloudy声明》</a>
+                    </div><br/>
+                    <a class="register-btn">注册</a><br/>
+                    <p>
+                        <span class="right click-login" data-target="#modal-login" data-toggle="modal" data-dismiss="modal">直接登录>></span>
+                        <b class="right">已有账号？</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--导航及下拉-->
+<div class="nav-son-box">
+    <a href="#content" class="sr-only sr-only-focusable">直接进入主内容区</a>
+    <nav class="navbar navbar-default nav-son">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/logonew.png" alt="公司logo"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="no-message">
+                <div>
+                    <a href="cms-message.html">
+                        <b class="">未读消息</b>
+                        <a class="num-group">
+                            <i class="badge">3</i>
+                            <span class="span1"></span>
+                        </a>
+                    </a>
+                </div>
+                <div>
+                    <a href="cms-flow.html">
+                        <b>待办任务</b>
+                        <a class="num-group">
+                            <i class="badge">2</i>
+                            <span class="span2"></span>
+                        </a>
+                    </a>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-nav-son index-nav">
+                    <li class="active"><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="cms-parts.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">元器件库 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="cms-parts.html">常用库</a></li>
+                            <li><a href="cms-parts.html">基础库</a></li>
+                            <li><a href="cms-parts.html">电阻器</a></li>
+                            <li><a href="cms-parts.html">电容器</a></li>
+                            <li><a href="cms-parts.html">半导体分立器件</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="cms-upload.html">上传管理</a></li>
+                    <li><a href="cms-message.html">消息管理</a></li>
+                    <li>
+                        <a href="cms-user.html">用户管理</a>
+                    </li>
+                    <li>
+                        <a href="cms-flow.html">流程管理</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="元器件">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+                <ul class="login-div right">
+                    <li><a data-target="#modal-register" class="btn2 btn btn-info right" data-toggle="modal">注册</a></li>
+                    <li><a data-target="#modal-login" class="btn1 btn btn-danger right" data-toggle="modal">登录</a></li>
+                    <div class="dropdown right">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            迪丽热巴
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>  管理员</a></li>
+                            <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Another action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Something else here</a></li>-->
+                            <li role="presentation" class="login-out"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>  退出</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="containerAll">
+    <div class="containerAllPage">
+        <!---------表格---------->
+        <div id="main">
+            <div class="page-message">
+                <h3><span class="label label-default">Now</span>  元器件>对比页面</h3>
+            </div>
+            <div class="table-responsive">
+                <div class="compare-accordion-body">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div>
+                            <table class="compare-picture-table compare-table">
+                                <tr>
+                                    <th>
+                                        <span ><input type="checkbox" class="left"/><span class="left">高亮不同项</span></span>
+                                        <span><input type="checkbox" class="left"/><span class="left">隐藏相同项</span></span>
+                                    </th>
+                                    <td>
+                                        <div class="compare-goods">
+                                            <dl>
+                                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                                <dd class="compare-view">瓷介电容器</dd>
+                                                <a href="#" class="btn btn-danger">立即查看</a>
+                                            </dl>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="compare-goods">
+                                            <dl>
+                                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                                <dd>瓷介电容器</dd>
+                                                <a href="#" class="btn btn-danger">立即查看</a>
+                                            </dl>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="add-simple">
+                                            <a href="#" class="add-simple-btn">+添加同类商品</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="add-simple">
+                                            <a href="#">+添加同类商品</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed add-collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="add-change"><img src="images/add1.png" alt=""/></span>主体
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                       <table class="compare-table">
+                                           <tr>
+                                               <th>元器件型号</th>
+                                               <td>2847-fnj</td>
+                                               <td>dhneui2-3r</td>
+                                               <td></td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th>产品参数</th>
+                                               <td>iefh39</td>
+                                               <td>iejfuh8</td>
+                                               <td></td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th>物料名称</th>
+                                               <td>瓷介电容器</td>
+                                               <td>金属膜电容器</td>
+                                               <td></td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th>物料编码</th>
+                                               <td>1234</td>
+                                               <td>5678</td>
+                                               <td></td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th>元器件描述</th>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                           </tr>
+                                           <tr>
+                                               <th>制造商</th>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                           </tr>
+                                       </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed add-collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <span class="add-change"><img src="images/add1.png" alt=""/></span>功能
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <table class="compare-table">
+                                        <tr>
+                                            <th>元器件型号</th>
+                                            <td>2847-fnj</td>
+                                            <td>dhneui2-3r</td>
+                                            <td>hd-335</td>
+                                            <td>38-fnja</td>
+                                        </tr>
+                                        <tr>
+                                            <th>产品参数</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>物料名称</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>物料编码</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>元器件描述</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>制造商</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed add-collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <span class="add-change"><img src="images/add1.png" alt=""/></span>厂家
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <table class="compare-table">
+                                        <tr>
+                                            <th>元器件型号</th>
+                                            <td>2847-fnj</td>
+                                            <td>dhneui2-3r</td>
+                                            <td>hd-335</td>
+                                            <td>38-fnja</td>
+                                        </tr>
+                                        <tr>
+                                            <th>产品参数</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>物料名称</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>物料编码</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>元器件描述</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>制造商</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed add-collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        <span class="add-change"><img src="images/add1.png" alt=""/></span>规格
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <table class="compare-table">
+                                        <tr>
+                                            <th>元器件型号</th>
+                                            <td>2847-fnj</td>
+                                            <td>dhneui2-3r</td>
+                                            <td>hd-335</td>
+                                            <td>38-fnja</td>
+                                        </tr>
+                                        <tr>
+                                            <th>产品参数</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>物料名称</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>物料编码</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>元器件描述</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>制造商</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-simple-window">
+            <div class="add-simple-window-header">
+                <b>为你推荐</b><a>查看更多>></a>
+                <button type="button" class="close add-simple-window-close" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <table class="compare-picture-table compare-table">
+                <tr>
+                    <td>
+                        <div class="compare-goods">
+                            <dl>
+                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                <dd>瓷介电容器</dd>
+                                <a href="cms-parts-detail.html" class="btn btn-danger">立即查看</a>
+                            </dl>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="compare-goods">
+                            <dl>
+                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                <dd>瓷介电容器</dd>
+                                <a href="cms-parts-detail.html" class="btn btn-danger">立即查看</a>
+                            </dl>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="compare-goods">
+                            <dl>
+                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                <dd>瓷介电容器</dd>
+                                <a href="cms-parts-detail.html" class="btn btn-danger">立即查看</a>
+                            </dl>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="compare-goods">
+                            <dl>
+                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                <dd>瓷介电容器</dd>
+                                <a href="cms-parts-detail.html" class="btn btn-danger">立即查看</a>
+                            </dl>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="compare-goods">
+                            <dl>
+                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                <dd>瓷介电容器</dd>
+                                <a href="cms-parts-detail.html" class="btn btn-danger">立即查看</a>
+                            </dl>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="compare-goods">
+                            <dl>
+                                <dt><img src="images/compare1.png" alt=""/></dt>
+                                <dd>瓷介电容器</dd>
+                                <a href="cms-parts-detail.html" class="btn btn-danger">立即查看</a>
+                            </dl>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!---------页尾---------->
+        <div id="foot" class="clear">
+            <div class="footnav">
+                <a class="first" href="/">首页</a>
+                <span class="sep">|</span>
+                <a href="/w/p/">产品中心</a>
+                <span class="sep">|</span>
+                <a href="/w/p/cms/">CMS</a>
+                <span class="sep">|</span>
+                <a href="/w/p/cadence-orcad/">Cadence OrCAD</a>
+                <span class="sep">|</span>
+                <a href="/w/p/cadence-allegro/">Cadence Allegro</a>
+                <span class="sep">|</span>
+                <a href="/w/p/gems/">电磁仿真</a>
+                <span class="sep">|</span>
+                <a href="/w/solutions/">解决方案</a>
+                <span class="sep">|</span>
+                <a href="/w/service/">服务支持</a>
+                <span class="sep">|</span>
+                <a href="/w/news/">新闻资讯</a>
+                <span class="sep">|</span>
+                <a href="/w/about/">关于我们</a>
+            </div>
+            <div class="copyright">
+                <p style="text-align: center;">Copyright © 2005-2015 <strong>北京迪浩永辉技术有限公司</strong>  版权所有</p>
+                <p style="text-align: center;">地址：北京市石景山区时代花园南路17号茂华大厦二层204室 &nbsp; &nbsp; 销售咨询热线：(86) 10-88552600 &nbsp;传真<span style="text-align: center; text-indent: 24px;">：</span>(86) 10-68868267</p>
+                <p style="text-align: center;">销售邮箱：sales@bjdihao.com.cn &nbsp; &nbsp; &nbsp;技术服务邮箱：tech_server@bjdihao.com.cn&nbsp;</p>
+                <p style="text-align: center;">京ICP备05027861号-2</p></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="scripts/javascript.js"></script>
+</body>
+</html>

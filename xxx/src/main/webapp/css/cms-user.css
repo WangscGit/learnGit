@@ -1,0 +1,422 @@
+/********����*******/
+body{
+    position:inherit;
+}
+/***********新增************/
+/*********TAB*******/
+#myTab{
+    width:91.1%;
+    margin: 0 auto;
+}
+#myTab a{
+    color: #000;;
+}
+.Tab{
+    margin-top: 30px;
+}
+/*********���*******/
+.user-table-box, .group-table-box,.post-table-box,.department-table-box,.addlimit-table-box{
+    padding-top: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+.tr-number-box{
+    height:50px;
+}
+.postBtn-box,.addlimitBtn-box{
+	float:right;
+	width: 170px;
+    height:30px;
+    margin:-20px 0 10px 0;
+}
+.group-table-box .postBtn-box,.addlimitBtn-box{
+	width: 230px;
+}
+.addlimitBtn-box{
+	width: 370px;
+	height:46px;
+	padding-top:6px;
+}
+.tr-number-box a{
+    margin-left: 8px;
+    margin-top:10px;
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px; 
+    border-radius: 4px;
+    position:relative;
+    z-index:2;
+    behavior: url(/cms_cloudy/scripts/ie-css3.htc) ;
+}
+.tr-number{
+    color:#333;
+    width: 82px;
+}
+.tr-number:hover{
+    color:#333;
+}
+#user-table,#post-table,#group-table,#department-table,#addlimit-table{
+    border-bottom: 1px solid #ddd;
+    border-top:none;
+}
+#user-table tbody tr td,#post-table tbody tr td,#group-table tbody tr td,#department-table tbody tr td,#addlimit-table tbody tr td{
+	vertical-align:middle;
+}
+#user-table thead,#post-table thead,#group-table thead,#department-table thead,#addlimit-table thead{
+    border-top: 2px solid #ddd;
+}
+.soso-user{
+    width: 300px;
+    margin-right:20px;
+}
+.soso-user span{
+	cursor:pointer;
+}
+.soso-user>span>span{
+    color: #d9534f;
+}
+#show-user .form-control{
+    padding:0;
+}
+.select-control{
+    font-size: 12px;
+}
+.user-btnGroup2 a,.user-btnGroup1 a{
+	margin-right:8px;
+}
+.table-footer{
+    width:100%;
+    height:60px;
+   text-align:center;
+}
+.daoru-btn{
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.daoru-btn .daoru {
+    width: 90px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+#userUl,#limitUl{
+	width:120px;
+	padding:0 15px 5px 15px;
+	position:absolute;
+	z-index:3;
+	background:#fff;
+	bottom:-40px;
+	border:1px solid #ccc;
+}
+#limitUl{
+	bottom:-24px;
+}
+.addlimit-table-body{
+	width:100%;
+	margin-top:20px;
+}
+.addlimit-tree{
+	width:25%;
+	padding-left:25px;
+	margin-top:20px;
+}
+.addlimit-tree ul li a{
+	height:30px;
+	line-height:30px;
+}
+#addlimit-table{
+	width:70%;
+}
+/*********组成员弹窗*******/
+.group-user-box,.department-user-box{
+    background: #fff;
+    border: 2px solid #ccc;
+    width: 700px;
+    height:330px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-115px;
+    margin-left: -350px;
+    z-index: 333;
+    display: none;
+}
+.group-user-header,.department-user-header{
+    width: 696px;
+    height: 40px;
+    border: 0;
+}
+.group-user-header>a,.department-user-header>a{
+    display: block;
+    margin-left: 20px;
+    padding-top: 12px;
+}
+.group-user-header>a:hover,.department-user-header>a:hover{
+    color: #666;
+}
+.group-users,.department-users{
+    margin-top: 20px;
+    height:310px;
+    max-height:300px;
+    overflow-y:auto;
+}
+#deptUserList tbody tr td{
+	width:25%;
+}
+.department-users span{
+	float:right;
+}
+.group-user,.department-user{
+    width:170px;
+    height:240px;
+    margin-left: 28px;
+    overflow: hidden;
+}
+.group-user-btn,.department-user-btn{
+    width: 230px;
+    height: 100px;
+}
+.group-user-btn>div a,.department-user-btn>div a{
+	margin-left:15px;
+}
+.sure{
+    margin-left: 42px;
+    margin-top:20px;
+}
+.sure a{
+    width: 226px;
+    height: 40px;
+    line-height:28px;
+}
+.group-user p,.department-user p{
+    width: 110px;
+    height: 25px;
+}
+.group-user-select,.department-user-select{
+    padding-left: 18px;
+}
+.group-user-select select,.department-user-select select{
+    width: 100px;
+    padding:0;
+}
+.select-label{
+    background: #777;
+}
+.group-user-btn,.department-user-btn{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.group-user-btn{
+	background:#f5f5f5;
+}
+.group-user-btn p{
+	width:100%;
+	height:50px;
+	line-height:24px;
+	padding-top:10px;
+	text-align:center;
+	word-break: break-all;
+	 word-wrap:break-word;
+}
+.department-user-btn div{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.group-user-btn div{
+	margin-top:14px;
+	width:100%;
+	text-align:center;
+}
+/********���νṹ******/
+.tree-box{
+    width: 91%;
+    margin:0 auto;
+    border: 1px solid #ddd;
+    border-top: 0px;
+}
+.tree {
+    width: 91%;
+    margin-left: 60px;
+    margin-top: 60px;
+    min-height:20px;
+    padding:19px;
+    margin-bottom:20px;
+    background-color:#fbfbfb;
+    border:1px solid #ddd;
+    border-top: 0px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+.tree li {
+    list-style-type:none;
+    margin:0;
+    padding:10px 5px 0 5px;
+    position:relative
+}
+.tree input{
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+}
+.tree li::before, .tree li::after {
+    content:'';
+    left:-20px;
+    position:absolute;
+    right:auto
+}
+.tree li::before {
+    border-left:1px solid #999;
+    bottom:50px;
+    height:100%;
+    top:0;
+    width:1px
+}
+.tree li::after {
+    border-top:1px solid #999;
+    height:20px;
+    top:25px;
+    width:25px
+}
+.tree li span {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border:1px solid #999;
+    border-radius:5px;
+    display:inline-block;
+    padding:3px 8px;
+    text-decoration:none
+}
+.tree li.parent_li>span {
+    cursor:pointer
+}
+.tree>ul>li::before, .tree>ul>li::after {
+    border:0
+}
+.tree li:last-child::before {
+    height:30px
+}
+.tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span {
+    background:#eee;
+    border:1px solid #94a0b4;
+    color:#000
+}
+.limit-group{
+    height: 50px;
+    margin-left: 100px;
+}
+.limit-group select{
+    width: 150px;
+    height:35px;
+}
+.limit-btn{
+    margin-left:30px;
+    margin-top:1px;
+}
+.limit-btn1 a{
+    margin-left: 10px;
+}
+/********添加user弹窗*******/
+.user-addWindow,.user-editWindow,.post-addWindow,.post-editWindow,.department-addWindow,.department-editWindow,.post-editWindow,.group-addWindow,.group-editWindow,
+.addlimit-addWindow,.addlimit-add1Window,.addlimit-editWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 600px;
+    height:600px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-top:-232px;
+    margin-left: -300px;
+    z-index: 100;
+     display:none; 
+}
+.addlimit-addWindow,.addlimit-add1Window,.addlimit-editWindow{
+	height:220px;
+	 margin-top:-114px;
+}
+.user-addWindow,.user-editWindow{
+	height:500px;
+}
+.user-addWindow select,.user-editWindow select{
+	width:350px;
+}
+.adduser-window-box,.edituser-window-box{
+	margin-top:15px;
+	height:380px;
+	max-height:380px;
+	overflow-y:auto;
+}
+.Window-header2{
+	width:100%;
+	height:50px;
+	text-align:right;
+	position:absolute;
+	bottom:10px;
+}
+.window-box{
+	margin-top:10px;
+}
+.post-addWindow,.post-editWindow{
+	height:330px;
+	margin-top:-100px;
+}
+.department-addWindow,.department-editWindow{
+	height:430px;
+	margin-top:-140px;
+}
+.group-addWindow,.group-editWindow{
+	height:170px;
+	margin-top:-80px;
+}
+.heightInput{
+	height:140px;
+}
+.user-addWindow-header,.user-editWindow-header,.post-addWindow-header,.post-editWindow-header,.department-addWindow-header,.department-editWindow-header,
+.group-addWindow-header,.group-editWindow-header,.addlimit-addWindow-header,.addlimit-add1Window-header,.addlimit-editWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.user-addWindow-header a,.user-editWindow-header a,.post-addWindow-header a,.post-editWindow-header a,.department-addWindow-header a,.department-editWindow-header a,
+.group-addWindow-header a,.group-editWindow-header a,.addlimit-addWindow-header a,.addlimit-add1Window-header a,.addlimit-editWindow-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.Window-body{
+	margin-top:20px;
+    width: 100%;
+}
+.window-box table tr td:first-child{
+	width:158px;
+}
+.window-box table span{
+    display: block;
+    text-align: right;
+}
+.window-box table span>b{
+	color:red;
+}
+.window-box table input{
+  width:350px;
+}
+.window-box table a{
+    margin-left: 12px;
+    margin-top: 6px;
+}
+.Window-header2 a{
+    display: block;
+    float: right;
+    margin:15px 15px 10px 10px;
+} 

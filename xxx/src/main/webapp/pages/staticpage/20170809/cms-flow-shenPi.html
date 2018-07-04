@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宇航元器件选用平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cms-flow-shenPi.css"/>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="js-tree/dist/themes/default/style.css">
+    <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.css">
+    <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.theme.css">
+    <script type="text/javascript" src="scripts/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui-1.js"></script>
+    <script type="text/javascript" src="js-tree/dist/jstree.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/html5shiv.min.js"></script>
+    <script type="text/javascript" src="scripts/DOMAssistantCompressed-2.7.4.js"></script>
+    <script type="text/javascript" src="scripts/ie-css3.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="page-message">
+    <h3><span class="label label-default">Now</span>  待办流程>审批页</h3>
+</div>
+<div class="flow-shenPi-left left">
+    <a class="btn shenpi-agree-btn"><span class="glyphicon glyphicon-ok"></span>  同意</a>
+    <a class="btn shenpi-print-btn"><span class="glyphicon glyphicon-print"></span>  打印</a>
+    <a class="btn shenpi-save-btn"><span class="glyphicon glyphicon-floppy-disk"></span>  保存</a>
+    <a class="btn shenpi-send-btn"><span class="glyphicon glyphicon-share"></span>  抄送</a>
+    <a class="btn shenpi-write-btn"><span class="glyphicon glyphicon-pencil"></span>  会签</a>
+    <a class="btn shenpi-flow-btn"><span class="glyphicon glyphicon-bookmark"></span>  流程图</a>
+    <a class="btn shenpi-history-btn"><span class="glyphicon glyphicon-info-sign"></span>  审批历史</a>
+    <a class="btn shenpi-talk-btn"><span class="glyphicon glyphicon-bullhorn"></span>  发起沟通</a>
+    <a class="btn shenpi-turn-btn"><span class="glyphicon glyphicon-retweet"></span>  发起流转</a>
+    <a class="btn shenpi-help-btn"><span class="glyphicon glyphicon-sort"></span>  转办代办</a>
+</div>
+<div class="flow-shenPi-table-box right">
+    <table class="table table-bordered table-hover flow-table">
+        <thead class="table-title">
+        <tr class="success">
+            <td colspan="2">元器件属性</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>元器件编码</td>
+            <td>354365466</td>
+        </tr>
+        <tr>
+            <td>元器件名称</td>
+            <td>瓷介电容器</td>
+        </tr>
+        <tr>
+            <td>型号规格</td>
+            <td>shf83rjv</td>
+        </tr>
+        <tr>
+            <td>生产厂家</td>
+            <td>贵州航天电器有限公司</td>
+        </tr>
+        <tr>
+            <td>cadence原理图符号</td>
+            <td>kdgd46besd</td>
+        </tr>
+        <tr>
+            <td>元器件编号前缀</td>
+            <td>k</td>
+        </tr>
+        <tr>
+            <td>元器件描述</td>
+            <td>接触感应式电器</td>
+        </tr>
+        <tr>
+            <td>可替代物料</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>生产厂家</td>
+            <td>贵州航天电器有限公司</td>
+        </tr>
+        <tr>
+            <td>cadence原理图符号</td>
+            <td>kdgd46besd</td>
+        </tr>
+        <tr>
+            <td>元器件编号前缀</td>
+            <td>k</td>
+        </tr>
+        <tr>
+            <td>元器件描述</td>
+            <td>接触感应式电器</td>
+        </tr>
+        <tr>
+            <td>可替代物料</td>
+            <td>无</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="flow-shenPi-table-footer">
+    <ul class="pagination upload-page">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</div>
+<div class="shenPi-agree-box">
+    <div class="shenPi-agree-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  审批任务</a>
+        <button type="button" class="close shenPi-agree-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td><span>跳转类型：</span></td>
+            <td colspan="3">
+                <input type="radio"/>正常跳转
+                <input type="radio"/>自由跳转
+            </td>
+        </tr>
+        <tr>
+            <td><span>目标节点：</span></td>
+            <td>
+                <select name="" id="" class="form-control">
+                    <option value="">同步3</option>
+                    <option value="">用户任务4</option>
+                    <option value="">用户任务5</option>
+                    <option value="">用户任务6</option>
+                    <option value="">分支6</option>
+                </select>
+            </td>
+            <td><span>选择执行人：</span></td>
+            <td><a class="btn btn-warning btn-xs shenPi-agree-box-chooseUser-btn"><span class="glyphicon glyphicon-user"></span>  选择</a></td>
+        </tr>
+        <tr>
+            <td><span>审批意见：</span></td>
+            <td colspan="3"><input type="text" class="form-control shenpi-input"/></td>
+        </tr>
+    </table>
+    <div class="shenPi-agree-box-header2">
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-repeat"></span>  取消</a>
+        <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+    </div>
+</div>
+<div class="shenPi-agree-box-chooseUser">
+    <div class="shenPi-agree-box-chooseUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close shenPi-agree-box-chooseUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="shenPi-agree-box-chooseUser-body">
+        <div class="nodeUser-choose-tree">
+            <div id="ejstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="ej1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="ej1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="ej1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="ej1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="ej1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="ej1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="ej1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="shenPi-flow-box">
+    <div class="shenPi-flow-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  流程图</a>
+        <button type="button" class="close shenPi-flow-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+</div>
+<div class="shenPi-history-box">
+    <div class="shenPi-history-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  审批历史</a>
+        <button type="button" class="close shenPi-history-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-title">
+        <tr>
+            <td>序号</td>
+            <td>任务名称</td>
+            <td>创建时间</td>
+            <td>审批时间</td>
+            <td>待执行人</td>
+            <td>执行人</td>
+            <td>审批状态</td>
+            <td>审批意见</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>流程图</td>
+            <td>31245</td>
+            <td>36456547</td>
+            <td>刘涛</td>
+            <td>蒋欣</td>
+            <td>正在审批</td>
+            <td>同意</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>流程图</td>
+            <td>31245</td>
+            <td>36456547</td>
+            <td>刘涛</td>
+            <td>蒋欣</td>
+            <td>正在审批</td>
+            <td>同意</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>流程图</td>
+            <td>31245</td>
+            <td>36456547</td>
+            <td>刘涛</td>
+            <td>蒋欣</td>
+            <td>正在审批</td>
+            <td>同意</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>流程图</td>
+            <td>31245</td>
+            <td>36456547</td>
+            <td>刘涛</td>
+            <td>蒋欣</td>
+            <td>正在审批</td>
+            <td>同意</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>流程图</td>
+            <td>31245</td>
+            <td>36456547</td>
+            <td>刘涛</td>
+            <td>蒋欣</td>
+            <td>正在审批</td>
+            <td>同意</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>流程图</td>
+            <td>31245</td>
+            <td>36456547</td>
+            <td>刘涛</td>
+            <td>蒋欣</td>
+            <td>正在审批</td>
+            <td>同意</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="shenPi-send-box">
+    <div class="shenPi-send-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  流程抄送</a>
+        <button type="button" class="close shenPi-send-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td><span>通知方式：</span></td>
+            <td>
+                <input type="checkbox"/>内部消息
+                <input type="checkbox"/>邮件
+            </td>
+        </tr>
+        <tr>
+            <td><span>人员：</span></td>
+            <td><input type="text" class="form-control Input left"/>
+                <a class="btn btn-warning btn-xs shenPi-send-box-chooseUser-btn"><span class="glyphicon glyphicon-user"></span>  选择人员</a>
+            </td>
+        </tr>
+        <tr>
+            <td><span>原因：</span></td>
+            <td><input type="text" class="form-control shenpi-input Input"/></td>
+        </tr>
+    </table>
+    <div class="shenPi-send-box-header2">
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-repeat"></span>  取消</a>
+        <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+    </div>
+</div>
+<div class="shenPi-send-box-chooseUser">
+    <div class="shenPi-send-box-chooseUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close shenPi-send-box-chooseUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="shenPi-send-box-chooseUser-body">
+        <div class="nodeUser-choose-tree">
+            <div id="ajstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="aj1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="aj1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="aj1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="aj1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="aj1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="aj1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="shenPi-talk-box">
+    <div class="shenPi-talk-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  发起沟通</a>
+        <button type="button" class="close shenPi-talk-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td><span>通知方式：</span></td>
+            <td>
+                <input type="checkbox"/>内部消息
+                <input type="checkbox"/>邮件
+            </td>
+        </tr>
+        <tr>
+            <td><span>沟通人员：</span></td>
+            <td><input type="text" class="form-control Input left"/>
+                <a class="btn btn-warning btn-xs shenPi-talk-box-chooseUser-btn"><span class="glyphicon glyphicon-user"></span>  选择人员</a>
+            </td>
+        </tr>
+        <tr>
+            <td><span>沟通内容：</span></td>
+            <td><input type="text" class="form-control shenpi-input Input"/></td>
+        </tr>
+    </table>
+    <div class="shenPi-talk-box-header2">
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-repeat"></span>  取消</a>
+        <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+    </div>
+</div>
+<div class="shenPi-talk-box-chooseUser">
+    <div class="shenPi-talk-box-chooseUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close shenPi-talk-box-chooseUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="shenPi-talk-box-chooseUser-body">
+        <div class="nodeUser-choose-tree">
+            <div id="bjstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="bj1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="bj1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="bj1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="bj1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="bj1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="bj1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="shenPi-turn-box">
+    <div class="shenPi-turn-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  任务流转</a>
+        <button type="button" class="close shenPi-turn-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td><span>任务通过规则：</span></td>
+            <td colspan="3">
+                <input type="radio"/>全票通过
+                <input type="radio"/>一票否决
+                <input type="radio"/>一票同意
+                <input type="radio"/>自定义
+            </td>
+        </tr>
+        <tr>
+            <td><span>流转类型：</span></td>
+            <td><input type="radio"/>并行
+                <input type="radio"/>串行
+            </td>
+            <td><span>完成后操作：</span></td>
+            <td>
+                <input type="radio"/>提交
+                <input type="radio"/>返回
+            </td>
+        </tr>
+        <tr>
+            <td><span>通知方式：</span></td>
+            <td colspan="3">
+                <input type="checkbox"/>内部消息
+                <input type="checkbox"/>邮件
+            </td>
+        </tr>
+        <tr>
+            <td><span>流转人员：</span></td>
+            <td colspan="3"><input type="text" class="form-control Input left"/>
+                <a class="btn btn-warning btn-xs shenPi-turn-box-chooseUser-btn"><span class="glyphicon glyphicon-user"></span>  选择人员</a>
+            </td>
+        </tr>
+        <tr>
+            <td><span>通知内容：</span></td>
+            <td colspan="3"><input type="text" class="form-control shenpi-input Input"/></td>
+        </tr>
+    </table>
+    <div class="shenPi-turn-box-header2">
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-repeat"></span>  取消</a>
+        <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+    </div>
+</div>
+<div class="shenPi-turn-box-chooseUser">
+    <div class="shenPi-turn-box-chooseUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close shenPi-turn-box-chooseUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="shenPi-turn-box-chooseUser-body">
+        <div class="nodeUser-choose-tree">
+            <div id="cjstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="cj1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="cj1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="cj1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="cj1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="cj1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="cj1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<div class="shenPi-help-box">
+    <div class="shenPi-help-box-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  代办转办</a>
+        <button type="button" class="close shenPi-help-box-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td><span>通知方式：</span></td>
+            <td>
+                <input type="checkbox"/>内部消息
+                <input type="checkbox"/>邮件
+            </td>
+        </tr>
+        <tr>
+            <td><span>沟通人员：</span></td>
+            <td><input type="text" class="form-control Input left"/>
+                <a class="btn btn-warning btn-xs shenPi-help-box-chooseUser-btn"><span class="glyphicon glyphicon-user"></span>  选择人员</a>
+            </td>
+        </tr>
+        <tr>
+            <td><span>沟通内容：</span></td>
+            <td><input type="text" class="form-control shenpi-input Input"/></td>
+        </tr>
+    </table>
+    <div class="shenPi-help-box-header2">
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-repeat"></span>  取消</a>
+        <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+    </div>
+</div>
+<div class="shenPi-help-box-chooseUser">
+    <div class="shenPi-help-box-chooseUser-header bg-success">
+        <a><span class="glyphicon glyphicon-tasks"></span>  用户选择</a>
+        <button type="button" class="close shenPi-help-box-chooseUser-close" aria-label="Close"><span>&times;</span></button>
+    </div>
+    <div class="choose-header2">
+        <input type="text" class="form-control"/>
+        <a class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>  搜索</a>
+    </div>
+    <div class="shenPi-help-box-chooseUser-body">
+        <div class="nodeUser-choose-tree">
+            <div id="djstree1" class="demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_2" aria-busy="false">
+                <ul class="jstree-container-ul jstree-children" role="group">
+                    <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="true" id="dj1_1" class="jstree-node  jstree-open">
+                        <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                        <a class="jstree-anchor" href="#" tabindex="-1" id="dj1_1_anchor">
+                            <i class="jstree-icon jstree-themeicon" role="presentation"></i>电子设计中心
+                        </a>
+                        <ul role="group" class="jstree-children">
+                            <li role="treeitem" data-jstree="{ &quot;selected&quot; : true }" aria-selected="true" aria-level="2" aria-labelledby="j1_2_anchor" id="dj1_2" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor  jstree-clicked" href="#" tabindex="-1" id="dj1_2_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>管理组
+                                </a>
+                            </li>
+                            <li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="j1_3_anchor" id="dj1_3" class="jstree-node  jstree-leaf">
+                                <i class="jstree-icon jstree-ocl" role="presentation"></i>
+                                <a class="jstree-anchor" href="#" tabindex="-1" id="dj1_3_anchor">
+                                    <i class="jstree-icon jstree-themeicon" role="presentation"></i>设计组
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="choose-table-box">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-title">
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>姓名</td>
+                    <td>账号</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>孙红雷</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄渤</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>黄磊</td>
+                    <td>456</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>罗志祥</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>张艺兴</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td class="choose-table-input"><input type="checkbox"/></td>
+                    <td>王迅</td>
+                    <td>admin</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-footer clear">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下一页
+                </a></li>
+            </ul>
+        </div>
+        <div class="choose-bottom">
+            <a class="btn btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>  取消</a>
+            <a class="btn btn-info"><span class="glyphicon glyphicon-ok-circle"></span>  确定</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="scripts/javascript.js"></script>
+<script>
+    $(function () {
+        $('#ajstree1').jstree();
+        $('#bjstree1').jstree();
+        $('#cjstree1').jstree();
+        $('#djstree1').jstree();
+    });
+</script>
+</body>
+</html>

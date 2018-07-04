@@ -1,0 +1,30 @@
+(defcell "54ACS162245_v1"
+    (input
+         "VCCA31" "VCCB18" "VCCB7" "VCCA42" "1OE*" "1DIR" 
+         "2DIR" "2OE*" "GND45" "GND4" "GND39" "GND34" "GND28" 
+         "GND21" "GND15" "GND10" 
+    )
+    (io
+         "1B5" "1B8" "2B3" "2B2" "2B5" "2B7" "2B8" "2B6" 
+         "2B4" "2B1" "1B6" "1B7" "1B4" "1B3" "1B1" "1B2" "1A6" 
+         "2A2" "1A8" "2A7" "2A8" "2A6" "2A5" "2A4" "2A3" "2A1" 
+         "1A7" "1A5" "1A3" "1A4" "1A1" "1A2" 
+    )
+    (defSymbol
+        (symbolProps
+            ("CDS_LMAN_SYM_OUTLINE" "-300,650,300,-550")
+            ("$LOCATION" "U?")
+            ("PATH" "?")
+            ("JEDEC_TYPE" "tssop48")
+            ("VALUE" "ALVC164245")
+        )
+        (pinLogicSpec
+            (positive
+                 "VCCA31" "VCCB18" "VCCB7" "VCCA42" "1DIR" "2DIR" "GND45" "GND4" "GND39" "GND34" "GND28" "GND21" "GND15" "GND10" "1B5" "1B8" "2B3" "2B2" "2B5" "2B7" "2B8" "2B6" "2B4" "2B1" "1B6" "1B7" "1B4" "1B3" "1B1" "1B2" "1A6" "2A2" "1A8" "2A7" "2A8" "2A6" "2A5" "2A4" "2A3" "2A1" "1A7" "1A5" "1A3" "1A4" "1A1" "1A2"
+            )
+            (negative
+                 "1OE*" "2OE*"
+            )
+        )
+    )
+)

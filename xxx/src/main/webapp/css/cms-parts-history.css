@@ -1,0 +1,66 @@
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+#main .table-responsive{
+    border: none;
+}
+.parts-history-window{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 100%;
+    float:left;
+}
+.parts-history-window-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.parts-history-window-header a{
+    display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.parts-history-window-body{
+    width: 100%;
+}
+.parts-history-window-body .box-title{
+    width: 100%;
+    height: 30px;
+}
+.parts-history-window-body .box-title b{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 4px;
+    color: #e4393c;
+    font-size:14px;
+}
+.parts-history-window-box1,.parts-history-window-box2{
+    width: 97%;
+    margin: 0 auto;
+}
+.parts-history-window-box2 .parts-history-table .ok{
+    color: green;
+}
+.parts-history-window-box2 .parts-history-table .warn{
+    color: orangered;
+}
+.parts-history-window-box2{
+    display: none;
+}
+ .parts-history-table1{
+	text-align:center;
+} 
+.valueLength{
+	width:38%;
+}

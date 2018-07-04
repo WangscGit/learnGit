@@ -1,0 +1,82 @@
+.pageBox{
+	width:100%;
+	border:1px solid #ccc;
+	margin-top:30px;
+}
+.top,.materialwork{
+	width:100%;	
+}
+.top,.middle{
+	border-bottom:1px solid #ccc;
+	padding-bottom:20px;
+}
+.top p,.middle p,.bottom p{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	padding-left:20px;
+	border-bottom:1px solid #ccc;
+}
+.top p span{
+	color:#2285d3;
+}
+.materialwork{
+	height:35px;
+	line-height:50px;
+	padding-left:20px;
+}
+.materialwork a{
+	margin-right:5px;
+}
+.middleTable,.topTable{
+	width:96%;
+	margin:0 auto;
+}
+.topTable{
+	margin-top:20px;
+}
+.middleTable{
+	margin-bottom:20px;
+}
+.pageBox .top .topTable tr td{
+		vertical-align:middle;
+}
+.topTable td>span{
+	width:100%;
+	display:inline-block;
+	text-align:right;
+}
+.middle>div{
+	width:96%;
+	margin:0 auto;
+	margin-top:20px;
+	border:1px solid #ccc;
+}
+.bottom>div{
+	width:96%;
+	height:50px;
+	line-height:50px;
+	margin:0 auto;
+	margin-top:20px;
+	padding-left:150px;
+	border:1px solid #ccc;
+}
+.bottom a{
+	display:inline-block;
+	cursor:pointer;
+}
+.bottom a span{
+	color:#d9534f;
+}
+.bottom{
+	padding-bottom:20px;
+}
+/* 表格切换 */
+.slideTxtBox{ width:100%; text-align:left;  }
+.slideTxtBox .hd{ height:30px; line-height:30px; background:#f4f4f4; padding:0 20px; border-bottom:1px solid #ddd;  position:relative; }
+.slideTxtBox .hd ul{ float:left; position:absolute; left:20px; top:-1px; height:32px;   }
+.slideTxtBox .hd ul li{ float:left; padding:0 15px; cursor:pointer;  }
+.slideTxtBox .hd ul li.on{ height:30px;  background:#fff; border:1px solid #ddd; border-bottom:2px solid #fff; }
+.slideTxtBox .bd ul{ padding:15px;  zoom:1;padding-bottom:0;  }
+.slideTxtBox .bd li{}
+.slideTxtBox .bd li .date{ float:right; color:#999;  }

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+ <!-- 事物管理器  -->
+<bean id="transactionManager"
+class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+<property name="dataSource" ref="dataSource" />
+</bean>
+<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+<!--这里是数据源的指定 指向你自己的dataSource -->  
+<property name="dataSource" ref="dataSource" />
+<!-- 事务 -->
+<property name="transactionManager" ref="transactionManager" />
+ <!-- 设置数据库schema的更新方式 --> 
+<property name="databaseSchemaUpdate" value="true" />
+<!-- JobExecutor是管理一系列线程的组件，可以触发定时器,如果不想在流程引擎启动后自动激活JobExecutor,可以设置为false-->
+<property name="jobExecutorActivate" value="false" />
+<!-- 历史配置 -->
+<property name="history" value="audit"/>
+ <!-- 限制流程定义缓存 -->
+<property name="processDefinitionCacheLimit" value="50"/>
+<!-- 以下两个属性解决流程图中文乱码 -->   
+<property name="activityFontName" value="宋体" />  
+<property name="labelFontName" value="宋体" /> 
+<!-- 禁用身份模块 -->
+<!-- <property name="dbIdentityUsed" value="false"/> -->
+
+<!-- <property name="databaseSchema" value="ACT"/>  -->
+
+ <!-- JPA -->
+<!-- <property name="jpaEntityManagerFactory" ref="entityManagerFactory"/> -->
+<!-- <property name="jpaHandleTransaction" value="true"/> -->
+<!-- <property name="jpaCloseEntityManager" value="true"/> -->
+
+<!-- 资源自动部署 -->
+<!--<property name="deploymentResources" value="classpath*:/bpmn/*.bpmn20.xml" />  -->
+ 
+  <!-- 邮箱定义 -->
+<!-- <property name="mailServerHost" value="smtp.xxx.com" />   -->
+<!-- <property name="mailServerPort" value="25" />   -->
+<!-- <property name="mailServerDefaultFrom" value="xxx@xxx.com" />   -->
+<!-- <property name="mailServerUsername" value="xxx@xx.com" />   -->
+<!-- <property name="mailServerPassword" value="xxxx" />  -->
+ 
+ <!-- 配置自定义用户 -->   
+<property name="customSessionFactories">
+    <list>
+       <bean class="org.activiti.rest.util.CustomUserEntityManagerFactory" >  
+                <property name="customUserEntityManager">  
+                    <bean class="org.activiti.rest.util.CustomUserEntityManager"></bean>  
+                </property>  
+       </bean>  
+       <bean class="org.activiti.rest.util.CustomGroupEntityManagerFactory" >  
+                <property name="customGroupEntityManager">  
+                    <bean class="org.activiti.rest.util.CustomGroupEntityManager"></bean>  
+                </property>  
+       </bean>  
+<!--        <bean class="org.activiti.rest.util.CustomUserEntityManagerFactory"> -->
+<!--           <property name="customUserEntityManager" ref="customUserEntityManager"/> -->
+<!--        </bean> -->
+<!--        <bean class="org.activiti.rest.util.CustomGroupEntityManagerFactory"> -->
+<!--          <property name="customGroupEntityManager" ref="customGroupEntityManager"/> -->
+<!--         </bean> -->
+     </list>        
+  </property>
+</bean>
+
+<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+</bean>
+ <!-- 流程仓库管理 -->
+<bean id="repositoryService" factory-bean="processEngine"
+factory-method="getRepositoryService" />
+<!-- 运行时管理服务 -->
+<bean id="runtimeService" factory-bean="processEngine"
+factory-method="getRuntimeService" />
+<!-- 任务管理服务 -->
+<bean id="taskService" factory-bean="processEngine"
+factory-method="getTaskService" />
+<!-- 历史记录管理服务 -->
+<bean id="historyService" factory-bean="processEngine"
+factory-method="getHistoryService" />
+<!-- 流程引擎管理服务 -->
+<bean id="managementService" factory-bean="processEngine"
+factory-method="getManagementService" />
+<!-- 用户角色管理服务 -->
+<bean id="identityService" factory-bean="processEngine"
+factory-method="getIdentityService" />
+
+</beans>

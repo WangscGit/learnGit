@@ -1,0 +1,17 @@
+1.数据库mdf、ndf
+2、值列表
+3、菜单权限
+<!-- <property name="databaseSchema" value="ACT"/> 自动生成表结构spring-activiti-->
+application.xml:scope="prototype"
+
+http://simpleflow.blog.163.com/blog/static/117366028200941921051355/ 工作流应该具备的功能
+http://blog.sina.com.cn/s/blog_4592b96f0100l4mv.html j2ee j2ee工作流主流三大框架shart、osworkflow、jbpm
+http://blog.csdn.net/zhangdaiscott/article/details/8706608 activity工作流引擎
+是好的选择之一，osworkflow也挺好，只是它很久没有更新了。让用户自定义流程，你需要研究jbpm的数据库结构，最好连代码也看一下。看明白了，就会发现其实和普通的数据库编程也差不多。而且，用它做简单很多，因为Hibernate不用自己配置，POJO也不用自己写了，用它的就可以。 
+如果要做一个图形化的自定义流程设计器，而且放在Web页面上就复杂多了，印象中有人曾经用js做过。 
+如果不做图形化的，就像我前面所说，和普通Hibernate数据库编程类似。 
+其实，就算你做出来了，这个设计器也是开发人员用，用户根本不用的，偶尔有拿来玩玩的，也会把已经做好的流程改的乱七八糟。呵呵，反正我们的用户就是这样。 
+你的用户必须很年轻，俺们的用户，连打字都不愿意，要求手写-_-!
+/////
+发布流程到activiti引擎后，可以启动流程。单个流程可以启动多个实例(也就是可以提出多次同样的申请)。
+/////

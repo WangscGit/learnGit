@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <!--这个namespace + 下面的id 就是一个完整的路径，在dao层我们写了完整的路径之后mybatis就是映射这个文件中的相关sql语句 --> 
+<mapper namespace="com.cms_cloudy.user.dao.UserDao">  
+<resultMap id="HrUser" type="com.cms_cloudy.user.pojo.HrUser">
+        <id column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="employee_number" property="employeeNumber" jdbcType="VARCHAR" />
+        <result column="user_number" property="userNumber" jdbcType="VARCHAR" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="position" property="position" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+        <result column="mobile_phone" property="mobilePhone" jdbcType="VARCHAR" />
+        <result column="department" property="department" jdbcType="VARCHAR" />
+        <result column="createuser" property="createuser" jdbcType="VARCHAR" />
+        <result column="createtime" property="createtime" jdbcType="DATE" />
+        <result column="modifyuser" property="modifyuser" jdbcType="VARCHAR" />
+        <result column="modifytime" property="modifytime" jdbcType="DATE" />
+        <result column="is_or_not" property="isOrNot" jdbcType="BIGINT" />
+        <result column="sex" property="sex" jdbcType="BIGINT" />
+        <!-- 角色与用户表为多对多关系 -->
+<!--         <collection  property="groupList"  column="user_id" select="com.cms_cloudy.pojo.userGroupDao.selectGroupByUserId"> -->
+<!--         </collection> -->
+</resultMap>
+<sql id="Base_Column_List">
+        user_id, login_name, password, employee_number, user_number, user_name, position, email, telephone, mobile_phone, department, createuser, createtime, modifyuser, modifytime, is_or_not, sex 
+</sql>
+<sql id="Base_Column_List2">
+         #{loginName}, #{password}, #{employeeNumber}, #{userNumber}, #{userName}, #{position}, #{email}, #{telephone}, #{mobilePhone}, #{department}, #{createuser}, #{createtime,jdbcType=DATE}, #{modifyuser}, #{modifytime,jdbcType=DATE}, #{isOrNot}, #{sex} 
+</sql>
+<sql id="Base_Column_List3">
+        login_Name, password, employee_Number, user_Number, user_Name, position, email, telephone, mobile_Phone, department, createuser, createtime, modifyuser, modifytime, is_Or_Not, sex 
+</sql>
+
+<!-- resultType 就是返回查询结果的类型，而如果是resultMap=则返回的就是你定义的javabean  -->  
+<select  id="selectUser"  parameterType="int" resultType="com.cms_cloudy.user.pojo.HrUser">  
+  select <include refid="Base_Column_List" /> from HR_USER where user_id=#{user_id}  
+</select>  
+
+<select  id="selectUserByPage"  parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrUser">  
+    select top ${fromNum} * from hr_user where user_id not in (select top ((${endNum} -1) * ${fromNum}) user_id from hr_user order by USER_ID desc)
+    <if test = "loginName != null and loginName != '' ">and login_Name like #{loginName}</if>
+    order by USER_ID desc
+</select>
+
+<select  id="selectAllUser"  parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrUser">  
+    select * from HR_USER
+    <where>
+    	  <if test="loginName != null">
+    	  	and login_Name LIKE '%${loginName}%'
+          </if>
+          <if test="id != null">
+    	  	and USER_ID = #{id}
+          </if>
+          <if test="deptId != null">
+    	  	and department = #{deptId}
+          </if>
+          <if test="exportName != null">
+    	  	and login_Name = #{exportName}
+          </if>
+          <if test="userIds != null">
+    	  	and USER_ID in (#{userIds})
+          </if>
+          <if test="groupIdList != null and groupIdList != ''">
+    	  	and USER_ID in (select user_id from hr_group_user where group_id in 
+    	  	<foreach collection="groupIdList" index="index" item="item" open="(" separator="," close=")">
+		        #{item}
+	        </foreach>
+	        )
+          </if>
+    </where>
+    order by user_id desc
+</select>
+
+<select id="selectUserByGroup" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrUser">
+	select hu.* from hr_group_user hgu left join hr_user hu on hgu.user_id=hu.user_id where hgu.group_id=#{groupId}
+</select>
+
+<select  id="selectUserToExport" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrUser">  
+    select employee_Number,user_Number,user_Name,login_Name,position,email,telephone,mobile_Phone,department,createuser,createtime,is_Or_Not from [CMS_Cloudy_database].[dbo].[Hr_user]
+    <where>
+    <if test="filterField != null">
+          and user_id in 
+          <foreach collection="filterField" index="index" item="item" open="(" separator="," close=")">
+		        #{item}
+	      </foreach>
+    </if>
+    </where>
+</select>
+
+<select id="countUser" resultType="long">
+		select count(1) from HR_USER
+</select> 
+<select  id="selectUserByName"  parameterType="String" resultType="com.cms_cloudy.user.pojo.HrUser">  
+  select * from HR_USER where login_name=#{loginName}  
+</select>  
+<insert id="insertUser" parameterType="com.cms_cloudy.user.pojo.HrUser">
+     insert into HR_USER(<include refid="Base_Column_List3" />) values (<include refid="Base_Column_List2" />)
+</insert>
+<update id="updateUser" parameterType="com.cms_cloudy.user.pojo.HrUser">
+     update hr_user set   login_Name=#{loginName}, password=#{password}, employee_Number=#{employeeNumber}, user_Number=#{userNumber}, user_Name=#{userName}, 
+     position=#{position}, email=#{email}, telephone=#{telephone}, mobile_Phone=#{mobilePhone}, department=#{department},
+     createuser=#{createuser}, createtime=#{createtime,jdbcType=DATE}, modifyuser=#{modifyuser}, modifytime=#{modifytime,jdbcType=DATE}, is_Or_Not=#{isOrNot}, sex=#{sex} 
+     where user_id=#{userId}
+</update>
+<delete id="deleteUser" parameterType="int">
+     delete from hr_user where user_id = #{userId}
+</delete>
+<select id="selectGroupByUser" resultType="com.cms_cloudy.user.pojo.HrUser">
+   select * from HR_USER u ,HR_GROUP g WHERE G.
+</select>
+<select id="selectAllUserByGroup" resultType="com.cms_cloudy.user.pojo.HrGroupUser">
+   select * from hr_group_user
+   <where>
+    	  <if test="groupId != null">
+    	  	and group_id = #{groupId}
+          </if>
+    </where>
+    order by id desc
+</select>
+<delete id="deleteUserGroup" parameterType="long">
+     delete from hr_group_user where group_id = #{groupId}
+</delete>
+<insert id="insertHrGroupUser" parameterType="com.cms_cloudy.user.pojo.HrGroupUser">
+	insert into hr_group_user (group_id,user_id) values (#{groupId},#{userId})
+</insert>
+<delete id="deleteUserFromGroup" parameterType="int">
+     delete from hr_group_user where user_id = #{userId}
+</delete>
+</mapper> 

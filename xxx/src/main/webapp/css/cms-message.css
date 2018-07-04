@@ -1,0 +1,67 @@
+.message-parts{
+    width: 660px;
+    height: 80px;
+    margin:0 auto;
+}
+.message-parts>div{
+	width:200px;
+}
+.message-parts .message-view{
+    position: relative;
+    width: 200px;
+    height: 80px;
+    border-bottom: 2px solid #ed1b24;
+}
+.message-parts div h4{
+    text-align: center;
+    line-height: 80px;
+    color:#333;
+    font-weight:bold;
+    cursor:pointer;
+}
+#main .message-parts .message-view .trangle{
+	width:20px;
+	height:20px;
+	display:block;
+	border:10px solid transparent;
+	border-bottom-color:#ed1b24;
+    position: absolute;
+    top:58px;
+    left: 90px;
+}
+.message-view-table tbody tr td{
+	vertical-align:middle;
+}
+.message-view-table thead tr{
+	background:#eee;
+}
+.table-responsive .message-send-table{
+    margin-top: 60px;
+}
+.message-send-table .messageEdit{
+	width:300px;
+}
+.message-send-table .messagelink a,.message-view-table .messagelink a{
+	color:#ed1b24;
+}
+.message-send-table .work a{
+	margin-right:5px;
+}
+ .message-send{
+    margin-left:260px;
+ }
+.message-send span{
+    display: none;
+} 
+.message-view-btn{
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+}
+.message-view-btn a{
+    margin-left: 8px;
+}
+.message-view-input{
+    width: 15px;
+    height: 15px;
+}

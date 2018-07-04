@@ -1,0 +1,51 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.compareBtnGroups{
+	width:100%;
+	text-align:center;
+	padding:20px 0;
+}
+.compareBody{
+	width:100%;
+}
+.compareBody>div{
+	padding:5px 5px 0 5px;
+	width:49%;
+	margin-left:1%;
+	height:300px;
+	border:1px solid #ccc;
+}
+.tableBox{
+	max-width:100%;
+	max-height:260px;
+   overflow:auto;
+}
+.compareBody>div table{
+	margin-top:10px;
+}
+.compareBody>div table .mustwidth{
+	width:150px;
+	max-width:150px;
+	overflow:hidden;
+	 white-space: nowrap;
+     text-overflow: ellipsis;
+}
+.compareResult{
+	margin:0 auto;
+	margin-top:30px;
+	width:99%;
+	padding:5px;
+	margin-left:1%;
+	height:300px;
+	border:1px solid #ccc;
+}
+.compareResult p{
+	padding:5px 0 0 5px;
+}
+.compareResult table{
+	margin-top:10px;
+}

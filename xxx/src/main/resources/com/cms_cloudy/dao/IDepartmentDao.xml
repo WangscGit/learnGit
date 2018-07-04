@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.cms_cloudy.user.dao.IDepartmentDao">  
+<resultMap id="hrDepartment" type="com.cms_cloudy.user.pojo.HrDepartment">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="department_name" property="departmentName" jdbcType="NVARCHAR" />
+        <result column="department_no" property="departmentNo" jdbcType="NVARCHAR" />
+        <result column="department_master" property="departmentMaster" jdbcType="NVARCHAR" />
+        <result column="department_descript" property="departmentDescript" jdbcType="NVARCHAR" />
+        <result column="createuser" property="createuser" jdbcType="NVARCHAR" />
+        <result column="createtime" property="createtime" jdbcType="DATE" />
+        <result column="modifyuser" property="modifyuser" jdbcType="NVARCHAR" />
+        <result column="modifytime" property="modifytime" jdbcType="DATE" />
+</resultMap>
+<sql id="Base_Column_List1">
+     department_name,department_no,department_master,department_descript,createuser,createtime,modifyuser,modifytime
+</sql>
+<sql id="Base_Column_List2">
+     id,department_name,department_no,department_master,department_descript,createuser,createtime,modifyuser,modifytime
+</sql>
+<sql id="Base_Column_List3">
+     #{departmentName},#{departmentNo},#{departmentMaster},#{departmentDescript},#{createuser},#{createtime,jdbcType=DATE},#{modifyuser},#{modifytime,jdbcType=DATE}
+</sql>
+<select id="selectDepartmentList" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrDepartment">
+     select <include refid="Base_Column_List2"></include>  from Hr_Department 
+       <where>
+          <if test="departmentName!=null">
+          and department_name=#{departmentName}
+          </if>
+          <if test="id!=null">
+          and id=#{id}
+          </if>
+     </where>
+     order by id asc
+</select>
+<insert id="insertDepartment" parameterType="com.cms_cloudy.user.pojo.HrDepartment" >
+     insert into Hr_Department(<include refid="Base_Column_List1" />) values (<include refid="Base_Column_List3" />)
+</insert>
+<update id="updateDepartment" parameterType="com.cms_cloudy.user.pojo.HrDepartment">
+     update Hr_Department set   department_name=#{departmentName}, department_no=#{departmentNo},department_master=#{departmentMaster}, department_descript=#{departmentDescript},createuser=#{createuser}, createtime=#{createtime,jdbcType=DATE},modifyuser=#{modifyuser}, modifytime=#{modifytime,jdbcType=DATE} 
+     where id=#{id}
+</update>
+<delete id="deleteDepartment" parameterType="int">
+     delete from Hr_Department where id = #{id}
+</delete>
+<select id="checkDepartmentName" parameterType="Map" resultType="com.cms_cloudy.user.pojo.HrDepartment">
+     select <include refid="Base_Column_List2"></include>  from Hr_Department 
+       <where>
+          <if test="checkName!=null">
+          and department_name=#{checkName}
+          </if>
+          <if test="id!=null">
+          and id not in (#{id})
+          </if>
+     </where>
+     order by id asc
+</select>
+</mapper>

@@ -1,0 +1,2 @@
+/**-1、添加mvn环境变量 2、Dfile=C:\Users\dell\Desktop\junrar-0.7.jar 复制的junrar-0.7.jar路径**/
+cmd运行:mvn install:install-file -DgroupId=com.github.junrar -DartifactId=junrar -Dversion=0.7 -Dpackaging=jar -Dfile=C:\Users\Administrator\Desktop\junrar-0.7.jar

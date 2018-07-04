@@ -1,0 +1,18 @@
+
+	(Comment
+		(Time 06/25/04,11:10:52)
+		(User Administrator)
+		(MsgId ECO_081)
+		(Text "Symbol sym_1 added to cell")
+		(Param1 sym_1)
+	)
+
+	(Comment
+		(Time 06/25/04,11:15:20)
+		(User Administrator)
+		(MsgId ECO_021)
+		(Text "Package 54ac74discret added to cell")
+		(Param1 54ac74discret)
+	)
+
+

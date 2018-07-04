@@ -1,0 +1,396 @@
+.table-responsive {
+    width: 90%;
+    margin: 0 auto;
+    border-top: none;
+}
+.data-left{
+    width: 35%;
+}
+.select-addWindow,.field-editWindow{
+    background: #fff;
+    border: 3px solid #ccc;
+    width: 600px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left: -300px;
+    z-index: 100;
+    display:none;
+    height:580px;
+	margin-top:-270px;
+}
+.select-addWindow-header,.field-editWindow-header{
+    width: 100%;
+    height: 40px;
+    border: 0;
+}
+.select-addWindow-header a,.field-editWindow-header a{
+	display: block;
+    float: left;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.Window-header2 a{
+    display: block;
+    float: left;
+    margin:10px 0 10px 10px;
+}
+.Window-header2 .productmix-addchildren{
+	width:66px;
+}
+.select-addWindow .tableBox{
+	width:100%;
+	height:424px;
+	max-height:424px;
+	overflow-y:auto;
+}
+.select-addWindow .valueDel{
+	width:20px;
+	height:26px;
+	border-radius:20px;
+	margin-top:4px;
+	margin-right:-8px;
+	text-align:center;
+}
+.select-addWindow .valueDel span{
+	float:left;
+	margin-left:-6px;
+	margin-top:-2px;
+}
+.data-tree{
+    width: 400px;
+    padding-left: 100px;
+    padding-top: 30px;
+}
+.Window-body{
+	margin-top:20px;
+    width: 100%;
+}
+
+.dataHeader{
+    padding: 30px 20px;
+    width: 400px;
+    height: 70px;
+}
+.dataHeader a{
+    margin-right: 10px;
+}
+.data-right{
+    width: 64%;
+    padding-top: 30px;
+    margin-top: -70px;
+}
+.data-right .Tab{
+    margin-top: 0;
+}
+.data-right #myTab{
+    margin-left:50px;
+}
+.btn-box{
+	float:right;
+	padding:6px 14px 0 0;
+}
+.btn-box a{
+	margin-right:10px;
+}
+ .header{
+	font-size:16px;
+	font-weight:bold;
+	width:300px;
+	height:30px;
+	margin-top:45px;
+}
+.data-more b{
+	color:#d9534f;
+}
+.data-more .tdwidth{
+	width:115px;
+}
+.data-more .inputlong{
+	width:340px;
+}
+#typeImg{
+	width:70px;
+	height:30px;
+	opacity: 0;
+	cursor:pointer;
+	font-size:0;
+	position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+}
+.data-more .inputBox{
+	display:inline-block;
+	padding: 4px 10px;
+	margin:0;
+    height: 30px;
+    line-height: 20px;
+    border: 1px solid #ed1b24;
+    border-radius:4px;
+    text-decoration: none;
+    color: #ed1b24;
+    cursor:pointer;
+    position: relative;
+}
+.data-table-box{
+    width: 100%;
+    margin-top: 30px;
+}
+.data-right table{
+    width: 90%;
+    margin-left: 10px;
+}
+.data-right table td{
+    height: 50px;
+}
+.data-right table span{
+    display: inline-block;
+    width:110px;
+    text-align: right;
+    margin-left:20px;
+}
+.data-right table .hopeimg{
+	width:205px;
+	margin-top:5px;
+	color:#888;
+	margin-left:14px;
+	text-align:left;
+}
+.data-right table .input-height{
+    height:100px;
+}
+.data-right table td a{
+    margin:40px 10px 20px 0;
+}
+.data-right .data-special td{
+    height: 50px;
+}
+.header b{
+	width:12px;
+	height:12px;
+	border-radius:10px;
+	margin-right:6px;
+	background:#ed1b24;
+	display:inline-block;
+}
+.dataField{
+    display: none;
+}
+.dataField ul{
+	display:inline-block;
+	float:right;
+	margin-right:40px;
+	margin-top:10px;
+}
+.dataField li{
+	float:left;
+	display:inline-block;
+	width:100px;
+	height:40px;
+	line-height:40px;
+	background:#f9f9f9;
+	border:1px solid #e5e5e5;
+	border-left:none;
+	text-align:center;
+}
+.dataField .first{
+	border:1px solid #e5e5e5;
+}
+.dataField li a{
+	width:100px;
+	height:40px;
+	color:#666;
+}
+.dataField #dataField-table{
+    width: 100%;
+    float:left;
+    margin-top:10px;
+}
+#showField .change-td{
+	width:200px;
+}
+#showField .data-td{
+	width:100px;
+}
+#showField .data-td a{
+	margin-left:6px;
+	color:#ed1b24;
+	cursor:pointer;
+}
+#showField .data-td .data-span{
+	display:inline-block;
+	float:left;
+}
+.dataField #dataField-table .form-control{
+	padding:0;
+}
+.dataField #dataField-table td select{
+	height:20px;
+	font-size:12px;
+	width:75px;
+}
+.dataField #dataField-table tr td{
+	vertical-align:middle;
+	word-break:break-all;
+	word-wrap : break-word;
+}
+.databaseCopy{
+	width:100%;
+	display:none;
+	padding:20px 30px;
+}
+.databaseCopy .databaseCopy-left {
+	width:35%;
+	clear:both;
+}
+.databaseCopy .databaseCopy-right {
+	width:65%;
+	margin-top:-62px;
+}
+.databaseCopy b{
+	display:block;
+	line-height:50px;
+}
+.databaseCopy p{
+	font-size:16px;
+	padding:10px 0;
+	font-weight:bold;
+}
+.databaseCopy input{
+	width:200px;
+    margin-top:8px;
+}
+.databaseCopy .datacopy-save{
+	line-height:16px;
+	margin-top:10px;
+	margin-left:10px;
+}
+.new-field{
+	padding:0 50px;
+	display:none; 
+	width:100%;
+}
+#addImgBtn{
+	float:left;
+	margin-left:6px;
+	margin-top:146px;
+}
+.new-field-table-box{
+	width:36%;
+	height:470px;
+	float:left;
+	margin-top:20px;
+	position:relative;
+}
+.new-field-table1{
+	width:92%;
+}
+.field-editTable{
+	width:88%;
+	margin-top:40px;
+}
+.new-field-table1 td{
+	height:45px;
+}
+.new-field-table1 .btns a{
+	margin-left:70px;
+	margin-top:-5px;
+}
+.field-editWindow .field-editTable .btns a{
+	margin-top:30px;
+}
+.new-field-table1 .checkbox-span span{
+	display:inline-block;
+	width:32%;
+}
+.new-field-table2{
+	width:60%;
+	margin-top:10px;
+}
+.new-field-table2 b{
+	font-size:16px;
+	display:inline-block;
+	padding:10px;
+}
+.btns{
+	width:100%;
+	height:50px;
+	position:absolute;
+	bottom:0;
+}
+.btns a{
+	margin-right:20px;
+}
+.Window-header2{
+	width:100%;
+	height:50px;
+	position:absolute;
+	bottom:10px;
+}
+.Window-header2 a{
+	float:right;
+	margin-right:15px;
+}
+.btnGroups{
+	width:100%;
+	height:40px;
+	padding:10px 20px;
+}
+.Value{
+	display:inline-block;
+	margin-left:16px;
+	font-size:16px;
+}
+/********修改窗口***************/
+.dataChange-window{
+    background: #fff;
+    border: 2px solid #ccc;
+    width: 600px;
+    height:440px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-190px;
+    margin-left: -300px;
+    z-index: 30;
+    display: none;
+}
+.dataChange-window-header{
+    width: 596px;
+    height: 40px;
+    border: 0;
+}
+.dataChange-window-header>a{
+    display: block;
+    width:100px;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.dataChange-window-table{
+    width:460px;
+    height:350px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.dataChange-window-table b,.new-field-table1 b{
+    color: red;
+}
+.dataChange-window-table span,.new-field-table1 span{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+.new-field-table1 .btns span{
+	width:12px;
+}
+.dataChange-window-table .checkbox-span span{
+	 display: inline-block;
+    width: 31%;
+}
+.dataChange-window-table a{
+    display: block;
+    margin:30px 5px 0;
+}
